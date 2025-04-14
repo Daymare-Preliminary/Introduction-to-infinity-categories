@@ -127,31 +127,32 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
 \begin{defi/prop}[Godement Product]
     Consider natural transformations 
     \[
-    \begin{tikzcd}
-        &
-        {}
-        \ar[dd, "\alpha"]
-        &&
-        {}
-        &
-        \\
-        \mathcal{ C }
-        \ar[rr, bend left , "F_1"]
-        \ar[rr, bend left , "F_2"]
-        &&
-        \mathcal{ D }
-        &&
-        \mathcal{ E }
-        \\
-        &
-        {}
-        &&
-        {}
-        &
+    \begin{tikzcd}[column sep=huge]	
+    \mathcal{C}
+    	\arrow[bend left=50]{r}[name=U,label=above:$F_1$]{}
+    	\arrow[bend right=50]{r}[name=D,label=below:$F_2$]{}
+    &
+    \mathcal{D}
+    \arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U) -- node[label=right:$\alpha$] {} (D)}]{}
+    	\arrow[bend left=50]{r}[name=U',label=above:$G_1$]{}
+    	\arrow[bend right=50]{r}[name=D',label=below:$G_2$]{}
+	&
+	\mathcal{E} 
+    \arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U') -- node[label=right:$\beta$] {} (D')}]{}    	
     \end{tikzcd}
     \]
-    \todo{ how to typeset this }
+    
     Their Godement product is the natural transformation.
+    \[
+    \begin{tikzcd}[column sep=huge]	
+    \mathcal{ C }
+    	\arrow[bend left=50]{rr}[name=U,label=above:$G_1 \circ F_1$]{}
+    	\arrow[bend right=50]{rr}[name=D,label=below:$G_2 \circ F_2$]{}
+    &&
+    \mathcal{E}
+    \arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U) -- node[label=right:$\beta * \alpha$] {} (D)}]{}
+    \end{tikzcd}	
+    \]
     Let $ X \in \mathcal{ C } $, we obtain the following diagram
     \[
     \begin{tikzcd}
@@ -212,7 +213,27 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
 
 \begin{prop}
     Consider natural transformations 
-    \todo{missing}
+    \[
+    \begin{tikzcd}[column sep=huge]	
+    	\mathcal{C}
+    	\arrow[bend left=90]{r}[name=U,label=above:$F_1$]{}
+    	\arrow[bend right=90]{r}[name=D,label=below:$F_3$]{}
+    	\arrow{r}[name=M]{}
+    	\arrow{r}[label=below:$F_2$, pos=0.2]{}
+    	&
+    	\mathcal{D}
+    	\arrow[shorten <=5pt,shorten >=5pt,Rightarrow,to path={(U) -- node[label=right:$\alpha$] {} (M)}]{}
+    	\arrow[shorten <=5pt,shorten >=5pt,Rightarrow,to path={(M) -- node[label=right:$\gamma$] {} (D)}]{}
+    	\arrow[bend left=90]{r}[name=U',label=above:$G_1$]{}
+    	\arrow[bend right=90]{r}[name=D',label=below:$G_3$]{}
+    	\arrow{r}[name=M']{}
+    	\arrow{r}[label=below:$G_2$, pos=0.2]{}
+    	&
+    	\mathcal{E} 
+    	\arrow[shorten <=5pt,shorten >=5pt,Rightarrow,to path={(U') -- node[label=right:$\beta$] {} (M')}]{}
+    	\arrow[shorten <=5pt,shorten >=5pt,Rightarrow,to path={(M') -- node[label=right:$\delta$] {} (D')}]{}    	
+    \end{tikzcd}	
+	\]
     Then $ ( \delta \beta ) * ( \gamma \alpha ) = ( \delta * \gamma ) \circ ( \beta * \alpha )$.
 \end{prop}
 
@@ -260,7 +281,51 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
 
 \begin{defi}
     The Godement products bellow are called whickerings
-    \todo{missing}
+    \[
+    \begin{tikzcd}[column sep = huge]
+    	\mathcal{C}
+    		\ar[r, " F "]
+    	&
+    	\mathcal{D}
+    		\arrow[bend left=50]{r}[name=U',label=above:$G_1$]{}
+    		\arrow[bend right=50]{r}[name=D',label=below:$G_2$]{}
+    	&
+    	\mathcal{E} 
+    		\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U') -- node[label=right:$\beta$] {} (D')}]{} 
+    \end{tikzcd}
+	\mapsto
+	\begin{tikzcd}[column sep = huge]
+		\mathcal{ C }
+			\arrow[bend left=50]{rr}[name=U',label=above:$G_1 \circ F$]{}
+			\arrow[bend right=50]{rr}[name=D',label=below:$G_2 \circ F $]{}
+		&&
+		\mathcal{ E }
+			\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U') -- node[label=right:$\beta*\id_F$] {} (D')}]{} 
+	\end{tikzcd}
+	\]
+	\[
+	\begin{tikzcd}[column sep = huge]
+		\mathcal{C}
+		\arrow[bend left=50]{r}[name=U',label=above:$G_1$]{}
+		\arrow[bend right=50]{r}[name=D',label=below:$G_2$]{}
+		&
+		\mathcal{D} 
+		\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U') -- node[label=right:$\alpha$] {} (D')}]{} 
+		\ar[r, " G"]
+		&
+		\mathcal{ E }
+	\end{tikzcd}
+	\mapsto
+	\begin{tikzcd}[column sep = huge]
+		\mathcal{ C }
+		\arrow[bend left=50]{rr}[name=U',label=above:$G \circ F_1$]{}
+		\arrow[bend right=50]{rr}[name=D',label=below:$G \circ F_2 $]{}
+		&&
+		\mathcal{ E }
+		\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U') -- node[label=right:$\id_G*\alpha$] {} (D')}]{} 
+	\end{tikzcd}
+	\]
+	
 \end{defi}
 
 \begin{construction}
