@@ -1,0 +1,312 @@
+\section{Heuristics: Isomorphism vs. Equivalence}
+
+Makkai's Principle of Isomorphism (1998) says:
+
+"All grammatically correct properties about objects in a fixed category are to be invariant under isomorphism."
+
+Fix a category $ \mathcal{ C } $ and a small category $ A $ and take the functor category $ \Fun ( A , \mathcal{ C } )$, that is $ A $-shaped diagrams in $ \mathcal{ C } $.
+For $ X \in \mathcal{ C } $ define:
+\[
+    \lim_{a \in A} \Hom_{\mathcal{ C }} ( X , D(a)) \coloneqq \{ ( p_a \colon X \to  D ( a ) )_{ a \in A } \mid 
+    \begin{tikzcd}
+    X
+    \ar[d, "f_a"']
+    \ar[rd, "f_b"]
+    \\
+    D ( a ) 
+    \ar[r]
+    &
+    D ( b ) 
+    \end{tikzcd}
+    \forall f \colon a \to b \text{ in } A
+    \}
+\]
+
+For $ \phi \colon Y \to X $ define the function 
+\begin{align*}
+    \phi^* \colon \lim_{a \in A} \Hom_{ \mathcal{ C }} ( X , D ( a ) ) 
+    &\to
+    \lim_{ a \in A } \Hom_{ \mathcal{ C }} ( Y , D ( a ) ) 
+    \\
+    p = ( p_a \colon X \to D ( a ) )_{ a \in A }
+    &\mapsto
+    \phi^* ( p ) = ( p_a \circ \phi \colon Y \to D ( a ) )_{ a \in A }
+\end{align*}
+
+Thus $ \lim_{a \in A } \Hom_{ \mathcal{ C } } ( - , D ( a ) ) \colon \mathcal{ C }^{\op} \to \Set $ is a presheaf of sets on $ \mathcal{ C } $.
+
+\begin{defi}
+    A limit of a diagram $ D \colon A \to \mathcal{ C } $ is a cone $ p \in \lim_{a \in A } \Hom_{ \mathcal{ C } } ( X, D ( a ) ) $ that is universal in the sense that $ \forall Y \in \mathcal{ C }, \forall q \in \lim_{a \in A} \Hom_{\mathcal{ C }} ( Y , D ( a ) ) \exists! \varphi\colon Y \to X $ such that $ \varphi^* ( p ) = q $.
+    We write $ \lim_{ a \in A } D ( a ) $ for any limit of $ D $ (which may or may not exist).
+\end{defi}
+
+\begin{rmd}[Yoneda Lemma]
+    Let $ X \in \mathcal{ C } $ and let 
+    \begin{align*}
+        \nu \colon \Nat ( \Hom_{\mathcal{ C } } ( - , X ) , \lim_{ a \in A } \Hom_{\mathcal{ C } } ( - , D ( a ) ) ) 
+        &\isomorphism
+        \lim_{ a \in A } \Hom_{ \mathcal{ C } }( X , D ( a ) ) 
+        \\
+        \eta = ( \eta_Y \colon \Hom_{ \mathcal{ C } } (  Y , X ) \to \lim_{ a \in \mathcal{ C } } ( Y , D ( a ) )_{ Y \in \mathcal{ C } } 
+        &\mapsto 
+        \eta_X ( \id_X )
+        \\
+        ( \eta^p_Y ( p ) \coloneqq \varphi^* ( p ) )_{ Y \in \mathcal{ C }}
+        &\mapsfrom
+        p
+    \end{align*}
+\end{rmd}
+
+If $ p \in \lim_{a \in A} \Hom_{ \mathcal{ C } } ( X , D ( a ) ) $ is a limit of $ D \colon A \to \mathcal{ C } $ then 
+
+$ \eta^p \colon \Hom_{ \mathcal{ C } } ( - ,  X ) \isomorphism \Hom_{ \mathcal{ C } } ( - , D ( a ) ) $ is a natural isomorphism. 
+We furthermore obtain, that for an isomorphism $\psi \colon Y \to X $ in $\mathcal{ C } $ we have 
+\[
+\begin{tikzcd}
+    & 
+    \Hom_{\mathcal{ C } } ( - , X ) 
+    \ar[rd, " \eta^p ", "\sim"']
+    \\
+    \Hom_{ \mathcal{ C } } ( - , Y ) 
+    \ar[ru , " \psi^*" , " \sim"' ]
+    \ar[rr, " \sim " ]
+    &&
+    \lim_{ a \in A } \Hom_{ \mathcal{ C } } ( - , D ( a ) ) 
+\end{tikzcd}
+\]
+\begin{exmp}
+    Let the following be a diagram in $ \mathcal{ C } $ 
+    \[
+    \begin{tikzcd}
+        &
+        Y
+        \ar[d , "g" ]
+        \\
+        X
+        \ar[r, "f" ]
+        &
+        Z
+    \end{tikzcd}
+    \]
+    then the limit of the diagram (if it exists ) is called a pullback.
+    \[
+    \begin{tikzcd}
+        W
+        \ar[rrd, bend left, "\forall f'' " ]
+        \ar[rd, " \exists! p "]
+        \ar[rdd, bend right, " \forall g'' "' ]
+        \\
+        &
+        X \times_Z Y 
+        \ar[ r , " f'" ]
+        \ar[d, " g' "]
+        &
+        Y
+        \ar[d, " g "]
+        \\
+        &
+        X
+        \ar[r, "f"]
+        &
+        Z
+    \end{tikzcd}
+    \]
+    For example if $ \mathcal{ C } = \Set$ then $ X  \times_Z Y = \{ ( X , Y ) \in X \times Y \mid f ( x ) = g ( y ) \}$.
+\end{exmp}
+
+The commutativity condition takes place in $ \Hom_{ \mathcal{ C } } ( X \times_Z Y , Z ) \ni g \circ f' = f \circ g' $
+
+\underline{ Makkai's Pronciple of Equivalence }
+All grammatically correct properties of objects in a fixed 2-category are to be invariant under equivalence.
+
+\begin{rmk}
+    We want to $ \Cat $ be the strict 2-category of (small) categories with functors as 1-morphisms and natural transformations as 2-morphisms.
+    Now natural transformation allow for a notion of equivalence of morphisms, that is in a 1-category we only knew what it meant for two morphisms to be equal, but now we can talk about two functors being naturally isomorphic given us a notion of equivalence of 1-morphisms, via the 2-morphisms.
+\end{rmk}
+
+\begin{defi/prop}[Godement Product]
+    Consider natural transformations 
+    \[
+    \begin{tikzcd}
+        &
+        {}
+        \ar[dd, "\alpha"]
+        &&
+        {}
+        &
+        \\
+        \mathcal{ C }
+        \ar[rr, bend left , "F_1"]
+        \ar[rr, bend left , "F_2"]
+        &&
+        \mathcal{ D }
+        &&
+        \mathcal{ E }
+        \\
+        &
+        {}
+        &&
+        {}
+        &
+    \end{tikzcd}
+    \]
+    \todo{ how to typeset this }
+    Their Godement product is the natural transformation.
+    Let $ X \in \mathcal{ C } $, we obtain the following diagram
+    \[
+    \begin{tikzcd}
+        F_1 ( X ) 
+        \ar[d, " \alpha_x "]
+        &
+        G_1 ( F_1 ( X ) ) 
+        \ar[d, " G_1 ( \alpha_X ) "']
+        \ar[rd, " {( \beta * \alpha )_X} "]
+        \ar[r , " \beta_{ F_1 ( X ) } "]
+        & 
+        G_2 ( F_1 ( X ) )
+        \ar[d, " G_2 ( \alpha_X ) "]
+        \\
+        F_2 ( X ) 
+        &
+        G_1 ( F_2 ( X ) ) 
+        \ar[ r, " \beta_{ F_2 ( X ) }"]
+        &
+        G_2 ( F_2 ( X ) ) 
+    \end{tikzcd}    
+    \]
+    in $ \mathcal{ D } $.
+\end{defi/prop}
+
+\begin{proof}
+    We show that $ \beta * \alpha \colon G_1 \circ F_1 \Rightarrow g_2 \circ F_2 $ is indeed a natural transformation. 
+    For that we take the following diagram 
+     \[
+     \begin{tikzcd}
+         X
+         \ar[d, "f"]
+         &
+         G_1 ( F_1 ( X ) ) 
+         \ar[r , " G_1 ( \alpha_X ) "]
+         \ar[r, " G_1 ( \alpha_X ) "]
+         \ar[d, " G_1 ( F_1 ( f ) ) "']
+         &
+         G_1 ( F_2 ( X ) ) 
+         \ar[ r, " \beta_{ F_2 ( X ) } "]
+         \ar[d, " G_1 ( F_2 ( f ) ) "]
+         & 
+         G_2 ( F_2 ( X ) )
+         \ar[d, " G_2 ( F_2 ( f ) ) "]
+         \\
+         Y
+         &
+         G_1 ( F_1 ( Y ) )
+         \ar[ r , " G_1 ( \alpha_1 ) "']
+         &
+         G_1 ( F_2 ( Y ) ) 
+         \ar[ r, " {\beta_{ F_2 ( Y ) }}"']
+         & 
+         G_2 ( F_2 ( Y ) ) 
+     \end{tikzcd}
+     \]
+\end{proof}
+
+\begin{prop}
+    Consider natural transformations 
+    \todo{missing}
+    Then $ ( \delta \beta ) * ( \gamma \alpha ) = ( \delta * \gamma ) \circ ( \beta * \alpha )$.
+\end{prop}
+
+\begin{proof}
+    Let $ X \in \mathcal{ C } $ 
+    \[
+    \begin{tikzcd}
+        G_1 ( F_1 ( X ) ) 
+        \ar[r, " \beta_ {F_1 ( X ) }"]
+        \ar[rd, " ( \beta * \alpha )_X "]
+        \ar[d, " G_1 (\alpha_X ) "']
+        \ar[dd, bend right=90, " G_1 ( \gamma_X \alpha_X ) "']
+        &
+        G_2 ( F_1 ( X ) ) 
+        \ar[d, " G_2 ( \alpha_X ) "]
+        \ar[r, " \delta_{ F_1 ( X ) }"]
+        &
+        G_3 ( F_1 ( X ) ) 
+        \ar[dd, bend left =90, " G_3 ( \gamma_X \alpha_X ) "]
+        \ar[ d , " G_3 ( \alpha_X ) "]
+        \\
+        G_1 ( F_2 ( X ) ) 
+        \ar[d, " G_1 ( \gamma_X )"']
+        \ar[r, " \beta_{ F_2 ( X ) }"]
+        &
+        G_2 ( F_2 ( X ) ) 
+        \ar[r, " \delta_{ F_2 ( X ) }"]
+        \ar[d, " G_2 ( \gamma_X ) "]
+        \ar[rd, " ( \delta * \gamma )_X "]
+        &
+        G_3 ( F_2 ( X ) ) 
+        \ar[d, " G_3 ( \gamma_X ) "]
+        \\
+        G_1 ( F_3 ( X ) ) 
+        \ar[r, " \beta_{ F_3 ( X ) }"]
+        &
+        G_2 ( F_3 ( X ) )
+        \ar[r , " \delta_{F_2 ( X ) }"]
+        &
+        G_3 ( F_3 ( X ) ) 
+    \end{tikzcd}
+    \]
+    Now the long diagonal of the diagram corresponds to $ ( \delta * \gamma ) \circ ( \beta * \alpha ) $ and the outer large square to $ ( \delta \circ \beta ) * ( \gamma \circ \alpha )$.
+\end{proof}
+
+\begin{defi}
+    The Godement products bellow are called whickerings
+    \todo{missing}
+\end{defi}
+
+\begin{construction}
+    Given a cospan of groupoids 
+    \[
+    \begin{tikzcd}
+        &
+        \mathcal{B}
+        \ar[d, " G "]
+        \\
+        \mathcal{ A }
+        \ar[r, " F "]
+        &
+        \mathcal{ C }
+    \end{tikzcd}
+    \]
+    its 2-pullback is the diagonal of groupoids.
+    \[
+    \begin{tikzcd}
+        \mathcal{ A } \times_{ \mathcal{ C } } \mathcal{ B } 
+        \ar[r, " \pi_{ \mathcal{ B }} "]
+        \ar[d, " \pi_{ \mathcal{ A }} "]
+        &
+        \mathcal{ B }
+        \ar[ d , " G " ]
+        \\
+        \mathcal{ A }
+        \ar[r, " F " ]
+        &
+        \mathcal{ C }
+    \end{tikzcd}
+    \]
+    The objects are given as $ \Ob ( \mathcal{ A } \times_\mathcal{ C } \mathcal{ B } ) = ( a \in \mathcal{ A } , b \in \mathcal{ B }, \varphi \colon F ( a ) \isomorphism G ( b ) $ in $ \mathcal{ C } )$ and morphisms are given by tuples of morphisms $ ( u , v ) \colon ( a , b, \varphi ) \to ( a' , b' , \varphi' ) $, where $ u \colon a \to a' $ and $ v \colon b \to b '$ are morphisms in the respective groupoids, such that the following square commutes
+    \[
+    \begin{tikzcd}
+        F ( a ) 
+        \ar[r, "\varphi" , " \sim "']
+        \ar[d, "F( a )"']
+        &
+        G ( b )
+        \ar[d, " G ( v )"]
+        \\
+        F ( a' )
+        \ar[r, "\varphi", "\sim"']
+        &
+        G(b')
+    \end{tikzcd}
+    \]
+\end{construction}

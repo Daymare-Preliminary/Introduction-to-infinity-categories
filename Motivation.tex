@@ -1,0 +1,106 @@
+\section{Motivation}
+
+Fix $ 0 \leq m \leq n \leq \infty $. 
+An $ ( n , m ) $ category is a "category-like" structure consisting of a class of objects, notions of 1- morphism, 2-morphism, ... , n-morphism (i.e. k-morphsim $ 0 < k \leq n )$ with a "suitable composition law" (satisfying "suitable axioms") and such that $ \forall m < k \leq n $ the k-morphisms are "invertible".
+\begin{align*}
+    &( 0 , 0 ) \text{-cat. = set}
+    \\
+    &( 1 , 0 ) \text{-cat. = groupoid, i.e. 1-groupoid}
+    \\
+    &( 1 , 1 ) \text{-cat. = category, i.e. 1-category}
+    \\
+    &( 2 , 0 ) \text{-cat. = 2-groupoids}
+    \\
+    &( 2 , 1 ) \text{-cat.}
+    \\
+    &( 2 , 2 ) \text{-cat. = 2-categories}
+    \\
+    &\vdots
+    \\
+    &( n , 0 ) \text{-cat. = n-groupoid}
+    \\
+    &( n , n ) \text{-cat. = n-cat.}
+    \\
+    &\vdots
+    \\
+    &( \infty , 0 ) = \infty \text{-groupoids}
+    \\
+    &( \infty , 1 ) = \infty \text{-categories (see. Boardman-Vogt)}
+\end{align*}
+
+\begin{rmd}
+    A map $ f \colon X \to Y $ between topological spaces is a weak homotopy equivalence if $ \forall x \in X, \forall n \in \mathbb{ N } $ the map
+    \[
+        \pi_n ( f ) \colon \pi_n ( X , x ) \xrightarrow{} \pi_n ( Y , f ( x ) ) 
+    \]
+    is a bijection.
+\end{rmd}
+
+\begin{thm}[ Grothendieck's Homotopy Hypothesis ]
+     There is an $ ( \infty , 1 ) $-category of topological spaces up to weak  homotopy equivalence and there is an $ ( \infty , 1 ) $-category of $ \infty $-groupoids up to eqivalence.
+    There is furthermore an $ \infty $-functor assigning to each topological space $ X $ its Poincare $ \infty $-groupoid $ \pi_{ \infty } ( X ) $, this is an equivalence.
+\end{thm}
+
+\begin{rmk}
+    Let $ \mathcal{ C } $ be an $ ( \infty , 1 ) $-category, then for all $ X , Y \in \Ob ( \mathcal{ C } ) $ we get that $ \Hom_{ \mathcal{ C } } ( X , Y )$ is an $\infty$-groupoid/ "space".
+    We have the homtopy category of $ \mathcal{ C } $ denoted by $ \Ho ( \mathcal{ C } )$ whose objects are those of $ \mathcal{ C } $ and for all objects $ X , Y \in \Ho ( \mathcal{ C } ) $ we have that $ \Hom_{ \Ho ( \mathcal{ C } ) } ( X , Y ) = \pi_0 ( \Hom_{ \mathcal{ C } } ( X , Y ) $.
+\end{rmk}
+
+\begin{Warning}
+    The passage from $ \mathcal{ C } $ often results in a tremendous loss of information, that is essential for various purposes.
+    \begin{itemize}
+        \item 
+        Computing co-/limits within $ \mathcal{ C } $.
+
+        \item 
+        Computing co-/limits with $ \mathcal{ C } $.
+
+        \item 
+        Define invariants associated to $ \mathcal{ C } $ ( f.e. Hochschild cohomology).
+    \end{itemize}
+\end{Warning}
+
+
+\begin{rmd}
+    Many important 1-categories arise as homotopy categories of genuine $ ( \infty , 1 ) $-categories, that is derived categories
+    Recall for $ R \colon $ ring, $ \Mod_R $ its category of right $ R $-modules and $ \Ch ( \Mod_R ) $ the category of chain complexes in $ \Mod_R $, that a morphism of chain complexes $ f^\bullet \colon X^\bullet \to Y^\bullet $ in $ \Ch ( \Mod_R ) $ is a quasi-isomorphism if $ \forall n \in \mathbb{ Z } $ we have that $ H_n ( f^\bullet ) = H_n ( X^\bullet ) \isomorphism H_n ( Y^\bullet ) $ is an isomorphism.
+    The derived category is defined as follows $ D ( \Mod_R ) \coloneqq \Ch ( \Mod_R ) [qiso^{-1}] $ the localisation at the quasi-isomorphisms.
+    Furthermore we have that $ \Ho ( \mathcal{ D } ( \Mod_R ) ) = D ( \Mod_R) $.
+    In the first case we obtain it by building it from the ground up so to say and in the second case we obtain by forgetting information from a higher structure.
+\end{rmd}
+
+\begin{Warning}
+    The homotopy theory of $ ( \infty ,1 ) $-categories has many equivalent (Quillen) implementations:
+    \begin{itemize}
+        \item 
+        Topological categories (Ilias)
+
+        \item 
+        Simplicial categories (Bergner)
+
+        \item 
+        Complete Segal spaces (Rezk)
+
+        \item 
+        Relative categories (Barwick-Kan)
+
+        \item 
+        Pre-derivations
+
+        \item 
+        $\infty$-categories ( Joyal, Lurie )
+    \end{itemize}
+
+    In the $k$-linear setting, for $k$ a field we have:
+
+    \begin{enumerate}[resume]
+        \item 
+        Differentially graded $k$-categories
+
+        \item 
+        $A_\infty$-categories (Lefèvre-Hasegawa)
+    \end{enumerate}
+    
+\end{Warning}
+
+The Plan for the lecture is to start of with investigating 2-categories, then give definition and examples of $ \infty $-categories, then do enriched category theory and end on the homotopy theory of $\infty$-categories.

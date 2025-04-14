@@ -1,0 +1,231 @@
+%genral math
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[backend = biber]{biblatex}
+\addbibresource{References.bib}
+\usepackage[colorlinks=true,unicode]{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage{microtype}
+\usepackage[shortlabels]{enumitem}
+\usepackage{dsfont}
+\usepackage{mathabx}
+\usepackage{comment}
+
+
+
+
+
+% commutative diagrams/diagrams
+
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usetikzlibrary{graphs}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.pathreplacing, calc}
+\usetikzlibrary{shapes.geometric}
+
+
+%New Commands
+\newcounter{dummy} 
+\numberwithin{dummy}{section}
+\newtheorem{qu}[dummy]{Question}
+\newtheorem{rmd}[dummy]{Reminder}
+\newtheorem{prop}[dummy]{Proposition}
+\newtheorem{thm}[dummy]{Theorem}
+\newtheorem{cor}[dummy]{Corollary}
+\newtheorem{lem}[dummy]{Lemma}
+\theoremstyle{definition}
+\newtheorem{defi}[dummy]{Definition}
+\newtheorem{defi/prop}[dummy]{Definition/Proposition}
+\newtheorem{exmp}[dummy]{Example}
+\newtheorem{rmk}[dummy]{Remark}
+\newtheorem{construction}[dummy]{Construction}
+\newtheorem{problem}[dummy]{Problem}
+\newtheorem{Warning}[dummy]{Warning!}
+
+
+\newcounter{Exercise}[subsection]
+\newenvironment{Exercise}[1][]{\refstepcounter{Exercise}\par\medskip
+   \noindent\textbf{Exercise~\theExercise. #1} \rmfamily}{\medskip}
+
+\newcounter{Solution}[subsection]
+\newenvironment{Solution}[1][]{\refstepcounter{Solution}\par\medskip
+   \noindent\textbf{Solution~\theSolution. #1} \rmfamily}{\medskip}
+
+
+%General Math notation
+
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\inj}{inj}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\Mod}{mod}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Inj}{Inj}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\rep}{Rep}
+\DeclareMathOperator{\silt}{silt}
+\DeclareMathOperator{\presilt}{presilt}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Fac}{Fac}
+\DeclareMathOperator{\Sub}{Sub}
+\DeclareMathOperator{\andspace}{\hspace{10pt}\text{and}\hspace{10pt}}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\thick}{thick}
+\DeclareMathOperator{\add}{add}
+\DeclareMathOperator{\stab}{Stab}
+\DeclareMathOperator{\Pos}{Pos}
+\DeclareMathOperator{\Hasse}{Hasse}
+\DeclareMathOperator{\pd}{pd}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\tors}{tors}
+\DeclareMathOperator{\ftors}{f-tors}
+\DeclareMathOperator{\stilt}{s\tau-tilt}
+\DeclareMathOperator{\Gl}{GL}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Grp}{Grp}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Kb}{K^b}
+\DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\Db}{D^b}
+\DeclareMathOperator{\twosilt}{2-silt}
+\DeclareMathOperator{\twopresilt}{2-presilt}
+\DeclareMathOperator{\tstr}{t-str}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\Op}{Op}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\cosk}{cosk}
+\DeclareMathOperator{\tru}{tr}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\Nat}{Nat}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\Spur}{Spur}
+\DeclareMathOperator{\sSet}{sSet}
+\DeclareMathOperator{\set}{Set}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Ho}{Ho}
+\DeclareMathOperator{\H0}{H_0}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\txtbig}{big}
+\DeclareMathOperator{\Gpd}{Gpd}
+\DeclareMathOperator{\coeq}{coeq}
+\DeclareMathOperator{\can}{can}
+\DeclareMathOperator{\Sing}{Sing}
+\DeclareMathOperator{\Chcpx}{Ch}
+\DeclareMathOperator{\An}{An}
+\DeclareMathOperator{\KanFib}{KanFib}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Kan}{Kan}
+\DeclareMathOperator{\Pathspace}{P}
+\DeclareMathOperator{\hKan}{hKan}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\PO}{PO}
+\DeclareMathOperator{\PB}{PB}
+\DeclareMathOperator{\Cofib}{Cofib}
+\DeclareMathOperator{\Fib}{Fib}
+\DeclareMathOperator{\Bifib}{Bifib}
+\DeclareMathOperator{\Sd}{Sd}
+\DeclareMathOperator{\Ex}{Ex}
+\DeclareMathOperator{\Weq}{Weq}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\tikzset{%
+    symbol/.style={%
+        draw=none,
+        every to/.append style={%
+            edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+    }
+}
+
+
+\newcommand{\Exinfty}{\text{Ex}^\infty}
+\newcommand{\SetD}{\Set_{\Delta}}
+\newcommand{\presh}[1]{\widehat{\mathcal{#1}}}
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+\newcommand{\adj}{\rotatebox[origin=c]{90}{$\vdash$}}
+\newcommand{\iu}{\mathrm{i}\mkern1mu}
+\newcommand{\isomorphism}{\overset{\smash{\raisebox{-0.2ex}{$\scriptstyle\sim$}}}{\longrightarrow}}
+\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+
+\tikzcdset{
+  diagrams={>={Straight Barb[scale=0.5]}}
+}
+\tikzset{
+  stackar/.style={decorate, decoration={show path construction,
+    lineto code={
+      \path (\tikzinputsegmentfirst); \pgfgetlastxy{\xstart}{\ystart}
+      \path (\tikzinputsegmentlast); \pgfgetlastxy{\xend}{\yend}
+      \path ($(0,0)!3pt!(\ystart-\yend,\xend-\xstart)$); \pgfgetlastxy{\xperp}{\yperp}
+      \foreach \n[evaluate=\n as \k using .5*#1-\n+.5] in {1,...,#1}{
+        \draw[->, shift={($\k*(\xperp,\yperp)$)}](\xstart,\ystart)--(\xend,\yend);
+      }
+    }
+  }}, stackar/.default={1},
+  altstackar/.style={decorate, decoration={show path construction,
+    lineto code={
+      \path (\tikzinputsegmentfirst); \pgfgetlastxy{\xstart}{\ystart}
+      \path (\tikzinputsegmentlast); \pgfgetlastxy{\xend}{\yend}
+      \path ($(0,0)!1.5pt!(\ystart-\yend,\xend-\xstart)$); \pgfgetlastxy{\xperp}{\yperp}
+      \foreach \n[evaluate=\n as \k using .5*#1-\n+.5] in {1,...,#1}{
+        \ifodd\n{\draw[->, shorten <=2pt, shift={($\k*(\xperp,\yperp)$)}](\xstart,\ystart)--(\xend,\yend);}
+        \else{\draw[<-, shorten >=2pt, shift={($\k*(\xperp,\yperp)$)}](\xstart,\ystart)--(\xend,\yend);}\fi
+      }
+    }
+  }}, altstackar/.default={1}
+}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height=12pt] (char) {\vphantom{1g}#1};}}
+
+\newcommand*{\encircled}[1]{\relax\ifmmode\mathpalette\@encircled@math{#1}\else\@encircled{#1}\fi}
+\newcommand*{\@encircled@math}[2]{\@encircled{$\m@th#1#2$}}
+\newcommand*{\@encircled}[1]{%
+  \tikz[baseline,anchor=base]{\node[draw,circle,outer sep=0pt,inner sep=.2ex] {#1};}}
+
+\newcommand{\lift}[1]{%
+\begin{tikzpicture}[#1]%
+\fill[white] (-0.5ex,0) rectangle (1.5ex,1ex);%
+\draw (0,0) rectangle (1ex,1ex);%
+\draw (0,0) -- (1ex,1ex);%
+\end{tikzpicture}%
+}
+
+\tikzset{
+    labl/.style={anchor=real center, rotate=90, inner sep=.5mm}
+}
+%we can talk about colors later
+%for better quotation makes
+\usepackage{csquotes}
