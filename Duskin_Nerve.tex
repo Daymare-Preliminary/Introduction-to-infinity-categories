@@ -1,0 +1,480 @@
+\section{Duskin nerve}
+
+We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set from.
+
+
+\begin{defi}
+	The Duskin nerve is 
+	\[
+		\SetD
+		\xleftarrow{}
+		\twocatlax : N^D = u^*
+	\]
+	where $ \twocatlax $ is the category of 2-categeries with morphisms given by strictly unital lax 2-functors.
+	Then $ N^D ( \mathcal{ C } )_n \coloneqq \{ \text{ strictly unital lax 2-functors } [ n ] \xrightarrow{ F } \mathcal{ C } \} $. 
+\end{defi}
+
+\begin{rmk}
+\cite{Kerodon}
+	If $ \mathcal{C} $ is a 1-category, then $ N^D ( \mathcal{ C } ) = N ( \mathcal{ C } ) $.
+	We analyze the n-simplices of $ N^D ( \mathcal{ C } ) $.
+	\begin{itemize}
+		\item 
+		(n=0) $ [ 0 ] = \{ 0 \} \xrightarrow{ F } \mathcal{ C } $ given $ 0 \mapsto X_0 = F ( 0 ) \in \Ob( \mathcal{ C } ) $
+		
+		\item 
+		(n=1)
+		 $ [ 1 ] = \{ 0 \to 1 \} \xrightarrow{ F } \mathcal{ C } $
+		 \[
+		 \begin{tikzcd}
+		 	0
+		 	\ar[d] 
+		 	\ar[r, mapsto, shift right=1.5em]
+		 	&
+		 	X_0
+		 	\ar[d] 
+		 	\ar[loop right, " f_{00} = \id_{X_0}"]
+		 	\\
+		 	1
+		 	&
+		 	X_1
+		 	\ar[loop right, " f_{11} = \id_{ X_1 } " ]
+		 \end{tikzcd}
+		 \]
+		 
+		 \item 
+		 (n=2)
+		 $ [ 2 ] = 
+		 \bigg\{
+		 \begin{tikzcd}[column sep=1ex,row sep=1ex]
+		 	&
+		 	1
+		 	\ar[rd]
+		 	&
+		 	\\
+		 	0
+		 	\ar[rr]
+		 	\ar[ru] 
+		 	&&
+		 	2
+		 \end{tikzcd}	
+		 \bigg\}
+		 \xrightarrow{F}
+		 \mathcal{ C }
+		 $
+		 \[
+		 \begin{tikzcd}	
+		 	&
+		 	X_1
+		 	\ar[rd, "f_{21}"]
+		 	\ar[d, Rightarrow, "\gamma"] 
+		 	&
+		 	\\
+		 	X_0
+		 	\ar[ru, "f_{10}" ]
+		 	\ar[rr, "f_{20}"' ]
+		 	&
+		 	{}
+		 	&
+		 	X_2
+		 \end{tikzcd}
+		 \]
+		 
+		 \item 
+		 (n=3)
+		 $ [ 3 ] = 
+		 \bigg\{
+		 \begin{tikzcd}[column sep=1ex,row sep=1ex]
+		 	&
+		 	1
+		 	\ar[rd]
+		 	\ar[dd, crossing over]
+		 	&
+		 	\\
+		 	0
+		 	\ar[rd]
+		 	\ar[rr]
+		 	\ar[ru] 
+		 	&&
+		 	2
+		 	\ar[ld]
+		 	\\
+		 	&
+		 	3
+		 	&
+		 \end{tikzcd}	
+		 \bigg\}
+		 \xrightarrow{F}
+		 \mathcal{ C }
+		 $
+		 \[
+		 \begin{tikzcd}	
+		 	&
+		 	X_1
+		 	\ar[rd, "f_{21}"]
+		 	\ar[dd, "f_{13}" pos=0.3 ]
+		 	&
+		 	\\
+		 	X_0
+		 	\ar[rd, "f_{30}"']
+		 	\ar[ru, "f_{10}" ]
+		 	\ar[rr, "f_{20}"' pos=0.3 ]
+		 	&
+		 	{}
+		 	&
+		 	X_2
+		 	\ar[ld, "f_{32}"]
+		 	\\
+		 	& 
+		 	X_3
+		 	&
+		 \end{tikzcd}
+		 \]
+		 with a $ \Rightarrow $ for every 2-simplex in the boundary.
+		 
+		 \todo{resolve crossing arrows}
+	\end{itemize} 
+
+	More precisely:
+	A strictly unital lax 2-functor $ F \colon [ n ] \to \mathcal{ C } $ consist of the following data
+	\begin{itemize}
+		\item 	
+		 $ \forall 0 \leq i \leq n $ an object $ X_i \coloneqq F ( i ) $ 
+		
+		\item   
+		$ \forall 0 \leq i \leq j \leq n $ a 1-morphism $ f_{ j i } = X ( i \to j ) $
+		
+		\item 
+		$ \forall 0 \leq i \leq j \leq k \leq n $ a 2-morphism $ \mu_{ k j i } = f_{ k j } \cdot f_{ j i } \Rightarrow f_{ k i } $
+	\end{itemize}
+
+	Moreover the above data must satisfy
+	
+	\begin{itemize}
+		\item 
+		(strict unitality) $ \forall 0 \leq i \leq n , f_{ i i } = \id_{ X_i } $ the following diagram commutes
+		\[
+		\begin{tikzcd}
+			f_{ j j } \circ f_{ j i }
+			\ar[r, Rightarrow, "\mu_{ j j i }"]
+			&
+			f_{ j i }
+			\ar[d, Rightarrow, " F ( \lambda_{ j i } ) = \id_{ f_{ j i } }"]
+			\\
+			\id_{ X_j } \circ f_{ j i }
+			\ar[u, Rightarrow, "\id * \id"]
+			\ar[r, Rightarrow, "\lambda_{ f_{ ji } } "]
+			&
+			f_{ j i }
+		\end{tikzcd}
+		\]
+		that is $ \forall 0 \leq i \leq j \leq n $ 
+		\begin{align*}
+			\mu_{ j j i } = \lambda_{ f_{ j i } } 
+			&\colon
+			\id_{ X_1 } \circ f_{ j i } \Rightarrow f_{ j i }
+			\\
+			\mu_{ j i i } = \rho_{ f_{ j i } } 
+			&\colon 
+			f_{ j i } \circ \id_{ X_1 } \Rightarrow f_{ j i }
+		\end{align*}
+		Recall that 
+		\[
+			\mu_{ i i i } = \lambda_{ f_{ i i } } = \id_{ X_i } = \rho_{ \id_ { X_i } } = \rho_{ f_{ i i } } = \mu_{ i i i } 
+		\] 
+		
+		\item 
+		(Composition)
+		$ \forall 0 \leq i \leq j \leq k \leq l \leq n $
+		
+		\begin{equation}
+		\label{eq:1}
+		\begin{tikzcd}
+			f_{lk} \circ ( f_{kj} \circ f_{ji} )
+			\ar[r, Rightarrow, "\alpha"]
+			\ar[d, Rightarrow, " \id * \mu"]
+			&
+			( f_{lk} \circ f_{kj} ) \circ f_{ji}
+			\ar[d, Rightarrow, "\mu*\id"]
+			\\
+			f_{lk} \circ f_{ki}
+			\ar[d, Rightarrow," \mu "]
+			&
+			f_{lj} \circ f_{ji}
+			\ar[d, Rightarrow, " \mu "]
+			\\
+			f_{li}
+			\ar[r, Rightarrow, " F ( \alpha ) = \id "]
+			&
+			f_{li}
+		\end{tikzcd}
+		\end{equation}
+	\end{itemize}
+\end{rmk}
+
+\begin{prop}
+	An n-simplex $ F \in N^D ( \mathcal{ C } )_n ( F \colon [ n ] \to \mathcal{ C } ) $ is uniquely determined by the following data:
+	\begin{itemize}
+		\item 
+		$ 0 \leq i \leq n , X_i \in \Ob( \mathcal{ C } ) , \forall  0 \leq  i < j \leq n, f_j \colon X_i \to X_j $ a collection of 1-morphisms in $ \mathcal{ C } $
+		
+		\item 
+		$ 0 \leq i < j < k \leq n , \mu_{ k j i } = f_{ k j } \circ f_{ j i } \Rightarrow f_{ k i } $ such that $ \forall 0 \leq i < j < k < l \leq n $ \eqref{eq:1} is satisfied.  
+\end{itemize}
+\end{prop}
+
+\begin{proof}
+	Sketch:
+	
+	The uniqueness is clear, since we must have 
+	\[
+		\forall 0 \leq i \leq n , f_{ i i } = \id_{ X_i }, \forall 0 \leq i \leq j \leq n.
+	\]
+	Given the data as in the statement, we define  
+	\[
+		\mu_{ j j i } = \lambda_{ f_{ j i } } , \mu_{ j i i } = \rho_{ f_{ j i } }.
+	\]
+	We know \ref{eq:1} holds for $ i < j < l < k $.
+	To check that \ref{eq:1} holds when some indices are equal is given as an Exercise, it uses the triangle identity and the following lemma.
+\end{proof}
+
+\begin{lem}		
+	Let $ X \xrightarrow{ f } Y \xrightarrow{ g } Z $ be 1-morphisms in $ \mathcal{ C } $.
+	The following should hold 
+	\begin{enumerate}
+		\item 
+		\[
+		\begin{tikzcd}
+			\id_Z \circ ( g \circ f ) 
+			\ar[rr, Rightarrow, "\alpha"]
+			\ar[rd, Rightarrow, "\lambda_{ g \circ f }"' ]
+			&&
+			( \id_Z \circ g ) \circ f 
+			\\
+			&
+			g \circ f 
+			\ar[ru, Rightarrow, " ( \lambda_g)^{ - 1 } * \id_f "']
+			&
+		\end{tikzcd}
+		\]
+		
+		\item 
+		\[
+		\begin{tikzcd}	
+			g \circ ( f \circ \id_X )
+			\ar[rr, Rightarrow, " \alpha " ]
+			\ar[rd, Rightarrow, " \id_g * \rho_f "' ]
+			&&
+			( g \circ f ) \id_X
+			\\
+			&
+			g \circ f 
+			\ar[ru, Rightarrow , " \rho_{ g \circ f }^{ - 1 } "' ]
+		\end{tikzcd}
+		\]
+	\end{enumerate}
+\end{lem}
+
+\begin{proof}
+	We prove 2., consider for that the following diagram, notice that we omitted taking products with identities in the notation of the morphisms. 
+	\[
+	\begin{tikzcd}
+		&
+		g \circ ( ( f \circ \id_X ) \circ \id_X ) 
+		\ar[r, Rightarrow, "\alpha"]
+		\ar[d, Rightarrow, "\rho"]
+		&
+		( g \circ ( f \circ \id_X ) ) \circ \id_X 
+		\ar[d, Rightarrow, "\id * \rho"] 
+		\ar[rd, Rightarrow, "\alpha"]
+		\\
+		g \circ ( f \circ ( \id_X \circ \id_X ) ) 
+		\ar[r, Rightarrow, "\lambda"]
+		\ar[rrd, Rightarrow, "\alpha"']
+		\ar[ru, Rightarrow, "\alpha"]
+		&
+		g \circ ( f \circ \id_X )
+		\ar[r, Rightarrow, "\alpha"] 
+		&
+		( g \circ f ) \circ \id_X 
+		\ar[r, Rightarrow, " \rho^{ - 1 }"]
+		&
+		( ( g \circ f ) \circ \id_X ) \circ \id_X 
+		\\
+		& &
+		( g \circ f ) \circ ( \id_X \circ \id_X )
+		\ar[u, Rightarrow, "\lambda"]
+		\ar[ru, Rightarrow, "\alpha"']
+	\end{tikzcd}
+	\]
+	By the pentagon axiom the outer composition in the diagram commutes, the bottom, top left and bottom right triangles commute by the triangle identity and the top middle square commutes by naturality of $ \rho $, thus the top right triangle commute, since now $ - \circ \id_X $ is fully faithful.
+\end{proof}
+
+\begin{cor}
+	The Duskin nerve $ N^D ( \mathcal{ C } ) $ is 3-coskeletal and 
+	\[
+	 	\Hom_{ \SetD } ( \Delta^3 , N^D ( \mathcal{ C } ) ) \to \Hom_{ \SetD } ( \partial \Delta^3 , N^D ( \mathcal{ C } ) ) 
+	\]
+  	is injective.
+\end{cor}
+
+The 3-simplices can be given by 2 boundary quadrilaterals as follows, let $ 0 \leq i < j < k < l \leq n $.
+
+\[
+\begin{tikzcd}
+	&
+	X_j
+	\ar[r , " f_{ k j } " ]
+	&
+	X_k
+	\ar[rd, "f_{ l k } "]
+	\\
+	X_i
+	\arrow{rru}[name=U',label=above]{}
+	\ar[ru, " f_{ j i } " ]
+	\ar[rrr, " f_{ k i } "']
+	&&&
+	X_l
+\end{tikzcd}
+\]
+\todo{unclear yet how to draw arrows from node to arrow}
+
+\begin{defi}
+	Let $ X \in \SetD $ be a simplicial set. 
+	A 2-simplex $ \sigma \in X_2 $ is thin if $ \forall n \geq 3, \forall 0 < i < n $, there exists 
+	a morphism $ \Tilde{ \rho } $ for all morphisms $ \tau $ such that the following commutes
+	\[
+	\begin{tikzcd}
+		\Delta^2 = [ 2 ] 
+		\ar[r, " j "]
+		\ar[rr, bend left = 60, " \sigma "]
+		&
+		\Lambda_i^n
+		\ar[r, " \forall \tau"]
+		\ar[d, hook]
+		&
+		X
+		\\
+		&
+		\Delta^n 
+		\ar[ru, dashed, "\exists \Tilde{\rho}"']
+	\end{tikzcd}
+	\] 	
+	with $ j \coloneqq [ 2 ] \to \{ i -1 , i , i + 1 \} $.
+\end{defi}
+
+\begin{rmk}
+\label{every_simplex_thin}
+	Let $ X \in \SetD $ be an $ \infty $-category, then every 2-simplex of $ X $ is thin.
+	Conversely, if every 2-simplex of $ X $ is thin, then $ X $ is an $ \infty $ category $\iff$
+	\[
+	\begin{tikzcd}
+		\Lambda_1^2 
+		\ar[r, " \forall"]
+		\ar[d, hook]
+		&
+		X
+		\\
+		\Delta^2
+		\ar[ru, dashed, "\exists"']
+	\end{tikzcd}
+	\]
+\end{rmk}
+
+\begin{rmk}
+\label{remark_thin_Duskin}
+	Take the following horn filling problem
+	\[
+	\begin{tikzcd}
+		\Lambda_1^2
+		\ar[r, " \sigma "]
+		\ar[d, hook]
+		&
+		N^D ( \mathcal{ C } )
+		\\
+		\Delta
+		\ar[ru, dashed, "\exists"']
+	\end{tikzcd}
+	\]
+	where the dashed arrow exists since we have the horizontal composition of 1-morphisms.
+	Thus we can extend any 2-horn and would have an infinity category if every 2-simplex were thin.
+\end{rmk}
+
+\begin{thm}
+	Let $ \mathcal{ C } $ be a 2-category, then $ \mathcal{ C } \colon ( 2 , 1 ) $ if and only if $ N^D ( \mathcal{ C } ) $ is an $ \infty $-category.
+\end{thm}
+
+\begin{proof}
+	Suppose $ \mathcal{ C } $ is a  (2,1)-category.
+	Assume every 2-simplex were thin by \ref{thin_iff_invertible}, then by \ref{remark_thin_Duskin} $ N^D ( \mathcal{ C } ) $ is an $ \infty $-category.
+	Conversely, if $ N^D (\mathcal{ C } ) $ is an $ \infty $-category, then by \ref{every_simplex_thin} every 2-simplex in $ N^D ( \mathcal{ C } ) $ is thin if the following is satisfied.
+	Let  
+	\[
+	\begin{tikzcd}
+		X
+		\arrow[bend left=50]{rr}[name=U',label=above:$f$]{}
+		\arrow[bend right=50]{rr}[name=D',label=below:$j$]{}
+		&&
+		Y
+		\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U')-- node[label=right:$ \alpha $] {} (D')}]{} 
+	\end{tikzcd}
+	\]
+	be a 2-morphism in $ \mathcal{ C } $, then we obtain a commutative diagram
+	\[
+	\begin{tikzcd}	
+		\id_Y \circ f 
+		\ar[Rightarrow, "\lambda_f"]
+		\ar[rd, Rightarrow, "\rho"]
+		&
+		f
+		\ar[d, " \gamma "]
+		\\
+		&
+		g
+	\end{tikzcd}
+	\]
+	where $\rho $ exists since $ N^D ( \mathcal{ C } ) $ is thin.
+	Now by assumption $ \rho $ is invertible, thus $ \rho $ is invertible.
+\end{proof}
+
+Lecture 27.5
+
+Fix $ \mathcal{ C } $ a 2-category and let $ N^D ( \mathcal{ C ) \in \SetD $ be its Duskin nerve, i.e. $ N^D ( \mathcal{ C } )_n \coloneqq \{ [ n ] \to \mathcal{ C } \mid \text{strictly unital lax functors} \} $.
+	
+\begin{thm}
+\label{thin_iff_invertible}
+	The 2-simplex 
+	$
+	\begin{tikzcd}	
+		&
+		X_1
+		\ar[rd, "f_{21}"]
+		\ar[d, Rightarrow, "\mu_{ 2 1 0 }"] 
+		&
+		\\
+		X_0
+		\ar[ru, "f_{10}" ]
+		\ar[rr, "f_{20}"' ]
+		&
+		{}
+		&
+		X_2
+	\end{tikzcd}
+	\in
+	N^D ( \mathcal{ C } )_2 
+	$
+	is thin  if and only if $ \mu_{ 2 1 0 } $ is invertible.
+\end{thm}
+
+\begin{proof}
+	We divide the proof into its natural parts.
+\end{proof}
+	
+\begin{prop}
+	Let $ n \geq 3 $ and $ 0 \leq l \leq n $ and
+	\[
+	\begin{tikzcd}
+		g
+	\end{tikzcd}
+	\]
+\end{prop}

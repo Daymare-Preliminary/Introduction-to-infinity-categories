@@ -13,6 +13,12 @@
 \usepackage{dsfont}
 \usepackage{mathabx}
 \usepackage{comment}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+
+
+
 
 
 
@@ -45,7 +51,8 @@
 \newtheorem{construction}[dummy]{Construction}
 \newtheorem{problem}[dummy]{Problem}
 \newtheorem{Warning}[dummy]{Warning!}
-
+\newtheorem{Interlude}[dummy]{Interlude}
+\newtheorem{Idea}[dummy]{Idea}
 
 \newcounter{Exercise}[subsection]
 \newenvironment{Exercise}[1][]{\refstepcounter{Exercise}\par\medskip
@@ -60,6 +67,7 @@
 
 \DeclareMathOperator{\pr}{pr}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\twoHom}{\underline{Hom}}
 \DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\inj}{inj}
 \DeclareMathOperator{\tr}{Tr}
@@ -77,9 +85,11 @@
 \DeclareMathOperator{\andspace}{\hspace{10pt}\text{and}\hspace{10pt}}
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\thick}{thick}
+\DeclareMathOperator{\dg}{dg}
 \DeclareMathOperator{\add}{add}
 \DeclareMathOperator{\stab}{Stab}
 \DeclareMathOperator{\Pos}{Pos}
+\DeclareMathOperator{\Ring}{Ring}
 \DeclareMathOperator{\Hasse}{Hasse}
 \DeclareMathOperator{\pd}{pd}
 \DeclareMathOperator{\ann}{ann}
@@ -144,15 +154,19 @@
 \DeclareMathOperator{\Sd}{Sd}
 \DeclareMathOperator{\Ex}{Ex}
 \DeclareMathOperator{\Weq}{Weq}
-
-
-
-
-
-
-
-
-
+\DeclareMathOperator{\Bim}{Bim}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\comp}{(-\circ-)}
+\DeclareMathOperator{\Pith}{Pith}
+\DeclareMathOperator{\dgMod}{\underline{dgMod}_k}
+\DeclareMathOperator{\hPith}{hPith}
+\DeclareMathOperator{\intHom}{\bold{Hom}}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Pathdg}{\bold{Path}_{dg}}
+\DeclareMathOperator{\poSet}{\bold{poSet}}
+\DeclareMathOperator{\catdg}{\bold{cat}_{dg}}
+\DeclareMathOperator{\Path}{\underline{\Path}}
+\DeclareMathOperator{\twocatlax}{twocat_{lax}}
 
 
 

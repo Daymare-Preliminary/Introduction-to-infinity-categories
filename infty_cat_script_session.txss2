@@ -1,0 +1,71 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": false,
+        "File": "main.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "Grothendieck_Construction.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 39,
+                "EditorGroup": 0,
+                "FileName": "Basic_2_category_theory.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 239
+            },
+            {
+                "Col": 10,
+                "EditorGroup": 0,
+                "FileName": "Heuristics_Isomorphism_vs_Equivalence.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 344
+            },
+            {
+                "Col": 58,
+                "EditorGroup": 0,
+                "FileName": "Motivation.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 3
+            },
+            {
+                "Col": 39,
+                "EditorGroup": 0,
+                "FileName": "main.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 21
+            },
+            {
+                "Col": 32,
+                "EditorGroup": 0,
+                "FileName": "Style_Homotopy_Theory.sty",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 89
+            },
+            {
+                "Col": 26,
+                "EditorGroup": 0,
+                "FileName": "Functors_in_2-category_theory.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 158
+            },
+            {
+                "Col": 22,
+                "EditorGroup": 0,
+                "FileName": "Grothendieck_Construction.tex",
+                "FirstLine": 128,
+                "FoldedLines": "",
+                "Line": 156
+            }
+        ],
+        "MasterFile": ""
+    }
+}

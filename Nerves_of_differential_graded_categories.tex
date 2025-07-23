@@ -1,0 +1,226 @@
+\section{Nerves of differential graded categories}
+
+Let us begin with a reminder on cochain complexes.
+Let $ k $ be a commutative ring and let $ \Mod_k $ be the category of (right) $ k $-modules
+and $ \Ch ( \Mod_k ) $ the category of cochain complexes of $ k $-modules, so objects are given by
+\[
+	( X^\bullet , d^\bullet )
+	=
+	\dotsc 
+	\to 
+	X^{ - 1 }
+	\xrightarrow{ d^{ - 1 } }
+	X^0
+	\xrightarrow{ d^0 }
+	X^1
+	\xrightarrow{ d^1 } 
+	\dotsc 
+\]
+such that $ d^2 = 0 $.
+The category $ \Ch ( \Mod_k ) $ is a monoidal category with 
+\begin{align*}
+	( X^\bullet \otimes_k Y^\bullet )^l 
+	&\coloneqq
+	\coprod_{ i + j = l } X^i \otimes_k Y^j 
+	\\
+	d_{ X^\bullet \otimes Y^\bullet } ( x \otimes y )
+	&\coloneqq 
+	d_X ( x ) \otimes y 
+	+
+	( - 1 )^i x \otimes d_Y ( y ) 
+\end{align*}
+where $ \lvert x \rvert = i $ is the degree of $ x $.
+The unit of the monoidal structure is given by $ k $ viewed as a chain complex concentrated in degree $ 0 $.
+There is a preferred symmetry constraint 
+\begin{align*}
+	\tau \colon X^\bullet \otimes Y^\bullet
+	&\isomorphism
+	Y^\bullet \otimes X^\bullet 
+	\\
+	x \otimes y 
+	&\mapsto
+	( - 1 )^{ \lvert x \rvert \lvert y \rvert }
+	y \otimes x 
+\end{align*}
+which is called the Koszul sign rule.
+
+\begin{defi}
+	A \textbf{differential graded category} $ \mathcal{ A } $ is a category enriched in the monoidal category $ \Ch ( \Mod_k ) $.
+	That is:
+	\begin{itemize}
+		\item 
+		A class $ \Ob ( \mathcal{ A } ) $ of objects of $ \mathcal{ A } $.
+		
+		\item 
+		For all $ a , b \in \Ob ( \mathcal{ A } ) $ a cochain complex $ \mathcal{ A } ( a , b ) \in \Ch ( \Mod_k ) $.
+		
+		\item 
+		For all $ a  \in \Ob ( \mathcal{ A } ) $ a unit/identity $ \id_a  \colon k \to \mathcal{ A } ( a , a ) $.
+		
+		\item 
+		For all $ a , b, c \in \Ob( \mathcal{ A } ) $ a composition law 
+		\[
+			\mathcal{ A }( b , c ) \otimes \mathcal{ A } ( a , b ) 
+			\xrightarrow{ - \circ - }
+			\mathcal{ A } ( a , b )
+		\]
+		given by a morphism in $ \Ch ( \Mod_k ) $.
+	\end{itemize}
+\end{defi}
+
+\begin{rmk}
+	This means that if $ f \in \mathcal{ A } ( a , b ) , \lvert f \rvert = i $ and $ g \in \mathcal{ A } ( b , c ), \lvert g \rvert = j $, then
+	\begin{itemize}
+		\item 
+		$ \lvert g \circ f \rvert = i + j $ since $ \lvert g \otimes f \rvert = i + j $,
+		
+		\item 
+		$ d_{ \mathcal{ A } } ( g \circ f ) = d_{ \mathcal{ A } } ( g ) \circ f + ( - 1 )^j g d_{ \mathcal{A} } ( f ), \lvert g \rvert = j $ (Graded Leibniz rule).
+	\end{itemize}
+	This composition law must be associative and unital in the usual sense.
+\end{rmk}
+
+\begin{exmp}
+	Let $ \Ch ( \Mod_k )_{ \dg } $ be a the dg category given as follows:
+	\begin{itemize}
+		\item 
+		The objects are given by complexes of $ k $-modules.
+		
+		\item 
+		For $ X^\bullet , Y^\bullet \in \Ch ( \Mod_k )_{ \dg } $ a complex $ \Hom_k ( X^\bullet , Y^\bullet ) \in \Ch ( \Mod_k )_{ \dg }.$
+		
+		\item 
+		Let $ \Hom_k ( X^\bullet , Y^\bullet )^j \coloneqq \prod_{ i \in \mathbb{ Z } } \Hom_k ( X^i , Y^{ i + j } ) $ be the degree $ j $ maps of graded $ k $-modules endowed with the following differential
+		\begin{align*}
+			\partial \colon \Hom_k ( X^\bullet , Y^\bullet )^j
+			&\to
+			\Hom_k ( X^\bullet , Y^\bullet )^{ j + 1 }
+			\\
+			f
+			&\mapsto
+			\partial ( f ) 
+			=
+			( d_Y^{ i + j } \circ f^i - ( - 1 )^{ \lvert f \rvert } f^{ i + 1 } \circ d_X^i )_{ i \in \mathbb{ Z } }, \lvert f \rvert = j 
+		\end{align*} 
+	\end{itemize}
+	Note that $ \lvert f \rvert = 0 $ and $ \partial ( f ) = 0 $ is equivalent to $ f $ being a cochain map.
+\end{exmp}
+
+\begin{exmp}		
+	Let now $ \Ob ( \mathcal{ A } ) = \{ \star \}, A \coloneqq \mathcal{ A } ( \star, \star ) $, this is a \underline{dg algebra}.
+\end{exmp}
+
+\begin{construction}
+	Given a dg category $ \mathcal{ A } $, its underlying category is denoted by $ Z^0 ( \mathcal{ A } ) $, given by
+	\begin{itemize}
+		\item 
+		$ \Ob ( Z^0 ( A ) ) = \Ob ( \mathcal{ A } ) $,
+		
+		\item 
+		$ \forall a , b \in Z^0 ( \mathcal{ A } ), Z^0 ( a , b ) = Z^0 ( \mathcal{ A } ( a , b ) ) = \ker ( d_{ \mathcal{ A }^0 } ) \subseteq \mathcal{ A } ( a , b ) $.
+	\end{itemize}
+\end{construction}
+
+\begin{defi}
+	Let $ \mathcal{ A } $ be a dg category. 
+	The homotopy category (0-th cohomology category) of $ \mathcal{ A } $, denoted $ H^0 ( \mathcal{ A } ) $ has
+	\begin{itemize}
+		\item 
+		$ \Ob ( H^0 ( \mathcal{ A } ) ) = \Ob ( Z^0 ( \mathcal{ A } ) ) = \Ob ( \mathcal{ A } ) $
+		
+		\item 
+		$ \forall a ,b \in H^0 ( \mathcal{ A } ), H^0 ( \mathcal{ A } ) ( a , b ) = H^0 ( \mathcal{ A } ( a , b ) ) $.
+	\end{itemize}
+\end{defi}
+
+In the case of $ \Ch ( \Mod_k )_{ \dg } $, we have 
+\begin{align*}
+	Z^0 ( \Ch ( \Mod_k)_{ \dg } ) 
+	&\coloneqq
+	\Ch ( \Mod_k )
+	\\
+	H^0 ( \Ch ( \Mod_k )_{ \dg } ) 
+	&=
+	K ( \Mod_k ) \text{ homotopy category of cochain complexes}
+\end{align*}
+
+\begin{construction}
+\label{dg-nerve_defi}
+	Let $ \mathcal{ A } $ be a $ \dg $ category, then the $ \dg $ nerve $ N_{ \dg } ( \mathcal{ A } ) $ is defined as follows:
+	\begin{itemize}
+		\item 
+		$ N_{ \dg } ( \mathcal{ A } )_0 $ are the objects of $ \mathcal{ A } $,
+		
+		\item 
+		$ N_{ \dg } ( \mathcal{ A } )_1 $ are the degree zero cocycles $ f \in Z^0 ( \mathcal{ A } ( a , b ) ) $, that is the morphisms $ f $ such that $ \lvert f \rvert = 0 $ and $ d_{ \mathcal{ A } } ( f ) = 0 $,
+		
+		\item 
+		$ N_{ \dg } ( A )_2 $ is given by 2-simplices
+		\[
+		\begin{tikzcd}
+			&
+			a_1
+			\ar[d, Rightarrow, "{f_{ 2 1 0 }}"]
+			\ar[rd, "f_{ 2 1 }" ]
+			\\
+			a_0
+			\ar[ru, " f_{ 1 0 } "]
+			\ar[rr, "f_{ 2 0 } "']
+			&
+			{}
+			&
+			a_2
+		\end{tikzcd}
+		\]
+		where $ \lvert f_{ i j } \rvert = 0 . \lvert f_{ 2 1 0 } \rvert = - 1 , d_{ \mathcal{ A } } ( f_{ i j } ) = 0 $ and $ d_\mathcal{ A } ( f_{ 2 1 0 } ) = f_{ 2 0 } - f_{ 2 1 } \circ f_{ 1 0 } $ as well as $ [ f_{ 2 0 } ] = [ f_{ 2 1 } \circ f_{ 1 0 } ] \in H^0 ( \mathcal{ A } ( a_0 , a_2 ) )$,
+		
+		\item 
+		$ N_{ \dg } ( \mathcal{ A } )_3 $ is given by 3-simplices 
+		\[
+		\begin{tikzcd}
+			& 
+			a_1
+			\ar[dd, " f_{ 3 1 } " pos=0.3]
+			\ar[rd, " f_{ 2 1 } "]
+			\\
+			a_0 
+			\ar[ru," f_{ 1 0 } "]
+			\ar[rd," f_{ 3 0 } "']
+			\ar[rr, dashed, "f_{ 2 0 }" pos=0.3]
+			&&
+			a_2
+			\ar[dl, " f_{ 32 } "]
+			\\
+			&
+			a_3
+		\end{tikzcd}
+		\]
+		with each boundary 2-simplex having its composition given by some morphism $ f_{ i j k } , i, j , k \in \{ 0 ,1 , 2 , 3 \} $ as well as a morphism $ f_{ 3 2 1 0 } $ such that 
+		$ d ( f_{ 3 2 1 0 } ) = - ( f_{ 3 2 1 } \circ f_{ 1 0 } - f_{ 3 2 0 } ) + ( f_{ 3 2 } \circ f_{ 2 1 0 } - f_{ 3 1 0 } ) $.
+	\end{itemize} 
+\end{construction}
+
+\begin{defi}
+	Let $ \mathcal{ A } $ be a dg-category. 
+	The \underline{dg nerve of $ \mathcal{ A } $}, $ N_{ \dg } ( \mathcal{ A } ) \in \SetD $ is the simplicial set where for $ n \geq 0 $
+	\begin{align*}
+		N_{ \dg } ( \mathcal{ A } ) 
+		&\coloneqq 
+		\{ ( a_0 , a_1 , \dotsc , a_n ) \in \Ob ( \mathcal{ A } ) , ( f_I = f_{ n \geq i_k > \dotsc > i_0 \geq 0 } \in \mathcal{ A } ( a_{ i_0 } , a_{ i_k } ) )_{ I \subseteq [ n ] \atop 2 \leq \lvert I \rvert } \}
+		\\
+		\lvert f_I \rvert 
+		&=
+		- ( \# ( I \setminus \{ i_k , i_0 \} ) ) 
+		\\
+		d_{ \mathcal{ A } } ( f_I ) 
+		&=
+		\sum_{ l = 1 }^{ k - 1 } ( - 1 )^l ( f_{ i_k > \dotsc > i_l } \circ f_{ i_l > \dotsc > i_0 } \circ \dotsc \circ f_{ i_k > \dotsc > i_l > \dotsc > i_0 })
+	\end{align*}
+\end{defi}
+
+\begin{thm}
+	The nerve of a dg-category $ N_{ \dg } ( \mathcal{ A } ) \in \SetD $ is an $ \infty $-category.
+\end{thm}
+
+
+
