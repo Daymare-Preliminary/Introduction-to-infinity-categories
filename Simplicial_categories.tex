@@ -2,8 +2,10 @@ Lecture 5.6.
 
 \section{Simplicial categories/Simplicially enriched categories}
 
-Consider the monoidal category $ ( \SetD , \times , \Delta^0 ) $.
+The reference for this section is \cite[2.4]{kerodon}.
 
+Consider the monoidal category $ ( \SetD , \times , \Delta^0 ) $.
+\begin{comment}
 \begin{defi}
 	A \textbf{simplicial category} $ \mathcal{ C }_\bullet $ is a category enriched in simplicial sets.
 	Explicitely $ \mathcal{ C }_\bullet $ consists of 
@@ -12,6 +14,307 @@ Consider the monoidal category $ ( \SetD , \times , \Delta^0 ) $.
 		a class $ \Ob ( \mathcal{ C }_\bullet ) $ of objects of $ \mathcal{ C }_\bullet $,
 		
 		\item 
-		for all $ X , Y \in
+		for all $ X , Y \in \Ob ( \mathcal{ C }_\bullet ), \underline{ \Hom}_{ \mathcal{ C }_\bullet } ( X , Y ) \in \SetD $ is a simplicial set of morphisms,
+			
+		\item
+		$ \forall X \in \Ob ( \mathcal{ C } ) $ an identity morphism $ \id_X \colon \Delta^0 \to \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , X ) $ that is $ \id_X \in \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , X )_0 $,
+		
+		\item 
+		for all $ X , Y , Z \in \Ob ( \mathcal{ C }_\bullet ) $ a composition law
+		\[
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( Y , Z ) 
+			\times 
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y )
+			\xrightarrow{- \circ - }
+		   	\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Z )
+		\] 
+		that is associative and unital, for unitality the following diagrams are required to commute for all $ X , Y \in \Ob ( \mathcal{ C_\bullet } ) $
+		\[
+		\begin{tikzcd}
+			 \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y )
+			 \ar[r, " \cong "]
+			 \ar[d, "\id"]
+			 &
+			 \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y ) \times \Delta^0
+			 \ar[d, " \id_{  \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X ,Y ) } \times \id_X "]
+			 \\
+			 \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y )
+			 &
+			 \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y ) \times  \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , X )
+			 \ar[l, "- \circ -"] 
+		\end{tikzcd}
+		\]
+		\[
+		\begin{tikzcd}
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y )
+			\ar[r, " \cong "]
+			\ar[d, "\id"]
+			&
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y ) \times \Delta^0
+			\ar[d, " \id_Y \times \id_{  \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X ,Y ) } "]
+			\\
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y )
+			&
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( Y , Y ) \times \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y )
+			\ar[l, "- \circ -"] 
+		\end{tikzcd}
+		\]
+		and for associativity the following diagram is required to commute for all $ X , Y , Z \in \Ob ( \mathcal{ C }_\bullet ) $
+		\[
+		\begin{tikzcd}
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet }  ( Y , Z ) 
+			\times
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet }  ( X , Y ) 
+			\times 
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( W , X )
+			\ar[r, " - \circ - \times \id"]
+			\ar[d, " \id \times - \circ -"]
+			&
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Z )
+			\times
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( W ,X ) 
+			\ar[d, "- \circ - "]
+			\\
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( Y , Z )
+			\times 
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( W ,Y ) 
+			\ar[r, " - \circ - "]
+			&
+			\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( W , Z ) 
+		\end{tikzcd}
+		\]
 	\end{itemize}
 \end{defi}
+
+\begin{defi}
+	A simplicial category $ \mathcal{ C } $ is \textbf{locally Kan} if for all $ X ,Y \in \Ob ( \mathcal{ C } ) , \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y ) \in \SetD $ is a Kan complex. 
+\end{defi}
+
+\begin{construction}
+	Let $ \mathcal{ C }_\bullet $ be a simplicial category $ n \geq 0 $, so $ \mathcal{ C }_n \in \Cat $.
+	\begin{enumerate}
+		\item 
+		$ \Ob (\mathcal{ C }_n ) = \Ob ( \mathcal{ C }_\bullet ) $
+		
+		\item 
+		$ \forall X , Y \in \Ob( \mathcal{ C } )_n = \Ob ( \mathcal{ C }_\bullet ) $ it holds that 
+		$ \Hom_{ \mathcal{ C }_n } ( X ,Y ) = \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , Y )_n $
+	\end{enumerate}
+	the composition law is induced by that of $ \mathcal{ C }_\bullet $ (hence associative).
+	The identity map $ \id_X \in \Hom_{ \mathcal{ C }_n } ( X , X ) = \underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , X )_n $ is 
+	\begin{align*}
+		\Delta^n 
+		&\to
+		\Delta^0 
+		\xrightarrow{ \id_X } 
+		\underline{ \Hom }_{ \mathcal{ C }_\bullet } ( X , X ) 
+		\\
+		[n]
+		&\mapsto
+		[0] = \{ \star \}
+	\end{align*}
+\end{construction}
+
+From these considerations we obtain the following pullback square
+\[
+\begin{tikzcd}[column sep=2cm]
+	\SetD-\Cat 
+	\ar[r, hook, " { \mathcal{ C }_\bullet \mapsto ( [ n ] \mapsto \mathcal{ C }_n ) }"]
+	\ar[d, " \Ob "]
+		\ar[d, phantom,"PB",shift left=2cm]
+	&
+	\Fun ( \Delta^{\op} , \Cat )
+	\ar[d, "{ \Ob \circ ? }"]
+	\\
+	\Set
+	\ar[r, hook, "{ N = \const_\Delta }"']
+	&
+	\Fun ( \Delta^{\op} ,\Set )
+\end{tikzcd}
+\]
+
+\begin{defi}
+	Let $ \mathcal{ C }_\bullet $ be a simplicial category.
+	The underlying category of $ \mathcal{ C }_\bullet $ is $ \mathcal{ C }_0 \in \Cat $. 
+\end{defi}
+
+\begin{exmp}
+	The category of topological spaces $ \Top $ can be promoted to a (locally Kan) simplicial category $\Top_\bullet $ with the same objects and 
+	\[
+		\underline{\Hom}_{\Top_\bullet} ( X , Y )_n 
+		\coloneqq 
+		\Hom_{ \Top } ( \lvert \Delta^n \rvert \times X , Y ).
+	\]
+	Notice that $ \underline{ \Hom }_{ \Top_\bullet } ( \star , Y ) = \Sing( Y ) $.
+\end{exmp}
+
+\begin{exmp}
+	The category $ \SetD $ is enriched over itself via the function complexes $ \underline{ \Hom } ( X , Y ) \in \SetD $.
+\end{exmp}
+
+\begin{exmp}
+	Let $ \mathcal{ C } \in \Cat $ and $ \underline{ \mathcal{ C } }_\bullet \in \Set_\Delta $-$ \Cat $ be simplicial categories with 
+	\begin{itemize}
+		\item 
+		$\Ob ( \underline { \mathcal{ C } }_\bullet ) = \Ob ( \mathcal{ C } ) $
+		
+		\item 
+		$ \forall X ,Y \in \Ob ( \underline{ \mathcal{ C }_\bullet } ) $ let 
+		\[
+			\underline{ \Hom }_{ \underline{ \mathcal{ C } }_\bullet } ( X , Y )
+			\coloneqq
+			N ( \Hom_{ \mathcal{ C } } ( X , Y ) )
+		\]
+		The composition law is given as 
+		\[
+		\begin{tikzcd}
+			N ( \Hom_\mathcal{ C } ( Y , Z ) ) 
+			\times 
+			N ( \Hom_\mathcal{ C } ( X , Y ) )
+			\ar[r]
+			\ar[d, "\cong", "\can"']
+			&
+			N ( \Hom_\mathcal{ C } ( X , Z ) )
+			\\
+			N ( \Hom_\mathcal{ C } ( Y , Z ) ) 
+			\times 
+			N ( \Hom_\mathcal{ C } ( X , Y ) )
+			\ar[ru]
+		\end{tikzcd}
+		\]
+	\end{itemize}
+\end{exmp}
+
+\begin{exmp}
+	Let $ \mathcal{ C } $ be a strict 2-category then $ \mathcal{ C }_{ \bullet } \in \SetDcat $ with 
+	\begin{enumerate}
+		\item 
+		$ \Ob ( \mathcal{ C }_\bullet ) 
+		=
+		\Ob ( \mathcal{ C } )$
+		
+		\item 
+		$ \forall X ,Y \in \Ob ( \mathcal{ C }_\bullet ), \underline{ \Hom }_{ \mathcal{ C }_{ \bullet } } ( X , Y ) \coloneqq N ( \underline{ \Hom }_{ \mathcal{ C } } ( X  ,Y ) ) \in \SetD $ with the induced composition law, associativity and unitality since $ \mathcal{ C } $ is strict.
+	\end{enumerate}
+\end{exmp}
+
+\begin{rmk}
+	There is an adjunction
+	\[
+	\begin{tikzcd}[row sep=0.1cm]
+		\mathcal{ C }_0
+		&
+		\mathcal{ C }_\bullet
+		\ar[l, mapsto]
+		\\
+		\Cat 
+		\ar[r, hook, "\adj"]
+		&
+		\SetD-\Cat
+		\\
+		\mathcal{ C } 
+		\ar[r, mapsto]
+		&
+		\underline{\mathcal{ C } }_\bullet
+	\end{tikzcd}
+	\]
+\end{rmk}
+
+\begin{defi}
+	Let $ \mathcal{ C } , \mathcal{ D } \in \SetDcat $. A \textbf{simplicial functor} $ F \colon \mathcal{ C }_\bullet \mathcal{ D }_\bullet $ consists of 
+	\begin{itemize}
+		\item 	
+		a map $ F \colon \Ob( \mathcal{ C }_\bullet ) \to \Ob ( \mathcal{ D }_\bullet ) , X \mapsto FX = F ( X ) $
+		
+		\item 
+		$ \forall X , Y \in \Ob( \mathcal{ C }_\bullet ), F_{ X , Y } \colon \underline{ \Hom }_{ \mathcal{ C }_\bullet} ( X , Y ) \to \underline{ \Hom }_{ \mathcal{ D }_\bullet} ( FX , FY ) $ in $ \SetD $.
+	\end{itemize}
+ 	such that for all $ X \in \Ob ( \mathcal{ C } ), F ( \id_X ) = \id_{ FX } \in \underline{ \Hom }_{ \mathcal{ D }_\bullet } ( F X , F X )_0 $ and such that it is strictly compatible with the composition law.
+\end{defi}
+
+\begin{defi}
+	Let $ \mathcal{ C }_\bullet \in \SetDcat $ and $ f ,g \in \underline{ \Hom }_{ \mathcal{ C }_\bullet} ( X , Y )_0 \in \Set $.
+	A homotopy $ h \colon f \Rightarrow g $ is an element $ h \in \twoHom_{\mathcal{ C }_\bullet} ( X , Y )_1 $ such that $ d_1^* ( h ) = f , d_0^* ( h ) = g $.
+\end{defi}
+
+\begin{Warning}
+	Homotopy is not an equivalence relation in general, but it is such for \underline{locally Kan} simplicial categories.
+\end{Warning}
+
+\begin{exmp}
+	Let $ X , Y \in \Top_\bullet , f ,g \in \twoHom_{ \Top_\bullet } ( X , Y )_0 = \Hom_{ \Top } ( \lvert \Delta^0 \rvert \times X , Y ) \cong \Hom_{ \Top } ( X , Y ) $ then
+	\begin{align*}
+		h \in \twoHom_{ \Top_\bullet } ( X , Y )_1 
+		&=
+		\Hom_{ \Top } ( \lvert \Delta^1 \rvert \times X , Y )
+	\end{align*}
+	then a homotopy between $ f $ and $ g $ is a homotopy in the classical sense of continuous maps of topological spaces.
+	Similarly in the case of $ ( \SetD )_\bullet $.
+\end{exmp}
+
+\begin{rmk}
+	We can also consider $ \Topcat $, that is categories enriched in the category of topological spaces.
+	Let $ \mathcal{ C } \in \Topcat $ then $ \mathcal{ C }_\bullet \in \SetDcat $ with the same objects as $ \twoHom_{ \Top_\bullet } ( X , Y ) \coloneqq \Sing ( \Hom_{ \mathcal{ C } } ( X , Y ) ) \in \SetD $. 
+\end{rmk}
+\end{comment}
+
+Lecture 17.06
+
+Let $\mathcal{ C }_\bullet $ be a simplicial category $ \mathcal{ C }_\bullet \in \SetDcat $.
+
+\begin{defi}
+	The homotopy coherent nerve $ \Nhc ( \mathcal{ C }_{ \bullet } ) \in \SetD $ has $ n $-simplices $ \Nhc ( \mathcal{ C }_{ \bullet } )_n = \{ \text{ simplicial functors } \Path \left[ n  \right]_{ \bullet } \mapsto \mathcal{ C } \} $.
+	where more generally, given a poset $ ( Q , S ) $ we let $ \Path [ Q ]_{ \bullet } $ be the simplicial category associated to the strict 2-category (i.e. the Duskin nerve of the 2-category) $ \Path_{ ( 2 ) } \left[ Q \right] $.
+\end{defi} 
+
+\begin{thm}{Gordier-Porter}
+	Let $ \mathcal{ C }_\bullet \in \SetDcat $ be locally Kan then $ \Nhc ( \mathcal{ C } )_\bullet \in \Set_\Delta $ is an $ \infty $-category.
+\end{thm}
+
+Question: \underline{What do we want to achieve?}
+We want to have access to $ \infty $-categorical generalisations of "all statements and constructions in 1-category theory."
+
+\begin{enumerate}
+	\item 
+	Let $ \mathcal{ C } \in \SetD $ be an infinity category. What is $ \Map_{ \mathcal{ C } } ( - , - ) \colon \mathcal{ C }^{ \op } \times \mathcal{ C } \to \Gpd_{ \infty } $ (the functorial mapping $ \infty $-groupoid/space) ?
+	
+	\item 
+	What is $ \Gpd_\infty $ ?
+	Let $ X , Y \in \SetD $ be Kan complexes, then $ \Fun ( X , Y ) \coloneqq \twoHom_{ \SetD } ( X , Y ) \in \SetD $ is a Kan complex.
+	We want to make sense of the correspondence $ \Gpd_\infty \leftrightarrow ( \text{Kan complexes} ) [ heq^{ - 1 } / weq^{ - 1 } ]_\infty.$
+	
+	\item 
+	What is the $ \infty $-categorical localisation procedure?
+	(e.g. $\Ch ( \Mod_R ) [ qiso^{ -1 } ]_\infty ) \eqqcolon  \mathcal{ D } ( ( \Mod_R )_\infty ) $.
+	
+	\item 
+	Suppose you have solved 1), then we obtain a functor $ \mathcal{ Y } \colon \mathcal{ C } \to \Fun ( \mathcal{ C }^{ \op } , \Gpd_{ \infty } ) $ that is some Yoneda embedding.
+	
+	\item 
+	We need notions of limit and colimit in an $ \infty $-category.
+	
+	\item 
+	We need the notion of a final object and of an $\infty$-category of cones over a diagram $ X \in \mathcal{ C }_0 $ is trivial if $ \Map_\mathcal{ C } ( \forall Y , X ) \isomorphism \star = \Delta^0.$
+	
+	\item 
+	What are presheaves of $ \infty $-groupoids?
+	In order to avoid defining $ \Gpd_\infty$. we need an $ \infty $-categorical variant of the notion of a 1-category fibered in groupoids.
+	For example the right fibrations are given as $ \RFib ( \mathcal{ C } )_{ \infty } \isomorphism \Fun ( \mathcal{ C }^{ \op } , \Gpd_{ \infty } ) $. 
+	One can think of this as follows, given a functor $ X \colon \mathcal{ C }^{ \op } \to \Gpd_{ \infty } $ there exists the pullback square
+	\[
+	\begin{tikzcd}
+		X_c 
+		\ar[d]
+		\ar[r]
+		&
+		\int^\mathcal{ C } X
+		\ar[d]
+		\\
+		\star
+		\ar[r, "c"]
+		&
+		\mathcal{ C }
+	\end{tikzcd}
+	\]
+\end{enumerate}
+

@@ -1,60 +1,61 @@
 \section{Functors in 2-category theory}
 
+The reference for this section is \cite[2.2.4-2.2.8]{kerodon}.
+
 \begin{defi}
-	Let $ \mathcal{ C } , \mathcal{ D } $ be 2-categories:
-	A \underline{lax 2-functor} $ F \colon \mathcal{ C } \to \mathcal{ D } $ consists of the following data:
+\label{lax_functor_defi}
+	Let $ \mathcal{ C } , \mathcal{ D } $ be 2-categories.
+	A \textbf{lax 2-functor} $ F \colon \mathcal{ C } \to \mathcal{ D } $ consists of the following data:
 	\begin{itemize}
 		\item 
-		A map $ F \colon \Ob ( \mathcal{ C } ) \to \Ob ( \mathcal{ D } ) $ where $ X \mapsto F ( X ) $.
+		A map $ F \colon \Ob ( \mathcal{ C } ) \to \Ob ( \mathcal{ D } ) $ where $ X \mapsto F ( X ) $,
 		
 		\item 
-		For all $  X , Y \in \Ob ( \mathcal{ C } ) F = F_{ X , Y } \colon \underline{\Hom}_{ \mathcal{ C } } ( X , Y ) \to \underline{\Hom}_{ \mathcal{ D } } ( FX , FY ) $ a functor.
+		for all $  X , Y \in \Ob ( \mathcal{ C } ) $ a functor $ F = F_{ X , Y } \colon \underline{ \Hom }_{ \mathcal{ C } } ( X , Y ) \to \underline{ \Hom }_{ \mathcal{ D } } ( F X , F Y ) $,
 		
 		\item 
-		For all $ X , Y , Z \in \Ob( \mathcal{ C } ), \epsilon_X \colon \id_{ FX } \Rightarrow F ( \id_X ) $ in $ \underline{\Hom}_{ \mathcal{ C } } ( X , X ) \xRightarrow{ F} \underline{ \Hom }_{ \mathcal{ D } } ( F X , FX )$.
+		for all $ X , Y , Z \in \Ob( \mathcal{ C } ) $ a morphism $ \epsilon_X \colon \id_{ F X } \Rightarrow F ( \id_X ) $ in $ \underline{ \Hom }_{ \mathcal{ D } } ( F X , F X ) $ called \textbf{unit constraint},
 		
 		\item 
-		For all $ X , Y , Z \in \Ob ( \mathcal{ C } ) $ the composition constraint
+		for all $ X , Y , Z \in \Ob ( \mathcal{ C } ) $ a commutative diagram
 		\[
 		\begin{tikzcd}
-			\underline{\Hom}_{\mathcal{ C } } ( Y , Z ) \times 
+			\underline{ \Hom }_{ \mathcal{ C } } ( Y , Z ) \times 
 			\underline{ \Hom }_{ \mathcal{ C } } ( X , Y )
 			\ar[r, " - \circ - " ]
 			\ar[r, shift right=2em, Rightarrow, " \mu "]
-			\ar[d, " F_{Y,Z} \times F_{X , Y} "]
+			\ar[d, " F_{ Y , Z } \times F_{ X , Y } "]
 			&
 			\Hom_{ \mathcal{ C } } ( X , Z )
-			\ar[d, " F_{X,Z}"]
+			\ar[d, " F_{ X , Z }"]
 			\\
-			\underline{\Hom}_{\mathcal{ D } }( F Y , F Z ) \times 
+			\underline{ \Hom }_{\mathcal{ D } }( F Y , F Z ) \times 
 			\Hom_{ \mathcal{ D } } ( F X , F Y )
 			\ar[r, " - \circ - "]
 			&
-			\underline{\Hom}_{ \mathcal{ D } } ( F X , F Z )
+			\underline{ \Hom }_{ \mathcal{ D } } ( F X , F Z )
 		\end{tikzcd}
 		\] 
-		where $ \mu_{ g , f } \colon F ( g ) \circ F ( f ) \Rightarrow F ( g \circ f ) $.
+		where $ \mu_{ g , f } \colon F ( g ) \circ F ( f ) \Rightarrow F ( g \circ f ) $ is called the \textbf{composition constraint}.
 		The above data is required to satisfy the following:
 		\begin{enumerate}[label=(\alph*)]
 			\item 
-				For all $ X \to Y $ 1-morphisms in $ \mathcal{ C } $ and 
+				For all $ f \colon X \to Y $ 1-morphisms in $ \mathcal{ C } $ the following diagrams commute
 				\[
 				\begin{tikzcd}
 					F ( \id_Y ) \circ F ( f ) 
 					\ar[r, Rightarrow, "\mu"]
 					&
 					F ( \id_Y \circ f ) 
-					\ar[d, Rightarrow, " F ( \lambda^e_f)"]
+					\ar[d, Rightarrow, " F ( \lambda_f )"]
 					\\
 					\id_{FY} \circ Ff
 					\ar[u, Rightarrow, "\epsilon_Y * \id_{ F ( f ) }" ]
-					\ar[r , Rightarrow , "\lambda_{F ( f ) }"]
+					\ar[r , Rightarrow , "\lambda_{ F ( f ) }"]
 					&
 					F ( f ) 
 				\end{tikzcd}	
-				\]
-				in $ \underline{\Hom}( FX, FY ).$
-				\[
+				\quad
 				\begin{tikzcd}
 					F ( f ) \circ F ( \id_X ) 
 					\ar[r, Rightarrow, "\mu"]
@@ -62,17 +63,17 @@
 					F ( f \circ \id_X ) 
 					\ar[d, Rightarrow, " F ( \rho _f )"]
 					\\
-					\id_{FY} \circ Ff
+					\id_{ F Y } \circ Ff
 					\ar[u, Rightarrow, " \id_{ F ( f ) } * \epsilon_X " ]
 					\ar[r , Rightarrow , "\rho_{ F ( f ) }"]
 					&
 					F ( f ) 
 				\end{tikzcd}	
 				\]
-				in $\underline{\Hom} ( FX , FY )$.
+				in $\underline{\Hom} ( FX , FY ) $,
 				
 				\item 
-				For all $ W , X , Y , Z \in \Ob ( \mathcal{ C } )$ and for all $ W \xrightarrow{ f } X \xrightarrow{ g } Y \xrightarrow{ h } Z$ 1-morphisms in $\mathcal{ C }$
+				and for all $ W , X , Y , Z \in \Ob ( \mathcal{ C } ) $ and for all $ W \xrightarrow{ f } X \xrightarrow{ g } Y \xrightarrow{ h } Z $ 1-morphisms in $ \mathcal{ C } $ the following diagram commutes: 
 				\[
 				\begin{tikzcd}
 					F ( h ) \circ ( F ( g ) \circ F ( f ) )
@@ -89,24 +90,26 @@
 					\ar[d, Rightarrow, "\mu"]
 					\\
 					F ( h \circ ( g \circ f ) )
-					\ar[r, Rightarrow, " F ( \alpha^e ) "]
+					\ar[r, Rightarrow, " F ( \alpha^{ \mathcal{ C } } ) "]
 					&
 					F ( ( h \circ g ) \circ f )
 				\end{tikzcd}
 				\]
-				in $ \underline{ \Hom }_{ \mathcal{ D } } ( FW , FZ )$.
+				in $ \underline{ \Hom }_{ \mathcal{ D } } ( F W , F Z )$.
  		\end{enumerate}
 	\end{itemize}
 \end{defi}
 
 \begin{defi}
-	A 2-functor $ F \colon \mathcal{ C } \to \mathcal{ D }$ is a lax 2-functor such that for all $ X \in \Ob ( \mathcal{ C } )$ 
-	the morphism $ \epsilon_X \colon \id_{FX} \xRightarrow{\sim} F ( \id_X )$ is invertible, that is $ \forall X , Y \in \Ob (\mathcal{C}), \forall X \xrightarrow{ f } Y \xrightarrow{ g } Z $ the morphism $ \mu_{ g , f } \colon F ( g ) \circ F ( f )
-	\xRightarrow{\sim} F ( g \circ f )$ is invertible.
+\label{twofunctor_defi}
+	A \textbf{2-functor} $ F \colon \mathcal{ C } \to \mathcal{ D } $ is a lax 2-functor such that for all $ X \in \Ob ( \mathcal{ C } ) $ 
+	the morphism $ \epsilon_X \colon \id_{ F X } \xRightarrow{\sim} F ( \id_X )$ is invertible and such that $ \forall X , Y \in \Ob (\mathcal{ C } ), \forall X \xrightarrow{ f } Y \xrightarrow{ g } Z $ the morphism $ \mu_{ g , f } \colon F ( g ) \circ F ( f )
+	\xRightarrow{ \sim } F ( g \circ f ) $ is invertible.
 \end{defi}
 
 \begin{defi}
-	A \underline{strict 2-functor} is a 2-functor, such that $ \forall X \in \Ob ( \mathcal { C } )$ the following hold $ \epsilon_X = \id \colon \id_{ FX } \Rightarrow F ( \id_X ), \forall X , Y , Z \in \Ob ( \mathcal{ C } )$ and $ \forall X \xrightarrow{ f } Y \xrightarrow{ g } Z$ and $ \mu_{ g , f } = \id = F ( g ) \circ F ( f ) \Rightarrow F ( g \circ f )$.
+\label{strict_twofunctor_defi}
+	A \textbf{strict 2-functor} is a 2-functor, such that for all $ X \in \Ob ( \mathcal { C } )$ the following hold $ \epsilon_X = \id \colon \id_{ FX } \Rightarrow F ( \id_X ), \forall X , Y , Z \in \Ob ( \mathcal{ C } )$ and for all composable morphisms $ X \xrightarrow{ f } Y \xrightarrow{ g } Z $ and $ \mu_{ g , f } = \id = F ( g ) \circ F ( f ) \Rightarrow F ( g \circ f ) $.
 \end{defi}
 
 \begin{exmp}
@@ -114,14 +117,14 @@
 \end{exmp}
 
 \begin{exmp}
-	Let $ S $ be a set and $ \mathcal{ E }_S$ be a category with $ \Ob ( \mathcal{ E }_S ) = S $, for all $ x , y \in S, \underline{ \Hom }_{ \mathcal{ E }_S } ( x , y ) \coloneqq \{ *
-	\}$.
+	Let $ S $ be a set and $ \mathcal{ E }_S $ be a category with $ \Ob ( \mathcal{ E }_S ) = S $ and for all $ x , y \in S, \underline{ \Hom }_{ \mathcal{ E }_S } ( x , y ) \coloneqq \{ *
+	\} $.
 	\begin{itemize}
 		\item 	
-		Fix $ \mathcal{ M } $ a monoidal category and let $ B \mathcal{ M } $ be its delooping and $ \underline{ C } \colon \mathcal{ E }_S \to B \mathcal{ M }$ a lax monoidal functor.
+		Fix $ \mathcal{ M } $ a monoidal category and let $ B \mathcal{ M } $ be its delooping and $ \underline{ \mathcal{ C } } \colon \mathcal{ E }_S \to B \mathcal{ M }$ a lax monoidal functor.
 		
 		\item 
-		Fix a map $ \underline{ C } \colon \Ob ( \mathcal{ E }_S )= S \to \Ob ( B \mathcal{ M } ) = \{ * \}$.
+		Fix a map $ \underline{ \mathcal{ C } } \colon \Ob ( \mathcal{ E }_S )= S \to \Ob ( B \mathcal{ M } ) = \{ * \}$.
 		
 		\item 
 		For all $ X , Y \in \Ob ( \mathcal{ E }_S ) = S $ a functor: 
@@ -169,27 +172,27 @@
 			\Hom_{B\mathcal{ M } } ( * , * )
 		\end{tikzcd}
 		\]
-		where $ \mu \colon \underline{\mathcal{ C }}( Y , Z ) \otimes \underline{ \mathcal{ C } } ( X , Y ) \to \mathcal{ C } ( X , Z )$.
+		where $ \mu \colon \underline{\mathcal{ C }}( Y , Z ) \otimes \underline{ \mathcal{ C } } ( X , Y ) \to \underline{ \mathcal{ C } ( X , Z ) }$.
 		The above data should satisfy the following:
 		$ \forall X , Y \in \Ob ( \mathcal{ E }_S ) = S $.
 		\[
 		\begin{tikzcd}
-			\underline{\mathcal{ C } } ( X , Y ) \otimes \underline{\mathcal{ C } } ( X , Y ) 
+			\underline{ \mathcal{ C } } ( X , Y ) \otimes \underline{ \mathcal{ C } } ( X , Y ) 
 			\ar[r, "\mu"]
 			&
-			\mathcal{ C } ( X , Y )
+			\underline{ \mathcal{ C } } ( X , Y )
 			\ar[d, " \id "]
 			\\
 			\mathds{ 1 }_{ \mathcal{ M } } \otimes \underline{ \mathcal{ C } } ( X , Y )
-			\ar[r, " \lambda^m_{ \underline{\mathcal{ C }} ( X , Y )} "]
+			\ar[r, " \lambda_{ \underline{\mathcal{ C }} ( X , Y )} "]
 			\ar[u, " \mathcal{ E }_Y \otimes \id"]
 			&
-			\mathcal{C} ( X , Y )
+			\underline{ \mathcal{C} }( X , Y )
 		\end{tikzcd}
 		\]
 		
 		\item 
-		Let $\mathcal{ M } = \Set$
+		Let $ \mathcal{ M } = \Set $
 		\[
 		\begin{tikzcd}
 			( \id_X , f )
@@ -208,7 +211,7 @@
 		similarly for the right constraint.
 		
 		\item 
-		For all $ W , X , Y , Z \in \Ob ( \mathcal{E }_S ) $
+		For all $ W , X , Y , Z \in \Ob ( \mathcal{E }_S ) $ the following diagram commutes:
 		\[
 		\begin{tikzcd}
 			\underline{\mathcal{ C } } ( Y , Z ) \otimes  ( \underline{\mathcal{ C } } ( X , Z ) \otimes \underline{\mathcal{ C } } ( W , X ) )
@@ -226,7 +229,7 @@
 			\underline{\mathcal{ C } } ( w , Z )
 			\ar[d]
 			\\
-			\mathcal{ C } ( W , Z )
+			\underline{ \mathcal{ C } } ( W , Z )
 			\ar[r, " \underline{\mathcal{ C}} ( \alpha ) = \id "]
 			&
 			\underline{\mathcal{ C } } ( W , Z )
@@ -236,7 +239,7 @@
 \end{exmp}
 
 \begin{rmk}
-	Dg-categories are Lax 2-functors
+	Dg-categories are Lax 2-functors.
 \end{rmk}	
 
 \begin{Exercise}
@@ -247,13 +250,13 @@
 	A $ F \colon \mathcal{ C } \to \mathcal{ D } $ lax functor between 2-categories is 
 	\begin{itemize}
 		\item 
-		\underline{ unitary } if $  \forall X \in \mathcal{ C } \epsilon_X $ is an isomorphism,
+		\textbf{unitary} if $  \forall X \in \mathcal{ C } , \epsilon_X $ is an isomorphism,
 		
 		\item 
-		\underline{ strictly unitary } $ \forall X \in \mathcal{ C } , \epsilon_X = \id_X $,
+		\textbf{strictly unitary} $ \forall X \in \mathcal{ C } , \epsilon_X = \id_X $,
 		
 		\item 
-		copmosition of lax functors
+		composition of lax functors
 		\[
 			\mathcal{ C } \xrightarrow{ F } 
 			\mathcal{ D } \xrightarrow{ G } 
@@ -266,38 +269,39 @@
 			on objects $( G \circ F ) ( X ) = G ( F ( X ) )$,
 			
 			\item 
+			on morphisms the composition is given by the dashed arrow,
 			\[
 			\begin{tikzcd}
-				\underline{ \Hom }_{ \mathcal{ E } } ( X , Y )
-				\ar[r, dashed, "GF_{XY} "]
+				\underline{ \Hom }_{ \mathcal{ C } } ( X , Y )
+				\ar[r, dashed, "GF_{ X , Y } "]
 				\ar[d, " F "]
 				&
-				\underline{ \Hom }_{ \mathcal{ D } } ( GFX , GFY )
+				\underline{ \Hom }_{ \mathcal{ E } } ( ( G F ) X , ( G F ) Y )
 				\ar[d, equal]
 				\\
-				\underline{ \Hom }_{ \mathcal{ D } } ( FX , FY )
-				\ar[r, "G_{ FX , FY }"]
+				\underline{ \Hom }_{ \mathcal{ D } } ( F X , F Y )
+				\ar[r, "G_{ F X , F Y }"]
 				&
-				\underline{\Hom}_{\mathcal{ E } } ( GFX , GFY )   
+				\underline{\Hom}_{\mathcal{ E } } ( G ( F X ), G ( F Y ) )   
 			\end{tikzcd}
 			\]
 			
 			\item 
-			identity constraints
+			identity constraints are given as,
 			\[
 			\begin{tikzcd}
-				&G ( \id_{ FX } )
+				&G ( \id_{ F X } )
 				\ar[rd, Rightarrow, " G ( \epsilon_X^F) "]
 				\\
-				\id_{GFX}
-				\ar[ru, Rightarrow, " \epsilon_{FX}^G"]
-				\ar[rr, Rightarrow, equal, " \epsilon_X^{GF}"']
+				\id_{ G F X }
+				\ar[ru, Rightarrow, " \epsilon_{ F X }^G"]
+				\ar[rr, Rightarrow, equal, " \epsilon_X^{ G F }"']
 				&&
 				GF ( id_X )
 			\end{tikzcd}
 			\quad 
 			\begin{tikzcd}		
-				\id_{FX}
+				\id_{ F X }
 				\ar[d, Rightarrow, "\epsilon_X^F"]
 				\\
 				F ( \id_X ) 
@@ -306,7 +310,7 @@
 			
 			\item 
 			$ \forall X \xrightarrow{ f } Y \xrightarrow{ g } Z$ 
-			1-morphisms in $ \mathcal{ C }$
+			1-morphisms in $ \mathcal{ C }$ the bottom arrow in the following diagram gives the composition constraint:
 			\[
 			\begin{tikzcd}
 				&
@@ -314,8 +318,8 @@
 				\ar[rd, Rightarrow, " G ( \mu_{ g , f }^F) "]
 				\\
 				GF ( g ) \circ GF ( f ) 
-				\ar[ru, Rightarrow, " \epsilon_{FX}^G"]
-				\ar[rr, Rightarrow, equal, " \mu_{ g , f }^{ G F}"']
+				\ar[ru, Rightarrow, " \mu_{ F g , F f }^G"]
+				\ar[rr, Rightarrow, equal, " \mu_{ g , f }^{ G F }"']
 				&&
 				GF ( g \circ f )
 			\end{tikzcd}

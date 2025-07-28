@@ -1,5 +1,7 @@
 \section{Nerves of differential graded categories}
 
+The reference for this section is \cite[ch. 2.5]{kerodon}.
+
 Let us begin with a reminder on cochain complexes.
 Let $ k $ be a commutative ring and let $ \Mod_k $ be the category of (right) $ k $-modules
 and $ \Ch ( \Mod_k ) $ the category of cochain complexes of $ k $-modules, so objects are given by
@@ -45,6 +47,7 @@ There is a preferred symmetry constraint
 which is called the Koszul sign rule.
 
 \begin{defi}
+\label{dg_category}
 	A \textbf{differential graded category} $ \mathcal{ A } $ is a category enriched in the monoidal category $ \Ch ( \Mod_k ) $.
 	That is:
 	\begin{itemize}
@@ -75,7 +78,7 @@ which is called the Koszul sign rule.
 		$ \lvert g \circ f \rvert = i + j $ since $ \lvert g \otimes f \rvert = i + j $,
 		
 		\item 
-		$ d_{ \mathcal{ A } } ( g \circ f ) = d_{ \mathcal{ A } } ( g ) \circ f + ( - 1 )^j g d_{ \mathcal{A} } ( f ), \lvert g \rvert = j $ (Graded Leibniz rule).
+		$ d_{ \mathcal{ A } } ( g \circ f ) = d_{ \mathcal{ A } } ( g ) \circ f + ( - 1 )^j g \circ d_{ \mathcal{A} } ( f ), \lvert g \rvert = j $ (Graded Leibniz rule).
 	\end{itemize}
 	This composition law must be associative and unital in the usual sense.
 \end{rmk}
@@ -87,7 +90,7 @@ which is called the Koszul sign rule.
 		The objects are given by complexes of $ k $-modules.
 		
 		\item 
-		For $ X^\bullet , Y^\bullet \in \Ch ( \Mod_k )_{ \dg } $ a complex $ \Hom_k ( X^\bullet , Y^\bullet ) \in \Ch ( \Mod_k )_{ \dg }.$
+		For $ X^\bullet , Y^\bullet \in \Ch ( \Mod_k )_{ \dg } $ a complex $ \Hom_k ( X^\bullet , Y^\bullet ) \in \Ch ( \Mod_k ) .$
 		
 		\item 
 		Let $ \Hom_k ( X^\bullet , Y^\bullet )^j \coloneqq \prod_{ i \in \mathbb{ Z } } \Hom_k ( X^i , Y^{ i + j } ) $ be the degree $ j $ maps of graded $ k $-modules endowed with the following differential

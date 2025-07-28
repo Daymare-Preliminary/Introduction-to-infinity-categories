@@ -1,0 +1,37 @@
+\section{The Joyal Model structure}
+Lecture 26.6.2025
+
+
+\begin{defi}
+	\cite[Thm 3.6.8]{Cisinski_2019}
+	A morphism $ f \colon X \to Y $ in $ \SetD $ is a weak category equivalence if for all $ \infty $-categories $ \mathcal{ C } \in \SetD $,
+	\[
+		f^* \colon \tau \twoHom ( Y , \mathcal{ C } )
+		\isomorphism 
+		\tau \twoHom ( X , \mathcal{ C } )
+	\]
+	is an equivalence of categories.
+\end{defi}
+
+\begin{thm}
+	There is a model category structure on $ \SetD $ given as $ ( \SetD , \Wcateq, \Mono , \JoyalFib ) $ is a model category,
+	where $ \JoyalFib = ( \Mono \cap \Wcateq )^{ \lift{} }$.
+	Moreover $ \mathcal{ C } \in \SetD $ is fibrant if and only if $ \mathcal{ C } $ is an $ \infty $-category.
+\end{thm}
+
+\begin{defi}
+	The inner Kan fibrations are given as $ \InnKanFib \coloneqq \{ \Lambda_k^n \hookrightarrow \Delta^n \mid n \geq 2 , 0 < k < n \}^{ \lift{ } } $, the inner anodyne extensions are given as $ \InnAn \coloneqq \prescript{ \lift { } }{}{ ( \InnKanFib ) } = \prescript{ \lift{ } }{}{ ( \{ \Lambda_k^n \hookrightarrow \Delta^n \mid n \geq 2 , 0 < k < n \} )^{ \lift{} } } $.
+	Furthermore we will use $ \InnKanFib $ and $ \InnFib $ interchangeably.
+\end{defi}
+
+\begin{Warning}
+	It holds that $ \InnAn \subset \Mono \cap \Wcateq $ there exists a counterexample for the converse inclusion by Alexander Campbell, as well as $ \JoyalFib \subseteq \InnFib $.
+\end{Warning}
+
+We are going to use this model structure to obtain 
+\begin{align*}
+	\Set_\Delta [ \Wcateq^{ - 1 } ] &\simeq \infty-categories / homotopy equivalences
+	\\
+	\Set_\Delta [ \Wcateq^{ - 1 } ]_\infty &\simeq \infty-category of small infinity categories
+\end{align*}
+

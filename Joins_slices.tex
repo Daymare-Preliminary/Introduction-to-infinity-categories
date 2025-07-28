@@ -1,0 +1,694 @@
+3.7.2025
+
+\section{Joins \& slices of $\infty$-categories}
+
+The reference for this section is \cite[3.4]{Cisinski_2019}.
+
+Let $ F \colon A \to \mathcal{ C } $ be a functor of 1-categories.
+
+\underline{Recall}:
+\newline
+A limit of $ F $ is a final object in $ \mathcal{ C } / F $ the 1-category of cones over $ F $.
+\newline
+\underline{Aim}:
+\newline
+Extend the above to $ \infty $-categories.
+\newline
+Today:
+The $ \infty $-categorical analogue of $ \mathcal{ C } / F $.
+Let us begin by understanding $ \mathcal{ C } / X , X \in \mathcal{ C } $
+\begin{itemize}
+	\item 
+	$ \Ob ( \mathcal{ C } / F ) $ is given by tuples $ ( C \in \mathcal{ C } , f \colon C \to X ) $,
+	
+	\item 
+	Let $ ( C' , f' ) $ be another tuple, then a morphism is given by a morphism $ g \colon C \to C' )$ such that $ f = f' \circ g $.
+\end{itemize}
+
+So what does $ \Hom_{ \Cat } ( - , \mathcal{ C } / X ) = ? $ look like ? 
+Let $ F \colon \mathcal{ D } \to \mathcal{ C } / X $ be a functor.
+So for any morphism $ \varphi \colon d \to d' $ we obtain a commutative square
+\[
+\begin{tikzcd}
+	d \in \mathcal{ D }
+	\ar[r, mapsto]
+	\ar[d, "\varphi"]
+	& 
+	F ( d ) = ( F ( d ) 
+	\ar[d, "F ( \varphi )"' , shift right=5]
+	\ar[d, "F ( \varphi )" , shift left=5]
+	\ar[r, "f_d"]
+	&
+	X )
+	\ar[d, equal]
+	\\
+	d' \in \mathcal{ D } 
+	\ar[r , mapsto ]
+	&
+	F ( d' ) = ( F ( d' ) 
+	\ar[r , " f_{ d' } "] 
+	&
+	X )
+\end{tikzcd}
+\]
+
+Consider now the category $ \mathcal{ D } * \mathds{ 1 } $ called the join where $ \mathds{ 1 } = \{ \infty \} $.
+\begin{enumerate}
+	\item 
+	Let $ \Ob ( \mathcal{ D } * \mathds{ 1 } ) = \Ob ( \mathcal{ D } ) \coprod \Ob ( \mathds{ 1 } ) = \Ob ( \mathcal{ D } ) \coprod \{ \infty \},$
+	
+	\item 
+	the morphisms are given as 
+	\begin{align*}
+		\Hom_{ \mathcal{ D } * \mathds{ 1 } } ( d , d' ) 
+		&=
+		\Hom_{ \mathcal{ D } } ( d , d' )
+		\\
+		\Hom_{ \mathcal{ D } * \mathds{ 1 } } ( d , \infty )
+		&=
+		\{ u_{ \infty ,d } \colon d \to \infty \}
+		\\
+		\Hom_{ \mathcal{ D } * \mathds{ 1 } } ( \infty , d' )
+		&=
+		\emptyset
+		\\
+		\Hom_{ \mathcal{ D } * \mathds{ 1 } } ( \infty , \infty )
+		&=
+		\{ \id_\infty \}.
+	\end{align*}
+\end{enumerate}
+
+From this we obtain the following commutative diagram
+\[
+\begin{tikzcd}
+	\mathcal{ D } * \mathds{ 1 }
+	\ar[rr, " \overline{F} "]
+	&&
+	\mathcal{ C }
+	\\
+	&
+	\mathds{1}
+	\ar[ru, "X"]
+	\ar[lu, "\can"]
+\end{tikzcd}
+\]
+where $ \overline{ F } ( d ) = \pi_\mathcal{C} \circ F ( d ) $ and $ \overline{ F } ( \infty ) = X $. 
+From this we obtain
+\[
+\begin{tikzcd}
+	d
+	\ar[dd, "\varphi"']
+	\ar[rd, "u_{ \infty , \overline{f} }"]
+	\\
+	&
+	\infty
+	\\
+	d'
+	\ar[ru, "u_{ d', \infty }"']
+\end{tikzcd}
+\xrightarrow{ \overline{ F } }
+\begin{tikzcd}
+	\overline{F} ( d )
+	\ar[dd, " F ( \varphi ) "']
+	\ar[rd, " f_d "]
+	\\
+	&
+	\overline{ F } ( \infty ) = X 
+	\\
+	\overline{ F } ( d' )
+	\ar[ru, " f_{ d' } "']
+\end{tikzcd}
+\]
+
+Furthermore there is an adjunction isomorphism
+
+\begin{align*}
+	\Hom_{ \Cat } ( \mathcal{ D } , \mathcal{ C } / X )
+	&\isomorphism
+	\Hom_{ \Cat_{ \mathds{ 1 } / } } ( \mathds{ 1 } \xrightarrow{ \can } \mathcal{ D } * \mathds{ 1 } , \mathds{ 1 } \xrightarrow{ X } \mathcal{ C } )
+	\\
+	F
+	&\mapsto
+	\begin{tikzcd}[ampersand replacement=\&]
+		\mathcal{ D } * \mathds{ 1 }
+		\ar[rr, " \overline{F} "]
+		\&\&
+		\mathcal{ C }
+		\\
+		\&
+		\mathds{1}
+		\ar[ru, "X"']
+		\ar[lu, "\can"]
+	\end{tikzcd}
+\end{align*}
+
+written compactly
+\[
+\begin{tikzcd}
+	-* \mathds{1} \colon \Cat 
+	\ar[r, shift left]
+	&
+	\Cat_{ \mathds{1}/ } \colon R 
+	\ar[l, shift left, "\adj"]
+\end{tikzcd}
+\]
+where $ R ( \mathds{ 1 } ) \xrightarrow{ X } \mathcal{ C } ) \coloneqq \mathcal{ C } / X $.
+
+\underline{More generally}: 
+Consider $ \mathcal{ D } * \mathcal{ A } $ the category with 
+\begin{itemize}
+	\item 
+	$ \Ob ( \mathcal{ D } * \mathcal{ A } ) = \Ob ( \mathcal{ D } ) \coprod \Ob ( \mathcal{ A } )$
+	
+	\item 
+	morphisms 
+	\[
+		\Hom_{ \mathcal{ D } * \mathcal{ A } } ( x , y ) 
+		\coloneqq
+		\begin{cases}
+			\Hom_{ \mathcal{ D } } ( x , y ) & x , y \in \mathcal{ D } 
+			\\
+			\Hom_{ \mathcal{ A } } ( x , y ) & x , y \in \mathcal{ A } 
+			\\
+			\{ u_{ y , x } \} & x \in \mathcal{ D } , y \in \mathcal{ A }
+			\\
+			\emptyset & x \in \mathcal{ A } , y \in \mathcal{ D }
+		\end{cases}
+	\]
+\end{itemize}
+
+Consider now a functor $ \phi \colon \mathcal{ D } \to \mathcal{ C } / F $ where $ F \colon \mathcal{ A } \to \mathcal{ C } $.
+Then we have:
+\[
+\begin{tikzcd}
+	d \in \mathcal{ D } 
+	\ar[r, mapsto , "\phi"]
+	\ar[d, "\varphi"]
+	&
+	\phi ( d )
+	= ( \overline{ \phi } ( d ) 
+	\ar[d," \phi ( \varphi ) "',shift right = 4]
+	\ar[d, "\overline{ \phi } ( \varphi ) ", shift left = 4]
+	\ar[r, "f_{ a , d }" ]
+	& 
+	F ( a ) )_{ a \in \mathcal{ A } }
+	\ar[d, equal]
+	\\
+	d' \in \mathcal{ D } 
+	\ar[r, mapsto]
+	&
+	\phi ( d' ) = ( \overline{ \phi } ( d' ) )
+	\ar[r, " f_{ a , d' } "]
+	&
+	F ( a ) )_{ a in \mathcal{ A } }
+\end{tikzcd}
+\]
+Analogously to the previous case we obtain a commutative triangle
+\[
+\begin{tikzcd}
+	\mathcal{ D } * \mathcal{ A } 
+	\ar[rr, " \overline{ \phi } "]
+	&&
+	\mathcal{ C }
+	\\
+	&
+	\mathcal{ A }
+	\ar[ru," F "']
+	\ar[lu, "\can_{ \mathcal{ A } }" ]
+\end{tikzcd}
+\]
+where $ \overline{ \phi } ( d ) = \pi_{ \mathcal{ C } } \circ \phi ( d ) , \overline{ \phi } ( a ) = F ( a ) , \overline{ \phi } ( u_{ a , d }  ) = f_{ a , d' }, \overline{\phi} ( \varphi \colon d \to d' ) = \pi_{ \mathcal{ C } } \circ \phi ( \varphi ) $ and $ \overline{ \phi } ( u \colon a \to a') = F ( a ) $.
+
+\[
+\begin{tikzcd}
+	d
+	\ar[rd, "u_{ a ,d } "]
+	\ar[dd, "\varphi"']
+	\\
+	&
+	a
+	\\
+	d'
+	\ar[ru, "u_{ a , d' }"' ]
+\end{tikzcd}
+\xrightarrow{\overline{\phi}}
+\begin{tikzcd}
+	\overline{\phi} ( d )
+	\ar[rd, "f_{ a ,d } "]
+	\ar[dd, "\overline{ \phi } ( \varphi )"]
+	\\
+	&
+	F ( a )
+	\\
+	\overline{\phi} ( d' )
+	\ar[ru, "f_{ a , d' }"' ]
+\end{tikzcd}
+\] 
+
+Again we obtain an adjunction
+
+\[
+	\Hom_{ \Cat } ( \mathcal{ D } , \mathcal{ C } / F )
+	\isomorphism_{ \can }
+	\Hom_{ \Cat_{ \mathcal{ A } / } } ( \mathcal{ A } \xrightarrow{ \can_{ \mathcal{ A } } } \mathcal{ D } * \mathcal{ A } , \mathcal{ A } \xrightarrow{ F } \mathcal{ C } )
+\]
+
+given compactly as 
+
+\[
+\begin{tikzcd}
+	- * \mathcal{ A } \colon \Cat
+	\ar[r, shift left]
+	&
+	\Cat_{ \mathcal{ A } / } \colon R 
+	\ar[ l , shift left, "\adj" ]
+\end{tikzcd}
+\]
+where $ R ( \mathcal{ A } \xrightarrow{ F } \mathcal{ C } ) = \mathcal{ C } / F $. 
+
+This discussion suggests the following:
+Construct a bifunctor 
+\[
+	- * - \colon \SetD \times \SetD \to \SetD	
+\]
+that is close to preserving small colimits in each variable seperately.
+We want $ N ( \mathcal{ C } * \mathcal{ D } ) \cong N ( \mathcal{ C } ) * N ( \mathcal{ D } ), \mathcal{ C } , \mathcal{ D } \in \Cat $.
+In particular : $ \delta^m * \Delta^n \cong N ( [ m ] * [ n ] ) \cong N ( [ m + n + 1 ] ) \cong \Delta^{ m + n + 1 } $, since
+\[
+\begin{tikzcd}
+	\left[ m \right] * [ n ] = 0
+	\ar[d, " \cong"]
+	\ar[r]
+	\ar[rrrrd]
+	&
+	1
+	\ar[r]
+	\ar[rrrd]
+	&
+	2
+	\ar[r]
+	\ar[rrd]
+	&
+	\dotsc
+	\ar[r]
+	\ar[rd]
+	&
+	m
+	\ar[d]
+	\ar[rd]
+	\ar[rrd]
+	\ar[rrrrd]
+	\\
+	\left[ m + n + 1 \right]
+	&&&&
+	0
+	\ar[r]
+	&
+	1
+	\ar[r]
+	&
+	2
+	\ar[r]
+	&
+	\dotsc 
+	\ar[r]
+	&
+	n
+\end{tikzcd}
+\]
+
+\begin{defi}
+	The \textbf{augmented simplex category} $ \Delta_{ \aug } = \Delta_+ $ has 
+	\begin{itemize}
+		\item 
+		objects :$ [ - 1 ] = \emptyset , [ n ] = \{ 0 < 1 < \dotsc < n \}, n \geq 0 $
+		
+		\item 
+		morphisms: monotone maps $ ( \phi \in \Delta_{ \aug } : \text{initial} ) $.
+		
+	\end{itemize}
+	Then $ \Set_{ \Delta_ { \aug } } \coloneqq \Fun ( \Delta^{ \op }_{ \aug } , \Set ) $ is the category of augmented simplicial sets.
+\end{defi}
+
+\begin{rmk}
+	An augmented simplicial set is equivalent to the data of a simplicial set $ X $ together with a morphism $ X \xrightarrow{\lambda} N ( E ) , E \in \Set $
+	\[
+	\begin{tikzcd}
+		X : \dotsc 
+		\arrow[r, altstackar=7]
+		&
+		X_2 
+		\ar[d]
+		\arrow[r, altstackar=5]
+		&
+		X_1
+		\ar[d]
+		\arrow[r, altstackar=3]
+		&
+		X_0
+		\ar[d]
+		\\
+		E : \dotsc
+		\arrow[r, altstackar=7]
+		&
+		E
+		\arrow[r, altstackar=5]
+		&
+		E
+		\arrow[r, altstackar=3]
+		&
+		E
+	\end{tikzcd}
+	\]
+	Take the canonical inclusion
+	\[
+		i \colon \Delta \hookrightarrow \Delta-{ \aug } \xrightarrow{ X } \Set^{ \op }
+	\]
+	by Kan's extension theorem we obtain an adjunction
+	\[
+	\begin{tikzcd}
+		\Set_{ \Delta_{ \aug } } 
+		\ar[ r , " i^* "]
+		&
+		\Set_{ \Delta } 
+		\ar[l , bend right, "i_!"']
+		\ar[l , bend left , "i_*"]
+	\end{tikzcd}
+	\]
+\end{rmk}
+
+\todo{ missing stuff, Philipp fragen oder morgen denken }
+
+\begin{lem}	
+	The augmented simplex category $ \Delta_{ \aug } $ admits a monoidal structure.
+	\begin{align*}
+		\Delta_{ \aug } \times \Delta_{ \aug } 
+		&\xrightarrow{ - * - } 
+		\Delta_{ \aug }
+		\\
+		( [ n ] , [ m ] ) 
+		&\mapsto
+		[ n + m + 1 ]
+	\end{align*}
+	where the composition is called \textbf{ordinal sum}.
+\end{lem}
+
+\begin{construction}{Day Convolution}
+	\newline
+	The category $ \Fun ( \Delta^{ \op }_{ \aug } , \Set ) $ inherits a monoidal structure as follows, take
+	\[
+		-*- \colon \Delta_{ \aug } \times \Delta_{ \aug } 
+		\to
+		\Delta_{ \aug } 
+		\xrightarrow{ \text{Yoneda} }
+		\Set_{ \Delta_{\aug} } 
+	\]
+	extending by colimits we obtain
+	\[
+	\begin{tikzcd}
+		\Fun ( \Delta_{ \aug }^{ \op } \times \Delta_{ \aug }^{ \op }, \Set )
+		\ar[r]
+		\ar[d, equal]
+		&
+		\Set_{ \Delta_{ \aug } } 
+		\\
+		\Set_{ \Delta_{ \aug } \times \Delta_{ \aug } }
+		\\
+		\Set_{ \Delta_{ \aug } \times \Delta_{ \aug } } 
+		\ar[ u , " - \boxtimes - " ]
+		\ar[ruu, " - * - "']
+	\end{tikzcd}
+	\]
+	Here 
+	\[
+		X \boxtimes Y : ( [ k ] , [ l ] ) \mapsto X_k \times Y_l. 
+	\]
+	One can show that $ ( X * Y )_n = \coprod_{ i + j + 1 = n } X_i \times Y_j $ and that $ - * - \colon \Set_{ \Delta_{ \aug } } \times \Set_{ \Delta_{ \aug } } \to \Set_{ \Delta_{ \aug } } $
+	preserves colimits in each variable seperately.
+	Moreover 
+	\[
+		y [ n ] * y [ m ] 
+		= 
+		y [ n + m + 1 ]
+		\cong
+		y ( [ n ] * [ m ] )
+	\]
+	In order to define $ - * - \colon \Set_\Delta \times \Set_\Delta \to \Set $ we let 
+	$ X *_{ \Delta } Y \coloneqq i^* (i_* ( X ) *_{ \Delta_{ \aug } } i_* ( Y ) ) $.
+\end{construction}
+
+One can show that $ - * Y \colon \Set_\Delta \to ( \Set_\Delta )_{ Y / } $ preserves small colimits 
+
+\todo{ fill in missing, do not understand right now} 
+
+Lecture 8.07.2025
+
+Let $ F \colon A \to \mathcal{ C } $ and $ \mathcal{ C } $ be an $ \infty $-category take $ \mathcal{ C } / F $ and consider 
+\[
+	\Hom_{ \Set_\Delta } ( K , \mathcal{ C } / F ) 
+	\isomorphism 
+	\Hom_{ A / \SetD } ( A \to K * A , A \xrightarrow{ F } \mathcal{ C } )
+\]
+We can consider what happens to the n-simplices under this isomorphism
+\[
+	\Hom_{ \Set_\Delta } ( \Delta^n , \mathcal{ C } / F )
+	\cong
+	( \mathcal{ C } / F )_n
+\]
+we obtain a correspondence 
+\[
+	\sigma \colon \Delta^n \to \mathcal{ C } / F 
+	\leftrightarrow
+	\begin{tikzcd}
+		\Delta^n * A 
+		\ar[rr, " \overline{ F } "]
+		&&
+		\mathcal{ C }
+		\\
+		& 
+		A
+		\ar[lu]
+		\ar[ru," F "']
+	\end{tikzcd}
+\]
+
+\todo{ pictures } 
+
+Consider the projection $ \mathcal{ C } / F \xrightarrow{ p } \mathcal{ C } $ and 
+\todo{ too tired to think about what happens here right now}
+
+\begin{prop}
+	The following types of lifting problems correspond to each other $ ( i \colon K \to L , p \colon X \to Y ) $
+	\[
+	\begin{tikzcd}
+		A 
+		\ar[r]
+		\ar[d]
+		&
+		\underline{\Hom}( L , X )
+		\ar[d, "\nu = \nu_{ i , p }" ]
+		\\
+		B 
+		\ar[ru, dashed]
+		\ar[r]
+		&
+		\underline{\Hom} ( K , X ) \times_{ \underline{ \Hom ( K , Y ) } } \underline{\Hom} ( L , Y ) 
+	\end{tikzcd}
+	\quad
+	\begin{tikzcd}
+		( A \times L ) \coprod_{ ( A \times K ) } ( B \times K )
+		\ar[d]
+		\ar[r]
+		&
+		X
+		\ar[d, "p"]
+		\\
+		B \times L 
+		\ar[ru, dashed]
+		\ar[r]
+		&
+		Y
+	\end{tikzcd}
+	\]
+\end{prop}
+
+This has as a consequence that the following statements are equivalent for $ p \colon X \to Y $:
+\begin{enumerate}
+	\item 
+	$ p \colon X \to Y $ is an inner fibration,
+	
+	\item 
+	for all $ i \colon L \hookrightarrow K $ inner anodyne $ u_{ i , p } $ is a trivial fibration,
+	
+	\item 
+	$ \twoHom ( \Delta^2 , X ) \to \twoHom ( \Lambda_1^2 , X ) \times_{ \twoHom ( \Lambda_1^2 , Y ) } \twoHom ( \Delta^2 , Y ) $ is a trivial fibration.
+	
+	\item 
+	For all $ i \colon L \hookrightarrow K $ monomorphisms $ \nu_{ i , p } $ is an inner fibration, taking $ Y = \Delta^0 , K = \emptyset , X \infty \text{-category} \implies \twoHom ( L , X )$ is an $ \infty $-category. 
+\end{enumerate}
+
+Moreover, $ X $ is an infinity category is equivalent to $ \twoHom ( \Delta^2 , X ) \to \twoHom ( \Lambda^2 , X ) $ is a trivial fibration.
+
+\todo{ check this }
+
+\begin{defi}
+	A map $ p \colon X \to Y $ in $ \Set_\Delta$ is a \textbf{right fibration} if
+	$ \forall n \geq 1 , \forall 0 \leq k < n $ there exists a lift
+	\[
+	\begin{tikzcd}
+		\Lambda_k^n 
+		\ar[r, " \forall \sigma "]
+		\ar[d]
+		&
+		X
+		\ar[d, "p"]
+		\\
+		\Delta^n
+		\ar[ru, dashed, "\exists"]
+		\ar[r, "\forall \tau"]
+		&
+		Y
+	\end{tikzcd}
+	\]
+\end{defi}
+
+\begin{prop}
+	Let $ p \colon X \to Y $ be a right fibration and $ i \colon L \hookrightarrow K $ a monomorphism, then $ \nu \colon \twoHom ( K , X ) \to \twoHom ( L , X ) \times_{ \twoHom ( L , Y ) } \twoHom( K , Y ) $ is a right fibration.
+\end{prop}
+
+Informally speaking right fibrations correspond to presheaves of $ \infty $-groupoids.
+
+\begin{prop}
+	Let $ i \colon A \hookrightarrow B , j \colon S \hookrightarrow T $ be monomorphisms and $ p \colon X \to Y $ a morphism.
+	The following lifitng problems correspond to each other:
+	\[
+	\begin{tikzcd}
+		( B * S ) \coprod_{ ( A * S ) } ( A * T )
+		\ar[r]
+		\ar[d]
+		&
+		X
+		\ar[d, "p "]
+		\\
+		B * T 
+		\ar[r]
+		&
+		Y
+	\end{tikzcd}
+	\quad 
+	\begin{tikzcd}
+		A 
+		\ar[r]
+		\ar[d]
+		&
+		X / T
+		\ar[d]
+		\\
+		B
+		\ar[r]
+		&
+		X / S *_{ Y / S } Y / T
+	\end{tikzcd}
+	\]
+	coming from squares 
+	\[
+	\begin{tikzcd}
+		A * S 
+		\ar[r, "A * j"]
+		\ar[d, "i * S"]
+		&
+		A*T 
+		\ar[d, "i * T"]
+		\\
+		B * S 
+		\ar[r, " B * j "]
+		&
+		B*T
+	\end{tikzcd}
+	\quad 
+	\begin{tikzcd}
+		X / T 
+		\ar[ r , " X / j " ]
+		\ar[ d ]
+		&
+		X / S
+		\ar[ d ]
+		\\
+		Y / T
+		\ar[r]
+		&
+		Y / S
+	\end{tikzcd}
+	\]
+	coming from squares
+	\[
+	\begin{tikzcd}
+		A * S 
+		\ar[r, " A * j "]
+		\ar[d, " i * S "]
+		&
+		A*T
+		\ar[d, " i * T "]
+		\\
+		B * S \ar[r, " B * j " ]
+		\ar[r, " B * j "]
+		&
+		B * T
+	\end{tikzcd}
+	\quad
+	\begin{tikzcd}
+		X / T 
+		\ar[ r , " X / j "]
+		\ar[d]
+		&
+		X / S
+		\ar[d]
+		\\
+		Y / T 
+		\ar[r]
+		&
+		Y / S
+	\end{tikzcd}
+	\]
+\end{prop}
+
+\begin{prop}
+	Let $ p \colon X \to Y $ be an inner fibration and $ S \hookrightarrow T \xrightarrow{ t } X $ a composition, then $ \nu \colon X / T \to ( X / S ) \times_{ Y / S } ( Y / T ) $ is a right fibration and if $ Y $ is an $ \infty $-category, then $ u , v $ are $ \infty $-categories.
+	\todo{stuff missing}
+\end{prop}
+
+\begin{thm}{Joyal}
+	Let $ X $ be an $ \infty $-category $ X $ a Kan complex if and only if $ X $ is an $ \infty $-groupoid if and only if $ \tau X $ is a groupoid.
+\end{thm}
+
+\begin{prop}
+	Let $ p \colon X \to Y $ be a right fibration, if $ Y $ is a Kan complex, then $ p $ is a Kan fibration. 
+\end{prop}
+
+\begin{cor}
+	Let $ p \colon  X \to Y $ be a right fibration, then its fibres are Kan complexes.
+\end{cor}
+
+\begin{defi}
+	An object $ X \in \mathcal{ C } $ where $ \mathcal{ C } $ is an $ \infty $-category is \textbf{(strongly) final} if the right fibration $ \mathcal{ C } / X \to \mathcal{ C } $ has contractible fibres, meaning it is a trivial fibration, put differently the the fibres are given by the following pullbacks.
+	\[
+	\begin{tikzcd}
+		\Delta^0 \cong \Hom_{ \mathcal{ C } }^R ( Y , X )
+		\ar[r]
+		\ar[d]
+		&
+		\mathcal{ C } / X 
+		\ar[d]
+		\\
+		\Delta^0
+		\ar[r, "\forall Y "]
+		&
+		\mathcal{ C }
+	\end{tikzcd}
+	\]
+\end{defi}
+
+\begin{defi}
+	Let $ F \colon A \to \mathcal{ C } $ be an $ \infty $-category $ A $ a limit of $ F $ is a final object of $ \mathcal{ C } / F $.
+\end{defi}
+

@@ -1,7 +1,12 @@
 Lecture 17.04
 
+\section{2-categories}
+
+Reference for this section is \cite[ch. 2.2.1- 2.2.3]{kerodon}.
+
 \begin{defi}
-	A strict 2-category $ \mathcal{ C } $ 
+\label{strict_twocat_defi}
+	A \textbf{strict 2-category} $ \mathcal{ C } $ 
 	consists of:
 	\begin{enumerate}
 		\item 
@@ -33,7 +38,7 @@ Lecture 17.04
 			\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U'')-- node[label=right:$\beta$] {} (D'')}]{} 
 		\end{tikzcd}
 		\mapsto
-		\begin{tikzcd}
+		\begin{tikzcd}[column sep=1.4cm]
 			X
 			\arrow[bend left=50]{rr}[name=U',label=above:$g \circ f$]{}
 			\arrow[bend right=50]{rr}[name=D',label=below:$g' \circ f'$]{}
@@ -60,7 +65,7 @@ Lecture 17.04
 			\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U'')-- node[label=right:$ \id_g $] {} (D'')}]{} 
 		\end{tikzcd}
 		\mapsto
-			\begin{tikzcd}
+			\begin{tikzcd}[column sep=1.4cm]
 			X
 			\arrow[bend left=50]{rr}[name=U',label=above:$g \circ f$]{}
 			\arrow[bend right=50]{rr}[name=D',label=below:$g \circ f$]{}
@@ -109,7 +114,7 @@ The above data should satisfy the following axioms:
 \begin{itemize}
 	\item 
 	(Unitality) 
-	For all $ X \in \Ob ( \mathcal{ C } ) \exists \id_X \in \Ob ( \Hom_{ \mathcal{C } } ( X, X ))$ an identity 1-morphism such that $ \forall Y \in \Ob( \mathcal{ C } ) $, the functor 
+	For all $ X \in \Ob ( \mathcal{ C } ) $ there exists $ \id_X \in \Ob ( \Hom_{ \mathcal{C } } ( X, X ))$ an identity 1-morphism such that for all $ Y \in \Ob( \mathcal{ C } ) $, the functor 
 	\begin{align*}
 		\Hom_{ \mathcal{ C } } ( X , Y ) \times \mathds{ 1 } &\to \Hom_{ \mathcal{ C } } ( X , Y ) \times \Hom_{ \mathcal{ C } } ( X , X ) \to \Hom_{ \mathcal{C } } ( X, Y )
 		\\
@@ -122,22 +127,22 @@ Similarly the functor
 		\\
 		g &\mapsto \id_X \circ g = g
 	\end{align*}
-is equal to the identity functor$ \Hom_{ \mathcal{ C } } ( Y , X ) \to \Hom_{ \mathcal{ C }  }(  Y , X )$.
+is equal to the identity functor $ \Hom_{ \mathcal{ C } } ( Y , X ) \to \Hom_{ \mathcal{ C }  }(  Y , X )$.
 
 	\item 
 	(Associativity) 
-	For all $ W , X , Y , Z \in \Ob ( \mathcal{ C } ) $: the following square of functors commutes \underline{strictly}.
+	For all $ W , X , Y , Z \in \Ob ( \mathcal{ C } ) $ the following square of functors commutes \underline{strictly}.
 	\[
 	\begin{tikzcd}[column sep= 3cm]
 		\Hom_{ \mathcal{ C } } ( Y , Z ) \times \Hom_{ \mathcal{ C } } ( X , Y ) \times \Hom_{ \mathcal{ C } } ( W , X )
-		\ar[r, " {\Hom_{ \mathcal{ C  } } ( Y , Z ) \times ( - \circ - ) }"]
-		\ar[d, "{ ( - \circ - ) \times \Hom_{ \mathcal{ C } } ( W , X ) }"]
+		\ar[r, " { \Hom_{ \mathcal{ C } } ( Y , Z ) \times ( - \circ - ) } "]
+		\ar[d, " { ( - \circ - ) \times \Hom_{ \mathcal{ C } } ( W , X ) } "]
 		&
 		\Hom_{\mathcal{ C } } ( Y , Z ) \times \Hom_{ \mathcal{ C } } ( W , X )
-		\ar[d, " {( - \circ - ) }"]
+		\ar[d, " { ( - \circ - ) } "]
 		\\
-		\Hom_{ \mathcal{ C }}]( X , Z ) \times \Hom_{\mathcal{ C } } ( W , X )
-		\ar[r, "{ ( - \circ -) }"]
+		\Hom_{ \mathcal{ C } } ( X , Z ) \times \Hom_{\mathcal{ C } } ( W , X )
+		\ar[r, " { ( - \circ -) } "]
 		&
 		\Hom_{ \mathcal{ C } }  ( W , Z )
 	\end{tikzcd}
@@ -146,13 +151,14 @@ is equal to the identity functor$ \Hom_{ \mathcal{ C } } ( Y , X ) \to \Hom_{ \m
 \end{defi}
 
 \begin{defi}
-	A strict monoidal category is a strict 2-category with a single object, that is the following data.
+\label{strict_moindal_cat_defi}
+	A \textbf{strict monoidal category} is a strict 2-category with a single object, that is the following data:
 	\begin{enumerate}
 		\item 
 		A strict 2-category $B \mathcal{ M }$ with $\Ob ( B \mathcal{ M } ) = \{ * \} $.
 		
 		\item 
-		A category $ \mathcal{ M } \coloneqq \Hom_{ B \mathcal{ M }  } ( * , * ).$
+		A category $ \mathcal{ M } \coloneqq \Hom_{ B \mathcal{ M }  } ( * , * ). $
 		
 		\item 
 		A monoidal composition $ - \otimes - \colon \mathcal{ M } \times \mathcal{ M } \to \mathcal{ M } $, that fullfills 
@@ -169,19 +175,18 @@ is equal to the identity functor$ \Hom_{ \mathcal{ C } } ( Y , X ) \to \Hom_{ \m
 				\\
 				M
 				&\mapsto 
-				M \otimes \mathds{1}_{\mathcal{ M } }
+				M \otimes \mathds{ 1 }_{ \mathcal{ M } }
 			\end{align*}
-			is the identity, that is
-			gives equalities $ M \otimes  \mathds{1}_{ \mathcal{M} } = M = \mathds{1}_{\mathcal{ M } } \otimes M$.
+			is the identity, meaning there are equalities $ M \otimes  \mathds{ 1 }_{ \mathcal{ M } } = M = \mathds{ 1 }_{ \mathcal{ M } } \otimes M $.
 			
 			\item 
 			(Associativity)
 			The following square commutes
 			\[
 			\begin{tikzcd}[column sep = 2cm]
-				\mathcal{M} \times \mathcal{ M } \times  \mathcal{ M }
-				\ar[r, " \id_{ \mathcal{ M } } \times  ( - \circ - )"]
-				\ar[d, " ( - \otimes - ) \times \id_{ \mathcal{ M }}"']
+				\mathcal{ M } \times \mathcal{ M } \times  \mathcal{ M }
+				\ar[r, " \id_{ \mathcal{ M } } \times  ( - \circ - ) "]
+				\ar[d, " ( - \otimes - ) \times \id_{ \mathcal{ M } } "']
 				&
 				\mathcal{ M  } \times \mathcal{ M }
 				\ar[d, "\otimes "]
@@ -193,67 +198,79 @@ is equal to the identity functor$ \Hom_{ \mathcal{ C } } ( Y , X ) \to \Hom_{ \m
 			\end{tikzcd}
 			\]
 			that is for all $ M_1 , M_2 , M_3 \in \mathcal{ M } $ 
-			it holds that $ M_1 \otimes  ( M_2 \otimes M_3 ) = ( M_1 \otimes M_2 ) \otimes M_3$.
+			it holds that $ M_1 \otimes  ( M_2 \otimes M_3 ) = ( M_1 \otimes M_2 ) \otimes M_3 $.
 		\end{itemize}
 	\end{enumerate}		
 \end{defi}
 
 \begin{defi}
+\label{strict_twofun_defi}
 	Let $ \mathcal{ C } , \mathcal{ D } $  be strict 2-categories.
-	A strict 2-functor $ F \colon \mathcal{ C } \to \mathcal{ D } $ consists of 
+	A \textbf{strict 2-functor} $ F \colon \mathcal{ C } \to \mathcal{ D } $ consists of 
 	\begin{enumerate}
 		\item 
 		A map $ F \colon \Ob ( \mathcal{ C } ) \to \Ob ( \mathcal{ D } )$  sending an object $ X $ to $ F ( X ) $.
 		
 		\item 
-		For all $ X , Y \in \Ob ( \mathcal{ C } ) $ a functor $ F_{XY} \colon \Hom_{ \mathcal{ C } } ( X , Y ) \to \hom_{ \mathcal{ D }} ( F X , F Y ) $ such that the following hold 
+		For all $ X , Y \in \Ob ( \mathcal{ C } ) $ a functor $ F_{ X Y } \colon \Hom_{ \mathcal{ C } } ( X , Y ) \to \Hom_{ \mathcal{ D } } ( F X , F Y ) $ such that the following hold:
 		\begin{itemize}
 			\item 
 			(Unitality)
-			$ \forall X \in \Ob ( \mathcal{ C } ) F ( \id_X ) = \id_{ FX } \in \Hom_{ \mathcal{ D } } ( FX, FX )$
+			$ \forall X \in \Ob ( \mathcal{ C } ) , F ( \id_X ) = \id_{ F X } \in \Hom_{ \mathcal{ D } } ( F X, F X )$
 				
 			\item 
 			(Composition)
-			Let $ X, Y , Z \in \Ob ( \mathcal{C}) $
+			Let $ X, Y , Z \in \Ob ( \mathcal{ C } ) $
 			\[
 			\begin{tikzcd}
 				\Hom_{ \mathcal{ C } } ( Y, Z ) \times \Hom_{ \mathcal{ C } }( X , Y )
+				\ar[r, " - \circ^{ \mathcal{ C } } - "]
+				\ar[d, " F_{ Y , Z } \times F_{ X , Y } "]
+				&
+				\Hom_{ \mathcal{ C } } ( X , Z )
+				\ar[d, " F_{ X , Z } "]
+				\\
+				\twoHom_{ \mathcal{ D } } ( F Y , F Z ) \times \twoHom_{ \mathcal{ D } } ( F X , F Y )
+				\ar[r, " - \circ^{ \mathcal{ D } } -"]
+				&
+				\twoHom_{ \mathcal{ D } }  ( F X , F Z )
 			\end{tikzcd}
 			\]
 		\end{itemize}
 	\end{enumerate}
-	Let $ \mathcal{ C } \colon $ 2-category then the opposite category $ \mathcal{ C }^{ \op } $ is also a strict 2-category.
+	Let $ \mathcal{ C } $ be a strict 2-category then the opposite category $ \mathcal{ C }^{ \op } $ is also a strict 2-category.
 \end{defi}
 
 Lecture 22.04
 
 \begin{rmk}
-	Every ordinary 1-category $ \mathcal{ C } $  can be viewed as a strict 2-category with 
+	Every ordinary 1-category $ \mathcal{ C } $  can be viewed as a strict 2-category as follows:
 	\begin{itemize}
 		\item 
-		Forall $ X , Y \in \Ob ( \mathcal{ C } ) , \Hom_{\mathcal{ C } } ( X , Y ) \coloneqq \Hom_{ \mathcal{C } }  ( X , Y ).$
+		for all $ X , Y \in \Ob ( \mathcal{ C } ) , \Hom_{\mathcal{ C } } ( X , Y ) \coloneqq \Hom_{ \mathcal {C } }  ( X , Y ),$
 		
 		\item 
-		Horizontal composition = composition in $ \mathcal{ C } $
+		horizontal composition = composition in $ \mathcal{ C } $,
 		
 		\item 
-		For all $ X \in \Ob ( \mathcal{ C } )\label{key} $ it holds that $ \id_X \in \Hom_ { \mathcal{ C } } ( X , X ) = \Hom_{ \mathcal{ C } } ( X , X ) $ is the identity morphism in the original catgory $ \mathcal{ C }.$
+		for all $ X \in \Ob ( \mathcal{ C } )\label{key} $ it holds that $ \id_X \in \Hom_ { \mathcal{ C } } ( X , X ) = \Hom_{ \mathcal{ C } } ( X , X ) $ is the identity morphism in the original catgory $ \mathcal{ C }$,
 			
 		\item 
-		Conversely every strict 2-catgory $ \mathcal{ C } $ has an underlying ordinary category $ \mathcal{ C }_0 $ with $ \Ob ( \mathcal{ C }_0 ) \coloneqq \Ob ( \mathcal{ C } )$
-		and $ \forall X , Y \in \Ob ( \mathcal{ C } ) = \Ob ( \mathcal{ C } ), \Hom_{ \mathcal{ C }_0 } ( X , Y  ) \coloneqq \Ob ( \Hom_{ \mathcal{ C } }( X ,Y )).$
+		conversely every strict 2-catgory $ \mathcal{ C } $ has an underlying ordinary category $ \mathcal{ C }_0 $ with $ \Ob ( \mathcal{ C }_0 ) \coloneqq \Ob ( \mathcal{ C } )$
+		and $ \forall X , Y \in \Ob ( \mathcal{ C }_0 ) = \Ob ( \mathcal{ C } ), \Hom_{ \mathcal{ C }_0 } ( X , Y  ) \coloneqq \Ob ( \Hom_{ \mathcal{ C } }( X ,Y ) ).$
 		The composition law in $ \mathcal{ C }_0 $ is horizontal composition of 1-morphisms in $ \mathcal{ C } $, this composition is associative since $ \mathcal{ C } $ is a strict 2-category.  
 	\end{itemize}
 \end{rmk}
 
 \begin{defi}
-	A 2-category (bicategory ) $ \mathcal{ C }$ consists of a 2-category $ \mathcal{ C } $
+\label{twocat_defi}
+	A \textbf{2-category} (bicategory) $ \mathcal{ C }$ is given as follows:
 	\begin{itemize}
 		\item 
-		A class of objects of $ \mathcal{ C } $,
+		a class of objects of $ \mathcal{ C } $ denoted $ \Ob ( \mathcal{ C } ) $,
 		
 		\item 
-		$\forall X , Y \in \Ob \mathcal{ C }, \Hom_{ \mathcal{ C} } ( X, Y ) $ a category of 1-morphisms,
+		for all $ X , Y \in \Ob \mathcal{ C }, \Hom_{ \mathcal{ C} } ( X, Y ) $ a category of 1-morphisms,
 		
 		\item 
 		for all $ X , Y , Z \in \Ob ( \mathcal{C} )$ a composition functor
@@ -262,7 +279,7 @@ Lecture 22.04
 		\]
 		
 		\item 
-		for all $ X \in \Ob ( \mathcal{C} ) $ an object $ \id_X \in \Ob( \Hom_{ \mathcal{ C } }(  X , X ))$ together with an invertible 2-morphism $v_X = \id_X \circ \id_X \xRightarrow{\sim} \id_X$ in $ \Hom_{ \mathcal{ C } } ( X , X )$ called unit constraints,
+		for all $ X \in \Ob ( \mathcal{C} ) $ an object $ \id_X \in \Ob( \Hom_{ \mathcal{ C } }(  X , X ))$, called identity of $ X $, together with an invertible 2-morphism $v_X = \id_X \circ \id_X \xRightarrow{\sim} \id_X$ in $ \Hom_{ \mathcal{ C } } ( X , X )$ called \textbf{unit constraint},
 		
 		\item 
 		for all $ W , X , Y , Z \in \Ob ( \mathcal{ C } ) $ a natural isomorphism 
@@ -289,9 +306,10 @@ Lecture 22.04
 			\xRightarrow{ \sim }
 			( h \circ g ) \circ f \in \Hom_{ \mathcal{ C } } ( W , Z )
 		\]
+		is an isomorphism called \textbf{associativity constraint},
 		
 		\item 
-		For all $ X , Y \in \Ob ( \mathcal{ C } )$ the following functors are fully faithful:
+		for all $ X , Y \in \Ob ( \mathcal{ C } )$ the following functors are fully faithful
 		\begin{align*}
 			\Hom_{\mathcal{ C } } ( X , Y )
 			&\to 
@@ -311,9 +329,9 @@ Lecture 22.04
 		\end{align*}
 	
 		\item 
-		For all $ V , W ,X ,Y ,Z \in \Ob ( \mathcal{ C } )$ and all composable 1-morphisms $ V \xrightarrow{e} W \xrightarrow{f} X \xrightarrow{ g } Y \xrightarrow{ h } Z $
-		we have the Pentagon-identity 
-		
+		and for all $ V , W ,X ,Y ,Z \in \Ob ( \mathcal{ C } )$ and all composable 1-morphisms $ V \xrightarrow{e} W \xrightarrow{f} X \xrightarrow{ g } Y \xrightarrow{ h } Z $
+		the following diagram commutes
+		\[
 		\begin{tikzcd}[column sep=0.5cm]
 			& h \circ ( ( g \circ f ) \circ e )
 			\ar[rr, Rightarrow, " \alpha_{ h , g \circ f , e }"]
@@ -331,12 +349,14 @@ Lecture 22.04
 			( h \circ g ) \circ ( f \circ e )
 			\ar[rru, Rightarrow, " \alpha_{ h \circ g , f , e }"]
 		\end{tikzcd}
+		\]
+		which is called the \textbf{Pentagon identity}.
 	\end{itemize}
 \end{defi}
 
 
 \begin{exmp}
-	Every strict 2-category can be viewed as a 2-category with the identity unit and associativity constraints.
+	Every strict 2-category can be viewed as a 2-category with unit constraints and associativity constraints given by identities.
 \end{exmp}
 
 \begin{defi}
@@ -349,13 +369,13 @@ Lecture 22.04
 		\xrightarrow{ \otimes }
 		\mathcal{M}
 	\]
-	that is $ \alpha_{M_1 , M_2 , M_3 } \colon M_1 \otimes ( M_2 \otimes M_3 ) \isomorphism ( M_1 \otimes M_2 ) \otimes M_3$ in $\mathcal{ M }$.
+	and there is an associativity constraint $ \alpha_{M_1 , M_2 , M_3 } \colon M_1 \otimes ( M_2 \otimes M_3 ) \isomorphism ( M_1 \otimes M_2 ) \otimes M_3$ in $\mathcal{ M }$.
 \end{defi}
 
 \begin{exmp}
-	Let $ k $ be a field and $ ( \Vect_k , \otimes_k , k )$ a monoidal category, that is we have 
+	Let $ k $ be a field and $ ( \Vect_k , \otimes_k , k ) $ a monoidal category, the associator is given as:
 	\begin{align*}
-		can \colon V_1 \otimes ( V_2 \otimes V_3 ) 
+		\can \colon V_1 \otimes ( V_2 \otimes V_3 ) 
 		&\isomorphism 
 		( V_1 \otimes V_2 ) \otimes V_3
 		\\
@@ -366,8 +386,7 @@ Lecture 22.04
 \end{exmp}
 
 \begin{exmp}
-	Let $ V $ be a category with finite products, then $ ( V , x , * ) $ is a monoidal category, with $ * $ its terminal object.
-	We need a functor $ - \times - \colon V \times V \to V $, such that $ V_1 \times ( V_2 \times V_3 ) \isomorphism ( V_1 \times V_2 ) \times V_3$.
+	Let $ V $ be a category with finite products, then $ ( V , x , * ) $ is a monoidal category, with $ * $ its terminal object and a functor $ - \times - \colon V \times V \to V $, such that $ V_1 \times ( V_2 \times V_3 ) \isomorphism ( V_1 \times V_2 ) \times V_3$.
 \end{exmp}
 
 \begin{exmp}	
@@ -383,20 +402,20 @@ Lecture 22.04
 		for all $ R , S , T \in \Ob ( \Bim ) $ the horizontal composition is given by the functor 
 		\[
 		\begin{tikzcd}
-			\twoHom{\Bim}(S,T) \times \twoHom_{\Bim}(R,S)
+			\twoHom_{ \Bim } ( S , T ) \times \twoHom_{ \Bim } ( R , S )
 			\ar[r]
 			\ar[d, equal]
 			&
-			\twoHom{\Bim}( R , T )
+			\twoHom_{ \Bim } ( R , T )
 			\ar[d, equal]
 			\\
-			\prescript{}{T}{\Mod}_S \times \prescript{}{S}{\Mod}_R
+			\prescript{}{ T }{ \Mod }_S \times \prescript{}{ S }{ \Mod }_R
 			\ar[r]
 			&
-			\prescript{}{T}{\Mod}_R 
+			\prescript{}{ T }{ \Mod }_R 
 		\end{tikzcd}
 		\] 
-		$( \prescript{}{T}{M}_S , \prescript{}{S}{N}_R ) \mapsto (\prescript{}{T}{M \otimes_S N}_R)$
+		$ ( \prescript{}{ T }{ M }_S , \prescript{}{ S }{ N }_R ) \mapsto (\prescript{}{ T }{ M \otimes_S N }_R ) $
 		
 		\item 
 		For all $ R \in \Ob ( \Bim ), \id_R = \prescript{}{R}{R}_R \in \prescript{}{R}{\Mod}_R=\twoHom{\Bim}( R , R )$.
@@ -414,21 +433,21 @@ Lecture 22.04
 
 \begin{construction}
 \label{left_right_unit_constraints}
-	Let $\mathcal{ C }$ be a 2-category $ \forall X , Y \in \Ob ( \mathcal{ C } ) $, there is a fully faithful functor 	
+	Let $\mathcal{ C }$ be a 2-category, there is a fully faithful functor 	
 	\begin{align*}
-		\twoHom{\mathcal{ C } } ( X , Y ) 
+		\twoHom_{ \mathcal{ C } } ( X , Y ) 
 		&\xhookrightarrow{f.f.}
-		\twoHom{ \mathcal{ C }} ( X, Y )
+		\twoHom_{ \mathcal{ C } } ( X , Y )
 		\\ 
 		f
 		&\mapsto
 		\id_Y \circ f		 
 	\end{align*}
-	for all $ X , Y \in \Ob( \mathcal{ C } )$ and there is a bijection of morphisms called the left unit constraint
+	for all $ X , Y \in \Ob( \mathcal{ C } )$ and there is a bijection of morphisms called the \textbf{left unit constraint}:
 	\begin{align*}
-		\id_Y \circ ? \colon \twoHom{\mathcal{ C} } ( \id_Y \circ f 	, f )
+		\id_Y \circ ? \colon \twoHom_{ \mathcal{ C } } ( \id_Y \circ f 	, f )
 		&\isomorphism 
-		\twoHom{ \mathcal{C } } ( X , Y )( \id_Y \circ ( \id_Y \circ f ) , \id_Y \circ f )
+		\twoHom_{ \mathcal{ C } } ( X , Y )( \id_Y \circ ( \id_Y \circ f ) , \id_Y \circ f )
 	\end{align*}
 	\[
 	\begin{tikzcd}
@@ -450,17 +469,17 @@ Lecture 22.04
 		\id_Y \circ f
 	\end{tikzcd}
 	\]
-	Furthermore there is a fully faithful functor.
+	furthermore there is a fully faithful functor:
 	\begin{align*}
-		\twoHom{\mathcal{ C } } ( X , Y ) 
+		\twoHom_{ \mathcal{ C } } ( X , Y ) 
 		&\xhookrightarrow{f.f.}
-		\twoHom{ \mathcal{ C }} ( X, Y )
+		\twoHom_{ \mathcal{ C }} ( X, Y )
 		\\ 
 		f
 		&\mapsto
 		f \circ \id_X		 
 	\end{align*}
-	as well as a bijection of morphism called the right unit constraint.
+	as well as a bijection of morphism called the \textbf{right unit constraint}:
 	\[
 	\begin{tikzcd}
 		f \circ \id_X
@@ -489,8 +508,8 @@ Lecture 22.04
 	\[
 	\begin{tikzcd}
 		\twoHom{ \mathcal{ C } } ( X , Y )
-		\arrow[bend left=50]{rr}[name=U',label=above:$f\mapsto \id_Y \circ f$]{}
-		\arrow[bend right=50]{rr}[name=D',label=below:$ \mathds{ 1 }$]{}
+		\arrow[bend left=50]{rr}[name=U',label=above:$ f \mapsto \id_Y \circ f $]{}
+		\arrow[bend right=50]{rr}[name=D',label=below:$ \mathds{ 1 } $]{}
 		&&
 		\twoHom{ \mathcal{ C } } ( X , Y )
 		\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U')-- node[label=right:$ \lambda $] {} (D')}]{}
@@ -499,8 +518,8 @@ Lecture 22.04
 	\[
 	\begin{tikzcd}
 		\twoHom{ \mathcal{ C } } ( X , Y )
-		\arrow[bend left=50]{rr}[name=U',label=above:$f\mapsto f \circ \id_X $]{}
-		\arrow[bend right=50]{rr}[name=D',label=below:$ \mathds{ 1 }$]{}
+		\arrow[bend left=50]{rr}[name=U',label=above:$ f \mapsto f \circ \id_X $]{}
+		\arrow[bend right=50]{rr}[name=D',label=below:$ \mathds{ 1 } $]{}
 		&&
 		\twoHom{ \mathcal{ C } } ( X , Y )
 		\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U')-- node[label=right:$ \rho $] {} (D')}]{}
@@ -522,7 +541,7 @@ Lecture 24.4
 	\[
 	\begin{tikzcd}
 		\id_Y \circ f 
-		\ar[d, Rightarrow, "\id_Y \circ \eta"]
+		\ar[d, Rightarrow, "\id_Y \circ \eta"']
 		\ar[r, Rightarrow, "\lambda_f"]
 		&
 		f
@@ -543,7 +562,7 @@ Lecture 24.4
 		\ar[d, Rightarrow, " \id_Y \circ \eta"]
 		\\
 		\id_Y \circ ( \id_Y \circ g )
-		\ar[r, Rightarrow]
+		\ar[r, Rightarrow, " \id_Y \circ \lambda_g "]
 		&
 		\id_Y \circ g
 	\end{tikzcd}
@@ -576,11 +595,11 @@ Lecture 24.4
 	\end{tikzcd}
 	\]
 	where the left square commutes by the naturality of the associator constraint, and the top and bottom triangle commute by the left unit constraint.
-	For the right square we use the interchange law for composition and the Godement product to obtain $ ( \id_{\id_Y} * \eta ) \circ ( v_Y * \id_f ) = ( v_\eta * \eta ) = ( v_Y * \id_g ) \circ ( \id_Y \circ \eta )$
+	For the right square we use the interchange law for composition and the Godement product to obtain $ ( \id_{ \id_Y } * \eta ) \circ ( v_Y * \id_f ) = ( v_\eta * \eta ) = ( v_Y * \id_g ) \circ ( \id_Y \circ \eta )$
 \end{proof}
 
 \begin{prop}
-	Let $ \mathcal{ C } $ be a 2-category and $ X \xrightarrow{f} Y \xrightarrow{g} Z $ two composable 1-morphisms in $\mathcal{ C }$.
+	Let $ \mathcal{ C } $ be a 2-category and $ X \xrightarrow{ f } Y \xrightarrow{ g } Z $ two composable 1-morphisms in $\mathcal{ C }$.
 	Then the following triangle 
 	\[
 	\begin{tikzcd}
@@ -601,7 +620,7 @@ Lecture 24.4
 \begin{proof}
 	Consider the following commutative diagram:
 	\[
-	\begin{tikzcd}[column sep= 0.1cm]
+	\begin{tikzcd}[column sep= 0.1cm, row sep= 1.5cm]
 		& 
 		g \circ ( ( \id_Y \circ \id_Y ) \circ f )
 		\ar[rr, Rightarrow, "\alpha", "\sim"']
@@ -644,7 +663,7 @@ Lecture 24.4
 		\ar[u, phantom, "{*)}"]
 	\end{tikzcd}
 	\]
-	The triangles commute by applying unit constraints  \cref{left_right_unit_constraints} and the square commute 
+	The triangles commute by applying unit constraints  \ref{left_right_unit_constraints} and the square commute 
 	and the squares that include an alpha commute by the associator constraints. 
 	The only square that remains is $ *) $, here we use the interchange law for the Godement product to obtain $ ( \rho_g * \id_{f} ) ( \id_{g} * \lambda_f ) = \rho_g * \lambda_f = ( \id_{g} * \lambda_f ) \circ ( \rho_g * \id_f )$.
 \end{proof}
@@ -699,7 +718,7 @@ Lecture 24.4
 
 \begin{defi}
 	Let $\mathcal{ C }$ be a 2-category.
-	The pith of $ \mathcal{ C } $ is the 2-category $ \Pith ( \mathcal{ C } )$ with objects $ \Ob ( \Pith ( \mathcal{ C } ) )=\Ob ( \mathcal{ C } )$ with $\underline{ \Hom }_{ \Pith ( \mathcal{ C } ) } ( X, Y ) \coloneqq \underline{\Hom}_{ \mathcal{ C } } ( X , Y )^{ \cong }.$
+	The pith of $ \mathcal{ C } $ is the 2-category $ \Pith ( \mathcal{ C } )$ with objects $ \Ob ( \Pith ( \mathcal{ C } ) )=\Ob ( \mathcal{ C } )$ with $\underline{ \Hom }_{ \Pith ( \mathcal{ C } ) } ( X, Y ) \coloneqq \underline{\Hom}_{ \mathcal{ C } } ( X , Y )^{ \cong } , $ where $ \underline{\Hom}_{ \mathcal{ C } } ( X , Y )^{ \cong } $ is the maximal subgroupoid of $\underline{\Hom}_{ \mathcal{ C } } ( X , Y ) $.
 \end{defi}
 
 \begin{defi}

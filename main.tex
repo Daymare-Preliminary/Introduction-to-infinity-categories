@@ -3,12 +3,13 @@
 \usepackage{graphicx}
 \usepackage{Style_Homotopy_Theory}
 \usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{babel}
 \usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
 \usepackage{todonotes}
 \usepackage{dsfont}
 \usepackage{amsmath}
 \hypersetup{linkcolor = blue}
-\bibliography{References}
 
 
 \title{Itic notes}
@@ -20,13 +21,19 @@
 \maketitle
 
 \tableofcontents
+
 \include{Motivation}
 \include{Heuristics_Isomorphism_vs_Equivalence}
 \include{Basic_2_category_theory}
 \include{Functors_in_2-category_theory}
-%\include{Grothendieck_Construction}
-%\include{Duskin_Nerve}
+\include{Grothendieck_Construction}
+\include{Homotopy_theory_of_simplicial_sets}
+\include{Duskin_Nerve}
 \include{Nerves_of_differential_graded_categories}
+%\include{Simplicial_categories}
+%\include{The_Joyal_Model_structure}
+%\include{Joins_slices}
+%\include{Invertible_natural_transformations_and_mapping_spaces}
 
 \printbibliography
 

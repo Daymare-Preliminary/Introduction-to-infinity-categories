@@ -1,7 +1,10 @@
 \section{Motivation}
 
+Notice that many proofs of statements in the lecture are contained as Exercises, which I still have to add at the current point in time.
+If you want solutions to any of the Exercises you may contact the author.
+
 Fix $ 0 \leq m \leq n \leq \infty $. 
-An $ ( n , m ) $ category is a "category-like" structure consisting of a class of objects, notions of 1- morphism, 2-morphism, ... , n-morphism (i.e. k-morphsim $ 0 < k \leq n )$ with a "suitable composition law" (satisfying "suitable axioms") and such that $ \forall m < k \leq n $ the k-morphisms are "invertible".
+An $ ( n , m ) $ category is a "category-like" structure consisting of a class of objects, notions of 1-morphism, 2-morphism, ... , n-morphism (i.e. k-morphsim $ 0 < k \leq n )$ with a "suitable composition law" (satisfying "suitable axioms") and such that $ \forall m < k \leq n $ the k-morphisms are "invertible".
 \begin{align*}
     &( 0 , 0 ) \text{-cat. = set}
     \\
@@ -36,14 +39,14 @@ An $ ( n , m ) $ category is a "category-like" structure consisting of a class o
     is a bijection.
 \end{rmd}
 
-\begin{thm}[ Grothendieck's Homotopy Hypothesis ]
-     There is an $ ( \infty , 1 ) $-category of topological spaces up to weak  homotopy equivalence and there is an $ ( \infty , 1 ) $-category of $ \infty $-groupoids up to eqivalence.
+\begin{thm}[Grothendieck's Homotopy Hypothesis]
+    There is an $ ( \infty , 1 ) $-category of topological spaces up to weak  homotopy equivalence and there is an $ ( \infty , 1 ) $-category of $ \infty $-groupoids up to eqivalence.
     There is furthermore an $ \infty $-functor assigning to each topological space $ X $ its Poincare $ \infty $-groupoid $ \pi_{ \infty } ( X ) $, this is an equivalence.
 \end{thm}
 
 \begin{rmk}
     Let $ \mathcal{ C } $ be an $ ( \infty , 1 ) $-category, then for all $ X , Y \in \Ob ( \mathcal{ C } ) $ we get that $ \Hom_{ \mathcal{ C } } ( X , Y )$ is an $\infty$-groupoid/ "space".
-    We have the homtopy category of $ \mathcal{ C } $ denoted by $ \Ho ( \mathcal{ C } )$ whose objects are those of $ \mathcal{ C } $ and for all objects $ X , Y \in \Ho ( \mathcal{ C } ) $ we have that $ \Hom_{ \Ho ( \mathcal{ C } ) } ( X , Y ) = \pi_0 ( \Hom_{ \mathcal{ C } } ( X , Y ) $.
+    We have the homotopy category of $ \mathcal{ C } $ denoted by $ \Ho ( \mathcal{ C } )$ whose objects are those of $ \mathcal{ C } $ and for all objects $ X , Y \in \Ho ( \mathcal{ C } ) $ we have that $ \Hom_{ \Ho ( \mathcal{ C } ) } ( X , Y ) = \pi_0 ( \Hom_{ \mathcal{ C } } ( X , Y ) )$.
 \end{rmk}
 
 \begin{Warning}
@@ -56,21 +59,21 @@ An $ ( n , m ) $ category is a "category-like" structure consisting of a class o
         Computing co-/limits with $ \mathcal{ C } $.
 
         \item 
-        Define invariants associated to $ \mathcal{ C } $ ( f.e. Hochschild cohomology).
+        Define invariants associated to $ \mathcal{ C } $ (f.e. Hochschild cohomology).
     \end{itemize}
 \end{Warning}
 
 
 \begin{rmd}
-    Many important 1-categories arise as homotopy categories of genuine $ ( \infty , 1 ) $-categories, that is derived categories
-    Recall for $ R \colon $ ring, $ \Mod_R $ its category of right $ R $-modules and $ \Ch ( \Mod_R ) $ the category of chain complexes in $ \Mod_R $, that a morphism of chain complexes $ f^\bullet \colon X^\bullet \to Y^\bullet $ in $ \Ch ( \Mod_R ) $ is a quasi-isomorphism if $ \forall n \in \mathbb{ Z } $ we have that $ H_n ( f^\bullet ) = H_n ( X^\bullet ) \isomorphism H_n ( Y^\bullet ) $ is an isomorphism.
-    The derived category is defined as follows $ D ( \Mod_R ) \coloneqq \Ch ( \Mod_R ) [qiso^{-1}] $ the localisation at the quasi-isomorphisms.
+    Many important 1-categories arise as homotopy categories of genuine $ ( \infty , 1 ) $-categories, for example derived categories.
+    Recall for a ring $ R $, $ \Mod_R $ its category of right $ R $-modules and $ \Ch ( \Mod_R ) $ the category of chain complexes in $ \Mod_R $, that a morphism of chain complexes $ f^\bullet \colon X^\bullet \to Y^\bullet $ in $ \Ch ( \Mod_R ) $ is a quasi-isomorphism if $ \forall n \in \mathbb{ Z } $ we have that $ H_n ( f^\bullet ) = H_n ( X^\bullet ) \isomorphism H_n ( Y^\bullet ) $ is an isomorphism.
+    The derived category is defined as follows $ D ( \Mod_R ) \coloneqq \Ch ( \Mod_R ) [qiso^{-1}] $, i.e. the localisation at the quasi-isomorphisms.
     Furthermore we have that $ \Ho ( \mathcal{ D } ( \Mod_R ) ) = D ( \Mod_R) $.
-    In the first case we obtain it by building it from the ground up so to say and in the second case we obtain by forgetting information from a higher structure.
+    In the first case, that is the right side of the equality above, we obtain the derived category by building it from the ground up so to say and in the second case, the left side of the equation, we obtain it by forgetting information from a higher structure.
 \end{rmd}
 
 \begin{Warning}
-    The homotopy theory of $ ( \infty ,1 ) $-categories has many equivalent (Quillen) implementations:
+    The homotopy theory of $ ( \infty ,1 ) $-categories has many equivalent implementations (Quillen):
     \begin{itemize}
         \item 
         Topological categories (Ilias)
@@ -88,7 +91,7 @@ An $ ( n , m ) $ category is a "category-like" structure consisting of a class o
         Pre-derivations
 
         \item 
-        $\infty$-categories ( Joyal, Lurie )
+        $\infty$-categories (Joyal, Lurie)
     \end{itemize}
 
     In the $k$-linear setting, for $k$ a field we have:

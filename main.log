@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.12)  23 JUL 2025 06:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.12)  28 JUL 2025 08:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1266,7 +1266,7 @@ File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \c@dummy=\count458
 \c@Exercise=\count459
 \c@Solution=\count460
-LaTeX Info: Redefining \H0 on input line 134.
+LaTeX Info: Redefining \H0 on input line 136.
 )
 (/home/user/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
@@ -1287,6 +1287,23 @@ Package csquotes Info: ... configuration file loaded successfully.
 (/home/user/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
 ))
+(/home/user/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2025/03/27 v25.6 The multilingual framework for pdfLaTeX, LuaLaT
+eX and XeLaTeX
+\babel@savecnt=\count467
+\U@D=\dimen292
+\l@unhyphenated=\language91
+
+(/home/user/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read4
+\bbl@dirlevel=\count468
+Package babel Info: You haven't specified a language as a class or package
+(babel)             option. I'll load 'nil'. Reported on input line 4213.
+
+(/home/user/texlive/texmf-dist/tex/generic/babel/nil.ldf
+Language: nil 2025/03/27 v25.6 Nil language
+\l@nil=\language92
+))
 (/home/user/texlive/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup9
@@ -1305,49 +1322,57 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks45
 \XKV@tempa@toks=\toks46
 )
-\XKV@depth=\count467
+\XKV@depth=\count469
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\c@@todonotes@numberoftodonotes=\count468
+\c@@todonotes@numberoftodonotes=\count470
 )
 Package csquotes Info: Checking for multilingual support...
-Package csquotes Info: ... none found.
- (./main.aux (./Motivation.aux) (./Heuristics_Isomorphism_vs_Equivalence.aux)
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+
+
+Package csquotes Warning: No style for language 'nil'.
+(csquotes)                Using fallback style on input line 19.
+
+Package csquotes Info: Redefining alias 'default' -> 'fallback'.
+(./main.aux (./Motivation.aux) (./Heuristics_Isomorphism_vs_Equivalence.aux)
 (./Basic_2_category_theory.aux) (./Functors_in_2-category_theory.aux)
-(./Nerves_of_differential_graded_categories.aux))
+(./Grothendieck_Construction.aux) (./Homotopy_theory_of_simplicial_sets.aux)
+(./Duskin_Nerve.aux) (./Nerves_of_differential_graded_categories.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
 
 (/home/user/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count469
-\scratchdimen=\dimen292
+\scratchcounter=\count471
+\scratchdimen=\dimen293
 \scratchbox=\box70
-\nofMPsegments=\count470
-\nofMParguments=\count471
+\nofMPsegments=\count472
+\nofMParguments=\count473
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count472
-\MPscratchDim=\dimen293
-\MPnumerator=\count473
-\makeMPintoPDFobject=\count474
+\MPscratchCnt=\count474
+\MPscratchDim=\dimen294
+\MPnumerator=\count475
+\makeMPintoPDFobject=\count476
 \everyMPtoPDFconversion=\toks48
 ) (/home/user/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1358,14 +1383,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Command `\dddot' is already robust on input line 17.
-LaTeX Info: Command `\ddddot' is already robust on input line 17.
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
+LaTeX Info: Command `\dddot' is already robust on input line 19.
+LaTeX Info: Command `\ddddot' is already robust on input line 19.
+Package biblatex Info: Trying to load language 'nil'...
+Package biblatex Info: ... file 'nil.lbx' not found.
 
-(/home/user/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
-)
+
+Package biblatex Warning: Language 'nil' not supported.
+(biblatex)                Using dummy definitions on input line 19.
+
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -1373,28 +1399,28 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
- (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 17.
-Package biblatex Info: Reference segment=0 on input line 17.
-Package hyperref Info: Link coloring ON on input line 17.
-(./main.out) (./main.out)
+(./main.bbl)
+Package biblatex Info: Reference section=0 on input line 19.
+Package biblatex Info: Reference segment=0 on input line 19.
+Package hyperref Info: Link coloring ON on input line 19.
+ (./main.out) (./main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 17.
-Package microtype Info: Applying patch `item' on input line 17.
-Package microtype Info: Applying patch `toc' on input line 17.
-Package microtype Info: Applying patch `eqnum' on input line 17.
-Package microtype Info: Applying patch `footnote' on input line 17.
-Package microtype Info: Applying patch `verbatim' on input line 17.
-LaTeX Info: Redefining \microtypesetup on input line 17.
+LaTeX Info: Redefining \microtypecontext on input line 19.
+Package microtype Info: Applying patch `item' on input line 19.
+Package microtype Info: Applying patch `toc' on input line 19.
+Package microtype Info: Applying patch `eqnum' on input line 19.
+Package microtype Info: Applying patch `footnote' on input line 19.
+Package microtype Info: Applying patch `verbatim' on input line 19.
+LaTeX Info: Redefining \microtypesetup on input line 19.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 17.
+LaTeX Info: Redefining \showhyphens on input line 19.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1403,7 +1429,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
 
 
 (/home/user/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1412,7 +1438,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/home/user/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
 
 
 (/home/user/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1421,7 +1447,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/home/user/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 20
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 22
 .
 
 (/home/user/texlive/texmf-dist/tex/latex/base/ulasy.fd
@@ -1442,13 +1468,21 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 
 [2
 
-{/home/user/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}])
+]
+Overfull \hbox (4.33607pt too wide) in paragraph at lines 68--73
+\OML/cmm/m/it/10 H[]\U/matha/m/n/10 p\OML/cmm/m/it/10 Y[]\U/matha/m/n/10 q$ \OT
+1/cmr/m/it/10 (-20) is an isomorphism. The derived category is defined as follo
+ws $\OML/cmm/m/it/10 D\U/matha/m/n/10 p[][]q [][]^^P
+ []
 
-[3]
+)
+
+[3{/home/user/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 \openout2 = `Heuristics_Isomorphism_vs_Equivalence.aux'.
 
- (./Heuristics_Isomorphism_vs_Equivalence.tex
-Overfull \hbox (8.37288pt too wide) detected at line 23
+
+(./Heuristics_Isomorphism_vs_Equivalence.tex
+Overfull \hbox (8.37288pt too wide) detected at line 25
 [] [][]\U/matha/m/n/10 p\OML/cmm/m/it/10 X; D\U/matha/m/n/10 p\OML/cmm/m/it/10 
 a\U/matha/m/n/10 qq [][]^^P tp\OML/cmm/m/it/10 p[] [] [] X \U/matha/m/n/10 Ñ \O
 ML/cmm/m/it/10 D\U/matha/m/n/10 p\OML/cmm/m/it/10 a\U/matha/m/n/10 qq[] | []@\O
@@ -1457,11 +1491,19 @@ ML/cmm/m/it/10 f [] [] a \U/matha/m/n/10 Ñ \OML/cmm/m/it/10 b[]A\U/matha/m/n/10
  []
 
 
-Overfull \hbox (13.18842pt too wide) in paragraph at lines 39--41
+Overfull \hbox (13.18842pt too wide) in paragraph at lines 41--43
 []\OT1/cmr/bx/n/10 (-20) Definition 2.1. []\OT1/cmr/m/n/10 (-20) A limit of a d
-i-a-gram $\OML/cmm/m/it/10 D [] [] A \U/matha/m/n/10 Ñ \OMS/cmsy/m/n/10 C$ \OT1
-/cmr/m/n/10 (-20) is a cone $\OML/cmm/m/it/10 p \U/matha/m/n/10 P [][] [][]p\OM
-L/cmm/m/it/10 X; D\U/matha/m/n/10 p\OML/cmm/m/it/10 a\U/matha/m/n/10 qq$
+iagram $\OML/cmm/m/it/10 D [] [] A \U/matha/m/n/10 Ñ \OMS/cmsy/m/n/10 C$ \OT1/c
+mr/m/n/10 (-20) is a cone $\OML/cmm/m/it/10 p \U/matha/m/n/10 P [][] [][]p\OML/
+cmm/m/it/10 X; D\U/matha/m/n/10 p\OML/cmm/m/it/10 a\U/matha/m/n/10 qq$
+ []
+
+
+Overfull \hbox (12.30023pt too wide) in paragraph at lines 64--66
+[]$\OML/cmm/m/it/10 ^^Q[] [] []  [][]\U/matha/m/n/10 p^^A\OML/cmm/m/it/10 ; X\U
+/matha/m/n/10 q [] [][]p^^A\OML/cmm/m/it/10 ; D\U/matha/m/n/10 p\OML/cmm/m/it/1
+0 a\U/matha/m/n/10 qq$ \OT1/cmr/m/n/10 (-20) is a natural isomorphism. We furth
+ermore
  []
 
 
@@ -1471,26 +1513,30 @@ L/cmm/m/it/10 X; D\U/matha/m/n/10 p\OML/cmm/m/it/10 a\U/matha/m/n/10 qq$
 
 
 ]
+Overfull \hbox (22.63795pt too wide) in paragraph at lines 130--131
+[]\OT1/cmr/bx/n/10 (-20) Definition/Proposition 2.5 \OT1/cmr/m/n/10 (-20) (Gode
+ment Product)\OT1/cmr/bx/n/10 (-20) . []\OT1/cmr/m/n/10 (-20) Consider natural 
+transformations 
+ []
+
+
 
 [5]
-Overfull \hbox (0.56653pt too wide) detected at line 278
+Overfull \hbox (0.56653pt too wide) detected at line 281
 []
  []
 
 
 
-[6] Excluding 'comment' comment.
+[6]
 
 [7]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 488.
-
-Overfull \hbox (10.9208pt too wide) in paragraph at lines 508--511
+Overfull \hbox (10.9208pt too wide) in paragraph at lines 447--450
 \OT1/cmr/m/n/10 (-20) be the 2-pullback of $\OMS/cmsy/m/n/10 A [] C$\OT1/cmr/m/
-n/10 (-20) . Its ob-jects are triples $\OML/cmm/m/it/10 X \U/matha/m/n/10 ^^P p
-\OML/cmm/m/it/10 a \U/matha/m/n/10 P \OMS/cmsy/m/n/10 A\OML/cmm/m/it/10 ; b \U/
-matha/m/n/10 P \OMS/cmsy/m/n/10 B\OML/cmm/m/it/10 ; '[] [] [] F\U/matha/m/n/10 
-p\OML/cmm/m/it/10 a\U/matha/m/n/10 q []
+n/10 (-20) . Its objects are triples $\OML/cmm/m/it/10 X \U/matha/m/n/10 ^^P p\
+OML/cmm/m/it/10 a \U/matha/m/n/10 P \OMS/cmsy/m/n/10 A\OML/cmm/m/it/10 ; b \U/m
+atha/m/n/10 P \OMS/cmsy/m/n/10 B\OML/cmm/m/it/10 ; '[] [] [] F\U/matha/m/n/10 p
+\OML/cmm/m/it/10 a\U/matha/m/n/10 q []
  []
 
 
@@ -1498,11 +1544,11 @@ p\OML/cmm/m/it/10 a\U/matha/m/n/10 q []
 [8]
 
 [9]
-Overfull \hbox (5.14539pt too wide) in paragraph at lines 748--750
-[]\OT1/cmr/bx/n/10 (-20) Example 2.13. []\OT1/cmr/m/n/10 (-20) Let $\OML/cmm/m/
+Overfull \hbox (5.14539pt too wide) in paragraph at lines 712--714
+[]\OT1/cmr/bx/n/10 (-20) Example 2.12. []\OT1/cmr/m/n/10 (-20) Let $\OML/cmm/m/
 it/10 A; B; C$ \OT1/cmr/m/n/10 (-20) be groups and $\U/msb/m/n/10 B\OML/cmm/m/i
 t/10 A; \U/msb/m/n/10 B\OML/cmm/m/it/10 B; \U/msb/m/n/10 B\OML/cmm/m/it/10 C$ \
-OT1/cmr/m/n/10 (-20) their as-so-ci-ated groupoids,
+OT1/cmr/m/n/10 (-20) their associated groupoids,
  []
 
 )
@@ -1511,41 +1557,40 @@ OT1/cmr/m/n/10 (-20) their as-so-ci-ated groupoids,
 \openout2 = `Basic_2_category_theory.aux'.
 
  (./Basic_2_category_theory.tex
-LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-17.
-
-(/home/user/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
-File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-)
-Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/10'
-(microtype)             (new value: 10.0pt) on input line 117.
-Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/7'
-(microtype)             (new value: 7.0pt) on input line 117.
-Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/5'
-(microtype)             (new value: 5.0pt) on input line 117.
-
 
 [11
 
 
 
 ]
-Overfull \hbox (91.28336pt too wide) detected at line 144
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
+22.
+ (/home/user/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/10'
+(microtype)             (new value: 10.0pt) on input line 122.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 122.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/5'
+(microtype)             (new value: 5.0pt) on input line 122.
+
+Overfull \hbox (91.28336pt too wide) detected at line 149
 []
  []
 
 
 
 [12]
-Overfull \hbox (61.78894pt too wide) detected at line 285
+Overfull \hbox (61.78894pt too wide) detected at line 302
 []
  []
 
 
 
 [13]
-Overfull \hbox (106.9592pt too wide) in paragraph at lines 333--334
-[][] 
+Overfull \hbox (106.9592pt too wide) detected at line 352
+[]
  []
 
 
@@ -1555,19 +1600,15 @@ Overfull \hbox (106.9592pt too wide) in paragraph at lines 333--334
 [15]
 
 [16]
-Overfull \hbox (126.35413pt too wide) detected at line 646
+Overfull \hbox (126.35413pt too wide) detected at line 665
 []
  []
 
 
-LaTeX Warning: cref reference format for label type `dummy' undefined on input 
-line 647.
-
-
 
 [17]
-Overfull \hbox (34.37425pt too wide) in paragraph at lines 693--694
-[]\OT1/cmr/bx/n/10 (-20) Definition 2.29. []\OT1/cmr/m/n/10 (-20) A $\U/matha/m
+Overfull \hbox (34.37425pt too wide) in paragraph at lines 712--713
+[]\OT1/cmr/bx/n/10 (-20) Definition 3.16. []\OT1/cmr/m/n/10 (-20) A $\U/matha/m
 /n/10 p\OT1/cmr/m/n/10 (-20) 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (-20) 1\U/math
 a/m/n/10 q$\OT1/cmr/m/n/10 (-20) -category is a 2-category such that $\U/matha/
 m/n/10 @\OML/cmm/m/it/10 X; Y \U/matha/m/n/10 P []p\OMS/cmsy/m/n/10 C\U/matha/m
@@ -1581,12 +1622,31 @@ n/10 q$
 \openout2 = `Functors_in_2-category_theory.aux'.
 
  (./Functors_in_2-category_theory.tex
-Overfull \hbox (34.37566pt too wide) in paragraph at lines 14--15
-[]\OT1/cmr/m/n/10 (-20) For all $\OML/cmm/m/it/10 X; Y; Z \U/matha/m/n/10 P []p
-\OMS/cmsy/m/n/10 C\U/matha/m/n/10 q\OML/cmm/m/it/10 ; ^^O[] [] []  [][] \U/math
-a/m/n/10 ñ \OML/cmm/m/it/10 F\U/matha/m/n/10 p[][]q$ \OT1/cmr/m/n/10 (-20) in $
-[][]\U/matha/m/n/10 p\OML/cmm/m/it/10 X; X\U/matha/m/n/10 q [] [][]p\OML/cmm/m/
-it/10 FX; FX\U/matha/m/n/10 q$\OT1/cmr/m/n/10 (-20) . 
+
+Package biblatex Warning: Bibliography string 'pages' untranslated
+(biblatex)                at entry 'kerodon' on input line 3.
+
+
+Overfull \hbox (2.27272pt too wide) in paragraph at lines 14--15
+[]\OT1/cmr/m/n/10 (-20) for all $\OML/cmm/m/it/10 X; Y \U/matha/m/n/10 P []p\OM
+S/cmsy/m/n/10 C\U/matha/m/n/10 q$ \OT1/cmr/m/n/10 (-20) a functor $\OML/cmm/m/i
+t/10 F \U/matha/m/n/10 ^^P \OML/cmm/m/it/10 F[] [] [] [][]\U/matha/m/n/10 p\OML
+/cmm/m/it/10 X; Y\U/matha/m/n/10 q Ñ [][]p\OML/cmm/m/it/10 FX; FY\U/matha/m/n/1
+0 q$\OT1/cmr/m/n/10 (-20) , 
+ []
+
+
+Overfull \hbox (5.27762pt too wide) in paragraph at lines 17--18
+[]\OT1/cmr/m/n/10 (-20) for all $\OML/cmm/m/it/10 X; Y; Z \U/matha/m/n/10 P []p
+\OMS/cmsy/m/n/10 C\U/matha/m/n/10 q$ \OT1/cmr/m/n/10 (-20) a morphism $\OML/cmm
+/m/it/10 ^^O[] [] []  [][] \U/matha/m/n/10 ñ \OML/cmm/m/it/10 F\U/matha/m/n/10 
+p[][]q$ \OT1/cmr/m/n/10 (-20) in $[][]\U/matha/m/n/10 p\OML/cmm/m/it/10 FX; FX\
+U/matha/m/n/10 q$
+ []
+
+
+Overfull \hbox (21.41963pt too wide) detected at line 72
+[] []
  []
 
 
@@ -1597,35 +1657,145 @@ it/10 FX; FX\U/matha/m/n/10 q$\OT1/cmr/m/n/10 (-20) .
 
 ]
 
-[20]
+[20])
 
-[21])
+[21]
+\openout2 = `Grothendieck_Construction.aux'.
 
-[22]
-\openout2 = `Nerves_of_differential_graded_categories.aux'.
+ (./Grothendieck_Construction.tex
 
- (./Nerves_of_differential_graded_categories.tex
-
-[23
+[22
 
 
 
 ]
 
+[23]
+
 [24]
-
-Package amsmath Warning: Foreign command \atop;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 218.
-
-)
 
 [25]
 
-LaTeX Warning: Empty bibliography on input line 30.
+[26])
 
-(./main.aux (./Motivation.aux) (./Heuristics_Isomorphism_vs_Equivalence.aux)
-(./Basic_2_category_theory.aux) (./Functors_in_2-category_theory.aux)
+[27]
+\openout2 = `Homotopy_theory_of_simplicial_sets.aux'.
+
+ (./Homotopy_theory_of_simplicial_sets.tex)
+
+[28
+
+
+
+]
+\openout2 = `Duskin_Nerve.aux'.
+
+ (./Duskin_Nerve.tex
+
+[29
+
+
+
+]
+Overfull \hbox (2.95926pt too wide) in paragraph at lines 218--220
+[]\OT1/cmr/bx/n/10 (-20) Proposition 7.3. []\OT1/cmr/m/it/10 (-20) An n-simplex
+ $\OML/cmm/m/it/10 F \U/matha/m/n/10 P \OML/cmm/m/it/10 N[]\U/matha/m/n/10 p\OM
+S/cmsy/m/n/10 C\U/matha/m/n/10 q[]p\OML/cmm/m/it/10 F [] [] \U/matha/m/n/10 r\O
+ML/cmm/m/it/10 n\U/matha/m/n/10 s Ñ \OMS/cmsy/m/n/10 C\U/matha/m/n/10 q$ \OT1/c
+mr/m/it/10 (-20) is uniquely determined
+ []
+
+
+
+[30]
+Overfull \hbox (78.42334pt too wide) detected at line 311
+[]
+ []
+
+
+
+[31]
+
+[32]
+
+[33]
+Overfull \hbox (126.44904pt too wide) detected at line 660
+[]
+ []
+
+
+
+[34]
+Overfull \hbox (32.2596pt too wide) detected at line 749
+[] []
+ []
+
+
+
+[35])
+
+[36]
+\openout2 = `Nerves_of_differential_graded_categories.aux'.
+
+ (./Nerves_of_differential_graded_categories.tex
+
+[37
+
+
+
+]
+
+[38]
+
+Package amsmath Warning: Foreign command \atop;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 221.
+
+)
+
+[39]
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'september' untranslated
+(biblatex)                at entry 'Elephant_JOH02' on input line 38.
+
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Package biblatex Warning: Bibliography string 'volume' untranslated
+(biblatex)                at entry 'leinster2014basic' on input line 38.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+
+[40
+
+
+] (./main.aux (./Motivation.aux)
+(./Heuristics_Isomorphism_vs_Equivalence.aux) (./Basic_2_category_theory.aux)
+(./Functors_in_2-category_theory.aux) (./Grothendieck_Construction.aux)
+(./Homotopy_theory_of_simplicial_sets.aux) (./Duskin_Nerve.aux)
 (./Nerves_of_differential_graded_categories.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
@@ -1636,7 +1806,7 @@ L3 programming layer <2025-03-26>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F6CC5320D726258CCB779DFC9A177181;792.
+(rerunfilecheck)             Checksum: F32CFF1AA1AA6D5CE6D8007A8299DA27;1397.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1647,40 +1817,42 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40634 strings out of 469626
- 813626 string characters out of 5473615
- 1603089 words of memory out of 5000000
- 66657 multiletter control sequences out of 15000+600000
- 645860 words of font info for 160 fonts, out of 8000000 for 9000
+ 43950 strings out of 469626
+ 895569 string characters out of 5473615
+ 1612974 words of memory out of 5000000
+ 69871 multiletter control sequences out of 15000+600000
+ 647114 words of font info for 175 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,21n,119p,1001b,1397s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,22n,119p,1001b,1414s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/user/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></ho
 me/user/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/use
-r/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/user/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></home/user/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/user/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/user/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr12.pfb></home/user/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr17.pfb></home/user/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr5.pfb></home/user/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr7.pfb></home/user/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></home/user/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
-/home/user/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/u
-ser/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></home/user/te
-xlive/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></home/user/texliv
-e/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></home/user/texlive/tex
-mf-dist/fonts/type1/public/mathabx-type1/matha10.pfb></home/user/texlive/texmf-
-dist/fonts/type1/public/mathabx-type1/matha5.pfb></home/user/texlive/texmf-dist
-/fonts/type1/public/mathabx-type1/matha7.pfb></home/user/texlive/texmf-dist/fon
-ts/type1/public/mathabx-type1/mathb10.pfb></home/user/texlive/texmf-dist/fonts/
-type1/public/mathabx-type1/mathx10.pfb></home/user/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/symbols/msbm10.pfb></home/user/texlive/texmf-dist/fonts/type
-1/public/amsfonts/symbols/msbm7.pfb></home/user/texlive/texmf-dist/fonts/type1/
-public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (25 pages, 348891 bytes).
+r/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></home/user/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/user/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></home/user/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/user/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr10.pfb></home/user/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr12.pfb></home/user/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr17.pfb></home/user/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr5.pfb></home/user/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></home/user/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></home/user/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></home
+/user/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/user/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></home/user/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></home/user/texlive/texmf
+-dist/fonts/type1/public/doublestroke/dsrom10.pfb></home/user/texlive/texmf-dis
+t/fonts/type1/public/doublestroke/dsrom8.pfb></home/user/texlive/texmf-dist/fon
+ts/type1/public/mathabx-type1/matha10.pfb></home/user/texlive/texmf-dist/fonts/
+type1/public/mathabx-type1/matha5.pfb></home/user/texlive/texmf-dist/fonts/type
+1/public/mathabx-type1/matha7.pfb></home/user/texlive/texmf-dist/fonts/type1/pu
+blic/mathabx-type1/mathb10.pfb></home/user/texlive/texmf-dist/fonts/type1/publi
+c/mathabx-type1/mathx10.pfb></home/user/texlive/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msbm10.pfb></home/user/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msbm7.pfb></home/user/texlive/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm1000.pfb>
+Output written on main.pdf (40 pages, 452571 bytes).
 PDF statistics:
- 353 PDF objects out of 1000 (max. 8388607)
- 275 compressed objects within 3 object streams
- 102 named destinations out of 1000 (max. 500000)
- 24621 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 511 PDF objects out of 1000 (max. 8388607)
+ 412 compressed objects within 5 object streams
+ 151 named destinations out of 1000 (max. 500000)
+ 27213 words of extra memory for PDF output out of 29859 (max. 10000000)
 

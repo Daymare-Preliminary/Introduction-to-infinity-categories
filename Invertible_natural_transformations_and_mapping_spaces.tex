@@ -1,0 +1,46 @@
+\section{Invertible natural transformations and mapping spaces}
+
+\begin{defi}
+	Let $ \mathcal{ C } $ be an $ \infty $-category, $ X , Y \in \mathcal{ C }_0 $ objects of $ \mathcal{ C } $.
+	The simplicial set $ \mathcal{ C } ( X , Y ) $ is defined via the pullback
+	\[
+	\begin{tikzcd}
+		\mathcal{ C } ( X , Y )
+		\ar[r]
+		\ar[d]
+		&
+		\twoHom_{ \Set_\Delta } ( \Delta^1 , \mathcal{ C } )
+		\ar[d, shift left, "i"]
+		\ar[d, shift right = 3em, "{ ( s , t ) }"'] 
+		\\
+		\Delta^0
+		\ar[r, " { ( x , y ) } "]
+		&
+		\mathcal{ C } \times \mathcal{ C }
+		\cong
+		\twoHom ( \partial \Delta^1 , \mathcal{ C } ) 
+	\end{tikzcd}
+	\]
+\end{defi}
+
+Why is $ \mathcal{ c } ( X , Y ) $ a Kan complex ($\infty$-groupoid)?
+To answer the question we take a detour and study invertible natural transformations.
+
+\begin{Motivation}
+	Let $ \mathcal{ C } , \mathcal{ D } $ be 1-categories and $ F , G \colon \mathcal{ C } \to \mathcal{ D } $ functors together with a natural transformation $ \eta \colon F \to G $, this yields the following commutative diagram:
+	\[
+	\begin{tikzcd}
+		\{ 1 \} \times \mathcal{ C }
+		\ar[d]
+		\ar[rd, bend left , " G" ]
+		\\
+		\left[ 1 \right] \times \mathcal{ C } \ar[ r , " \overline{\eta} "]
+		&
+		\mathcal{ D } 
+		\\
+		\{ 0 \} \times \mathcal{ C } 
+		\ar[ru, bend right, " F "']
+		\ar[u]
+	\end{tikzcd}
+	\]
+\end{Motivation}

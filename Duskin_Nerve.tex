@@ -1,21 +1,24 @@
 \section{Duskin nerve}
 
-We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set from.
+The reference for this section is \cite[ch. 2.3]{kerodon}.
+
+We fix a 2-category $ \mathcal{ C } $ that we want to construct a simplicial set from.
 
 
 \begin{defi}
+\label{Duskin_nerve_defi}
 	The Duskin nerve is 
 	\[
 		\SetD
 		\xleftarrow{}
 		\twocatlax : N^D = u^*
 	\]
-	where $ \twocatlax $ is the category of 2-categeries with morphisms given by strictly unital lax 2-functors.
-	Then $ N^D ( \mathcal{ C } )_n \coloneqq \{ \text{ strictly unital lax 2-functors } [ n ] \xrightarrow{ F } \mathcal{ C } \} $. 
+	where $ \twocatlax $ is the category of 2-categories with morphisms given by strictly unital lax 2-functors.
+	Then $ N^D ( \mathcal{ C } )_n \coloneqq \{ \text{strictly unital lax 2-functors } [ n ] \xrightarrow{ F } \mathcal{ C } \} $. 
 \end{defi}
 
 \begin{rmk}
-\cite{Kerodon}
+\cite{kerodon}
 	If $ \mathcal{C} $ is a 1-category, then $ N^D ( \mathcal{ C } ) = N ( \mathcal{ C } ) $.
 	We analyze the n-simplices of $ N^D ( \mathcal{ C } ) $.
 	\begin{itemize}
@@ -88,7 +91,6 @@ We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set fro
 		 	&
 		 	1
 		 	\ar[rd]
-		 	\ar[dd, crossing over]
 		 	&
 		 	\\
 		 	0
@@ -101,6 +103,7 @@ We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set fro
 		 	\\
 		 	&
 		 	3
+		 	\arrow[from=uu, crossing over]
 		 	&
 		 \end{tikzcd}	
 		 \bigg\}
@@ -112,7 +115,6 @@ We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set fro
 		 	&
 		 	X_1
 		 	\ar[rd, "f_{21}"]
-		 	\ar[dd, "f_{13}" pos=0.3 ]
 		 	&
 		 	\\
 		 	X_0
@@ -127,25 +129,25 @@ We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set fro
 		 	\\
 		 	& 
 		 	X_3
+		 	\ar[from=uu, crossing over, "f_{13}" pos=0.3 ]
 		 	&
 		 \end{tikzcd}
 		 \]
-		 with a $ \Rightarrow $ for every 2-simplex in the boundary.
+		 with a 2-morphism $ \xRightarrow{ \gamma } $ for every 2-simplex in the boundary.
 		 
-		 \todo{resolve crossing arrows}
 	\end{itemize} 
 
 	More precisely:
 	A strictly unital lax 2-functor $ F \colon [ n ] \to \mathcal{ C } $ consist of the following data
 	\begin{itemize}
 		\item 	
-		 $ \forall 0 \leq i \leq n $ an object $ X_i \coloneqq F ( i ) $ 
+		 $ \forall 0 \leq i \leq n $ an object $ X_i \coloneqq F ( i ) $,
 		
 		\item   
-		$ \forall 0 \leq i \leq j \leq n $ a 1-morphism $ f_{ j i } = X ( i \to j ) $
+		$ \forall 0 \leq i \leq j \leq n $ a 1-morphism $ f_{ j i } = X ( i \to j ) $,
 		
 		\item 
-		$ \forall 0 \leq i \leq j \leq k \leq n $ a 2-morphism $ \mu_{ k j i } = f_{ k j } \cdot f_{ j i } \Rightarrow f_{ k i } $
+		and $ \forall 0 \leq i \leq j \leq k \leq n $ a 2-morphism $ \mu_{ k j i } = f_{ k j } \cdot f_{ j i } \Rightarrow f_{ k i } $.
 	\end{itemize}
 
 	Moreover the above data must satisfy
@@ -172,15 +174,15 @@ We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set fro
 		\begin{align*}
 			\mu_{ j j i } = \lambda_{ f_{ j i } } 
 			&\colon
-			\id_{ X_1 } \circ f_{ j i } \Rightarrow f_{ j i }
+			\id_{ X_j } \circ f_{ j i } \Rightarrow f_{ j i }
 			\\
 			\mu_{ j i i } = \rho_{ f_{ j i } } 
 			&\colon 
-			f_{ j i } \circ \id_{ X_1 } \Rightarrow f_{ j i }
+			f_{ j i } \circ \id_{ X_i } \Rightarrow f_{ j i }.
 		\end{align*}
 		Recall that 
 		\[
-			\mu_{ i i i } = \lambda_{ f_{ i i } } = \id_{ X_i } = \rho_{ \id_ { X_i } } = \rho_{ f_{ i i } } = \mu_{ i i i } 
+			\mu_{ i i i } = \lambda_{ f_{ i i } } = \id_{ X_i } = \rho_{ \id_ { X_i } } = \rho_{ f_{ i i } } = \mu_{ i i i }.
 		\] 
 		
 		\item 
@@ -216,7 +218,7 @@ We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set fro
 	An n-simplex $ F \in N^D ( \mathcal{ C } )_n ( F \colon [ n ] \to \mathcal{ C } ) $ is uniquely determined by the following data:
 	\begin{itemize}
 		\item 
-		$ 0 \leq i \leq n , X_i \in \Ob( \mathcal{ C } ) , \forall  0 \leq  i < j \leq n, f_j \colon X_i \to X_j $ a collection of 1-morphisms in $ \mathcal{ C } $
+		$ 0 \leq i \leq n , X_i \in \Ob( \mathcal{ C } ) , \forall  0 \leq  i < j \leq n, f_j \colon X_i \to X_j $ a collection of 1-morphisms in $ \mathcal{ C } $,
 		
 		\item 
 		$ 0 \leq i < j < k \leq n , \mu_{ k j i } = f_{ k j } \circ f_{ j i } \Rightarrow f_{ k i } $ such that $ \forall 0 \leq i < j < k < l \leq n $ \eqref{eq:1} is satisfied.  
@@ -240,7 +242,7 @@ We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set fro
 
 \begin{lem}		
 	Let $ X \xrightarrow{ f } Y \xrightarrow{ g } Z $ be 1-morphisms in $ \mathcal{ C } $.
-	The following should hold 
+	Then the following diagrams commute:
 	\begin{enumerate}
 		\item 
 		\[
@@ -278,7 +280,7 @@ We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set fro
 \begin{proof}
 	We prove 2., consider for that the following diagram, notice that we omitted taking products with identities in the notation of the morphisms. 
 	\[
-	\begin{tikzcd}
+	\begin{tikzcd}[row sep= 1.5cm, column sep= 0.5cm]
 		&
 		g \circ ( ( f \circ \id_X ) \circ \id_X ) 
 		\ar[r, Rightarrow, "\alpha"]
@@ -307,7 +309,8 @@ We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set fro
 		\ar[ru, Rightarrow, "\alpha"']
 	\end{tikzcd}
 	\]
-	By the pentagon axiom the outer composition in the diagram commutes, the bottom, top left and bottom right triangles commute by the triangle identity and the top middle square commutes by naturality of $ \rho $, thus the top right triangle commute, since now $ - \circ \id_X $ is fully faithful.
+	By the pentagon axiom the outer composition in the diagram commutes, the bottom, top left and bottom right triangles commute by the triangle identity and the top middle square commutes by naturality of $ \rho $, thus the top right triangle commutes.
+	Lastly the diagram we aim to show commutes is the top right triangle with $ - \circ \id_X $ applied to it, since $ - \circ \id_X $ is fully faithful the original triangle commutes.
 \end{proof}
 
 \begin{cor}
@@ -319,6 +322,7 @@ We fix a 2-category $ \mathcal{ C } $ and want to construct a simplicial set fro
 \end{cor}
 
 The 3-simplices can be given by 2 boundary quadrilaterals as follows, let $ 0 \leq i < j < k < l \leq n $.
+Then the boundary quadrilaterals are given by
 
 \[
 \begin{tikzcd}
@@ -330,16 +334,37 @@ The 3-simplices can be given by 2 boundary quadrilaterals as follows, let $ 0 \l
 	\ar[rd, "f_{ l k } "]
 	\\
 	X_i
-	\arrow{rru}[name=U',label=above]{}
+	\ar[rru,bend right=10,""{name=U, above}]
 	\ar[ru, " f_{ j i } " ]
-	\ar[rrr, " f_{ k i } "']
+	\ar[rrr, " f_{ k l } "' {name=R, above}]
+	\arrow[Rightarrow, from=ru, to=U, "\mu_{ k j i } "]
+	&&&
+	X_l
+	\ar[Rightarrow, from=ul, to=R, "\mu_{ l k i } "]
+\end{tikzcd}
+\]
+\[
+\begin{tikzcd}
+	&
+	X_j
+	\ar[r , " f_{ k j } " ]
+	\ar[rrd, bend right=10,""{name=D, above}]
+	&
+	X_k
+	\ar[rd, "f_{ l k } "]
+	\ar[Rightarrow, to=D, "\mu_{ k l j } "]
+	\\
+	X_i
+	\ar[ru, " f_{ j i } " ]
+	\ar[rrr, " f_{ l i } "' {name=L, above}]
+	\ar[Rightarrow, from=ur, to=L, "\mu_{ l i j } "']
 	&&&
 	X_l
 \end{tikzcd}
 \]
-\todo{unclear yet how to draw arrows from node to arrow}
 
 \begin{defi}
+\label{thin_defi}
 	Let $ X \in \SetD $ be a simplicial set. 
 	A 2-simplex $ \sigma \in X_2 $ is thin if $ \forall n \geq 3, \forall 0 < i < n $, there exists 
 	a morphism $ \Tilde{ \rho } $ for all morphisms $ \tau $ such that the following commutes
@@ -366,7 +391,7 @@ The 3-simplices can be given by 2 boundary quadrilaterals as follows, let $ 0 \l
 \begin{rmk}
 \label{every_simplex_thin}
 	Let $ X \in \SetD $ be an $ \infty $-category, then every 2-simplex of $ X $ is thin.
-	Conversely, if every 2-simplex of $ X $ is thin, then $ X $ is an $ \infty $ category $\iff$
+	Conversely, if every 2-simplex of $ X $ is thin, then $ X $ is an $ \infty $ category if and only if the following diagram commutes:
 	\[
 	\begin{tikzcd}
 		\Lambda_1^2 
@@ -392,7 +417,7 @@ The 3-simplices can be given by 2 boundary quadrilaterals as follows, let $ 0 \l
 		&
 		N^D ( \mathcal{ C } )
 		\\
-		\Delta
+		\Delta^2
 		\ar[ru, dashed, "\exists"']
 	\end{tikzcd}
 	\]
@@ -401,7 +426,7 @@ The 3-simplices can be given by 2 boundary quadrilaterals as follows, let $ 0 \l
 \end{rmk}
 
 \begin{thm}
-	Let $ \mathcal{ C } $ be a 2-category, then $ \mathcal{ C } \colon ( 2 , 1 ) $ if and only if $ N^D ( \mathcal{ C } ) $ is an $ \infty $-category.
+	Let $ \mathcal{ C } $ be a 2-category, then $ \mathcal{ C } $ is a $ ( 2 , 1 ) $-category if and only if $ N^D ( \mathcal{ C } ) $ is an $ \infty $-category.
 \end{thm}
 
 \begin{proof}
@@ -423,11 +448,11 @@ The 3-simplices can be given by 2 boundary quadrilaterals as follows, let $ 0 \l
 	\[
 	\begin{tikzcd}	
 		\id_Y \circ f 
-		\ar[Rightarrow, "\lambda_f"]
-		\ar[rd, Rightarrow, "\rho"]
+		\ar[r, Rightarrow, "\lambda_f"]
+		\ar[rd, Rightarrow, "\rho"' ]
 		&
 		f
-		\ar[d, " \gamma "]
+		\ar[d, Rightarrow, " \gamma "]
 		\\
 		&
 		g
@@ -439,7 +464,7 @@ The 3-simplices can be given by 2 boundary quadrilaterals as follows, let $ 0 \l
 
 Lecture 27.5
 
-Fix $ \mathcal{ C } $ a 2-category and let $ N^D ( \mathcal{ C ) \in \SetD $ be its Duskin nerve, i.e. $ N^D ( \mathcal{ C } )_n \coloneqq \{ [ n ] \to \mathcal{ C } \mid \text{strictly unital lax functors} \} $.
+For the next part let $ \mathcal{ C } $ be a fixed 2-category and let $ N^D ( \mathcal{ C } ) \in \SetD $ be its Duskin nerve, i.e. $ N^D ( \mathcal{ C } )_n \coloneqq \{ [ n ] \to \mathcal{ C } \mid \text{strictly unital lax functors} \} $.
 	
 \begin{thm}
 \label{thin_iff_invertible}
@@ -449,7 +474,7 @@ Fix $ \mathcal{ C } $ a 2-category and let $ N^D ( \mathcal{ C ) \in \SetD $ be 
 		&
 		X_1
 		\ar[rd, "f_{21}"]
-		\ar[d, Rightarrow, "\mu_{ 2 1 0 }"] 
+		\ar[d, Rightarrow, "\gamma_{ 2 1 0 }"] 
 		&
 		\\
 		X_0
@@ -471,10 +496,369 @@ Fix $ \mathcal{ C } $ a 2-category and let $ N^D ( \mathcal{ C ) \in \SetD $ be 
 \end{proof}
 	
 \begin{prop}
-	Let $ n \geq 3 $ and $ 0 \leq l \leq n $ and
+	Let $ n \geq 3 $ as well as $ 0 \leq l \leq n $, 
 	\[
-	\begin{tikzcd}
-		g
+	\sigma
+	=
+	\begin{tikzcd}	
+		&
+		X_1
+		\ar[rd, "f_{21}"]
+		\ar[d, Rightarrow, "\gamma"] 
+		&
+		\\
+		X_0
+		\ar[ru, "f_{10}" ]
+		\ar[rr, "f_{20}"' ]
+		&
+		{}
+		&
+		X_2
 	\end{tikzcd}
 	\]
+	be a 2-simplex in $ N^D ( \mathcal{ C } ) $ and 
+	\[
+	\begin{tikzcd}
+		\Lambda_l^n 
+		\ar[r, "u"]
+		&
+		N^D ( \mathcal{ C } )
+		\\
+		\Delta^{ \{ l - 1 , l , l + 1 \} }
+		\ar[ru, " \sigma "]
+		\ar[u]
+	\end{tikzcd}
+	\]
+	commute.
+	If $ \gamma $ is invertible, then $ u $ extends uniquely to an $ n $-simplex of $ N^D ( \mathcal{ C } ) $.
+ \end{prop}
+
+\begin{proof}
+	Recall that $ N^D ( \mathcal{ C } ) $ is 3-coskeletal, hence we may assume $ n = 3 , 4 $.
+	(Case 1) $ n = 3 , l = 1 $ 
+	\[
+	\begin{tikzcd}
+		&
+		X_1
+		\ar[r , " f_{ 2 1 } " ]
+		&
+		X_2
+		\ar[rd, "f_{ 3 2 } "]
+		\ar[rd, green, dash, dashed, shift right]
+		\\
+		X_0
+		\ar[rrr, green, dash, dashed, shift left,
+			start anchor={[xshift=2ex]}]
+		\ar[rru,bend right=10,""{name=U, below}]
+		\ar[rru, green, dash, dashed, shift right, bend right=10, 
+		start anchor={[xshift=2ex]},
+		start anchor={[yshift=0.5ex]}]
+		\ar[ru, " f_{ 1 0 } " ]
+		\ar[rrr, " f_{ 3 0 } "']
+		\arrow[Rightarrow, from=ru, to=U, shorten=3, "\mu_{ 2 1 0 } = \gamma"]
+		&&&
+		X_3
+	\end{tikzcd}
+	\quad
+	\begin{tikzcd}
+		&
+		X_1
+		\ar[r , " f_{ 2 1 } " ]
+		\ar[rrd, bend right=10,""{name=D, below}]
+		&
+		X_2
+		\ar[rd, "f_{ 3 2 } "]
+		\ar[Rightarrow, to=D, shorten = 3, "\mu_{ 3 2 1 } "]
+		\\
+		X_0
+		\ar[ru, " f_{ 1 0 } " ]
+		\ar[rrr, " f_{ 3 0 } "' {name=L, below}]
+		\ar[Rightarrow, from=ur, to=L, shorten = 3, "\mu_{ 3 1 0 } "']
+		&&&
+		X_3
+	\end{tikzcd}
+	\]
+	Where the dashed green lined simplex corresponds to the missing simplex given by $ \mu_{ 3 2 0 } $, which we can construct as follows.
+	Observe that since $ \id_{ f_ { 3 2 } } $ and $ \mu_{ 2 1 0 } = \gamma $ are invertible and composition is functorial, the composition is invertible as well. 
+	%# reference for Exercise missing
+	We know from an Exercise that if $ \mu_{ 3 2 0 } $ would exist, the following identity would hold and that it is sufficient that this holds to extend the horn
+	\[
+		\mu_{ 3 2 0 } ( \id_{ f_ { 3 2 } }  \circ \mu_{ 2 1 0 } ) 
+		=
+		\mu_{ 3 1 0 } ( \mu_{ 3 2 1 } \circ \id_{ f_{ 1 0 } } ) \alpha_{ f_{ 3 2 } , f_{ 2 1 } , f_{ 1 0 } } .
+	\]
+	By the above argument we can choose
+	\[
+		\mu_{ 3 2 0 } 
+		=
+		( \mu_{ 3 1 0 } ( \mu_{ 3 2 1 } \circ \id_{ f_{ 1 0 } } ) \alpha_{ f_{ 3 2 } , f_{ 2 1 } , f_{ 1 0 } } )  ( \id_{ f_ { 3 2 } } \circ \mu_{ 2 1 0 } )^{ - 1 }.
+	\]
+	\newline
+	(Case 2: n=4 ,l=2) $ u \colon \Lambda_l^n \to N^D ( \mathcal{ C } ) $
+	\newline
+	We need to check the compatibility of composition, since all other diagrams for the Duskin nerve require only simplices up dimension three to commute and, thus hold for the boundary 3-simplices of a 4-horn, leaving only the compatibility of composition to be checked.
+	The outer square of the following diagram is exactly the compatibility of composition diagram for the missing 3 simplex, i.e. all morphisms that do not contain a $ 2 $ as an index.
+	\[
+	\begin{tikzcd}[column sep=0.7]
+		f_{ 4 3 } \circ ( f_{ 3 1 } \circ f_{ 1 0 } )
+		\ar[rrrr, Rightarrow, "\alpha"]
+		\ar[ddddd, Rightarrow, " \mu_{ 3 1 0 } "]
+		&&&&
+		( f_{ 4 3 } \circ f_{ 3 1 } ) \circ f_{ 1 0 }
+		\ar[ddddd, Rightarrow, " \mu_{ 4 3 1 } "]
+		\\
+		&
+		f_{ 4 3 } \circ ( ( f_{ 3 2 } \circ f_{ 2 1 } ) \circ f_{ 1 0 } )
+		\ar[rr, Rightarrow, "\alpha"]
+		\ar[lu, Rightarrow,  "\mu_{ 3 2 1 }"]
+		&&
+		( f_{ 4 3 } \circ ( f_{ 3 2 } \circ f_{ 2 3 } ) ) \circ f_{ 1 0 } 
+		\ar[ru, Rightarrow]
+		\ar[d, Rightarrow, "\alpha"]
+		\\
+		&
+		f_{ 4 3 } \circ ( f_{ 3 2 } \circ ( f_{ 2 1 } \circ f_{ 1 0 } ) )
+		\ar[d, Rightarrow, "\mu_{ 2 1 0 }"]
+		\ar[rd, Rightarrow, "\alpha"]
+		\ar[u, Rightarrow, "\alpha"]
+		&&
+		( ( f_{ 4 3 } \circ f_{ 3 2 } ) f_{ 2 1 } ) f_{ 1 0 }
+		\ar[d, Rightarrow, "\mu_{ 4 3 2 }"]
+		\\
+		&
+		f_{ 4 3 } \circ ( f_{ 3 2 } \circ f_{ 2 0 } )
+		\ar[ddl, Rightarrow, "\mu_{ 3 2 0 }"']
+		\ar[d , Rightarrow, " \alpha"]
+		&
+		( f_{ 4 3 } \circ f_{ 3 2 } ) \circ ( f_{ 2 1 } \circ f_{ 1 0 } )
+		\ar[dl, Rightarrow, "\mu_{ 2 1 0 }"]
+		\ar[dr, Rightarrow, "\mu_{ 4 3 2 }"]
+		\ar[ru, Rightarrow, "\alpha"]
+		&
+		( f_{ 4 2 } \circ f_{ 2 1 } ) \circ f_{ 1 0 } 
+		\ar[d, Rightarrow, "\alpha"]
+		\ar[ddr, Rightarrow, " \mu_{ 4 2 1 }"]
+		\\
+		&
+		( f_{ 4 3 } \circ f_{ 3 2 } ) \circ f_{ 2 0 }
+		\ar[r, Rightarrow, "\mu_{ 4 3 2 }"']
+		&
+		f_{ 4 2 } \circ f_{ 2 0 } 
+		\ar[d, Rightarrow, " \mu_{ 4 2 0 } "]
+		&
+		f_{ 4 2 } \circ ( f_{ 2 1 } \circ f_{ 1 0 } )
+		\ar[l, Rightarrow, "\mu_{ 2 1 0 }"] 
+		\\
+		f_{ 4 3 } \circ f_{ 3 0 }
+		\ar[rr, Rightarrow, "\mu_{ 4 3 0 } "]
+		&&
+		f_{ 4 0 }
+		&&
+		f_{ 4 1 } \circ f_{ 1 0 } 
+		\ar[ll, Rightarrow, "\mu_{ 4 1 0 }"]
+	\end{tikzcd}
+	\]
+	Note that composition constraint and associativity constraint are isomorphisms, thus if the inner diagrams commute, so does the outer one.
+	The left and right quadrilaterals commute by the compatibility of composition, given by the other boundary 3-simplices of the horn and since composition with a morphism ($ f_{ 4 3 } $ on the left side, $f_{ 4 2 } $ on the right side) is fully faithful, the upper square commutes by the naturality of $ \alpha $, the pentagon by the Pentagon identity, the triangles below the Pentagon by the naturality of the associativity constraint, the bottom left and right square commute by the composition compatibility.
+	%# one squares commutativity missing here
+\end{proof}
+
+\begin{prop}
+	Let $ \mathcal{ C } $ be a 2-category and 
+	\[
+	\sigma \coloneqq
+	\begin{tikzcd}
+		& 
+		X_1
+		\ar[rd,"g"]
+		\ar[d, Rightarrow, "\gamma"]
+		\\
+		X_0 
+		\ar[ru, "f"]
+		\ar[rr, "h"']
+		&
+		{}
+		&
+		X_2
+	\end{tikzcd}
+	\in N^D (\mathcal{ C } )_2
+	\]
+	such that $ \forall n \in \{ 3 , 4 \} $ the following diagram commutes
+	\[
+	\begin{tikzcd}
+		\Delta^{ \{ 0 , 1 , 2 \} }
+		\ar[d, hook]
+		\ar[rd, bend left, "\sigma"]
+		\\
+		\Lambda_1^n
+		\ar[r, "u"]
+		\ar[d, hook]
+		&
+		N^D ( \mathcal{ C } )
+		\\
+		\Delta^n
+		\ar[ru, "\exists"]
+	\end{tikzcd}
+	\]
+	then $ \gamma $ is invertible.
 \end{prop}
+
+\begin{proof}
+	Let the following quadrilaterals be the boundary of a 3-simplex.
+	\[
+	\begin{tikzcd}
+		&
+		X_1
+		\ar[r , " f " ]
+		&
+		X_2
+		\ar[rd, " g "]
+		\ar[rd, green, dash, dashed, shift right]
+		\\
+		X_0
+		\ar[rrr, green, dash, dashed, shift left,
+		start anchor={[xshift=2ex]}]
+		\ar[rru,bend right=10," h "'{name=U, below}]
+		\ar[rru, green, dash, dashed, shift right, bend right=10, 
+		start anchor={[xshift=2ex]},
+		start anchor={[yshift=0.5ex]}]
+		\ar[ru, " f " ]
+		\ar[rrr, " g \circ f "']
+		\arrow[Rightarrow, shorten=3, from=ru, to=U, "\gamma"]
+		&&&
+		X_3 = X_2
+	\end{tikzcd}
+	\quad
+	\begin{tikzcd}
+		&
+		X_1
+		\ar[r , " g " ]
+		\ar[rrd, bend right=10,shorten=3," g "{name=D, below}]
+		&
+		X_2
+		\ar[rd, "\id_{ X_2 } "]
+		\ar[Rightarrow, to=D,shorten=3, " \id_g "]
+		\\
+		X_0
+		\ar[ru, " f " ]
+		\ar[rrr, " g \circ f " {name=L, below}]
+		\ar[Rightarrow,shorten=3, from=ur, to=L, "\id_{ g \circ f } "']
+		&&&
+		X_3 = X_2
+	\end{tikzcd}
+	\]
+	by assumption this has a filling and thus there exists a $ \delta $ such that $ \delta \gamma = \id_{ g \circ f } \circ \id_g $, we can assume strict unitality of the category (for details on this see \cite{kerodon}) and thus need obtain that $ \delta \gamma = \id_{ g \circ f } $. 
+	Now we need to show it is a right inverse to $ \gamma $ as well. 
+	for that we take the 4-horn given by the following boundary data:
+	\[
+	\begin{tikzcd}
+		&& 
+		X_2 
+		\ar[rd, " \id_{ X_2 } "]
+		\\
+		&
+		X_1
+		\ar[ru, "g"]
+		&&
+		X_3 = X_2
+		\ar[rd, " \id_{X_2} "]
+		\\
+		X_0 
+		\ar[ru, " f "]
+		\ar[rrrr, " h "']
+		\ar[rruu, bend right, " h "']
+		\ar[rrru, bend right = 10, " g \circ f "' pos = 0.8]
+		&&&&
+		X_4 = X_2
+	\end{tikzcd}
+	\]
+	\[
+	\begin{tikzcd}
+		&& 
+		X_2 
+		\ar[rd, " \id_{ X_2 } "]
+		\ar[rrdd, bend right=30, " \id_{ X_2 } "' pos = 0.2]
+		\\
+		&
+		X_1
+		\ar[rrrd, bend right = 10, " g "' pos = 0.3]
+		\ar[ru, "g"]
+		&&
+		X_3 = X_2
+		\ar[rd, " \id_{X_2} "]
+		\\
+		X_0 
+		\ar[ru, " f "]
+		\ar[rrrr, " h "']
+		&&&&
+		X_4 = X_2
+	\end{tikzcd}
+	\]
+	\[
+	\begin{tikzcd}
+		&& 
+		X_2 
+		\ar[rd, " \id_{ X_2 } "]
+		\\
+		&
+		X_1
+		\ar[rr, " g "' pos = 0.3]
+		\ar[ru, "g"]
+		&&
+		X_3 = X_2
+		\ar[rd, " \id_{X_2} "]
+		\\
+		X_0 
+		\ar[ru, " f "]
+		\ar[rrrr, " h "']
+		\ar[rrru, "g \circ f"']
+		&&&&
+		X_4 = X_2
+	\end{tikzcd}
+	\]
+	\[
+	\begin{tikzcd}
+		&& 
+		X_2 
+		\ar[rd, " \id_{ X_2 } "]
+		\\
+		&
+		X_1
+		\ar[rr, " g " pos = 0.3]
+		\ar[ru, "g"]
+		\ar[rrrd, "g "']
+		&&
+		X_3 = X_2
+		\ar[rd, " \id_{X_2} "]
+		\\
+		X_0 
+		\ar[ru, " f "]
+		\ar[rrrr, " h "']
+		&&&&
+		X_4 = X_2
+	\end{tikzcd}
+	\]
+	\[
+	\begin{tikzcd}
+		&& 
+		X_2 
+		\ar[rd, " \id_{ X_2 } "]
+		\ar[rrdd, bend right = 20, " \id_{ X_2 } "']
+		\\
+		&
+		X_1
+		\ar[ru, "g"]
+		&&
+		X_3 = X_2
+		\ar[rd, " \id_{X_2} "]
+		\\
+		X_0 
+		\ar[rruu, bend right, "h"']
+		\ar[ru, " f "]
+		\ar[rrrr, " h "']
+		&&&&
+		X_4 = X_2
+	\end{tikzcd}
+	\]
+	Since the horn given by the simplices above extends, we obtain $\gamma \delta = \id_h $. 
+\end{proof}

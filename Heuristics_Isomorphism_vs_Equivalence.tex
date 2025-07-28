@@ -1,5 +1,7 @@
 \section{Heuristics: Isomorphism vs. Equivalence}
 
+The reference for this section is \cite[ch.4,5,6]{leinster2014basic}.
+\newline
 Makkai's Principle of Isomorphism (1998) says:
 
 "All grammatically correct properties about objects in a fixed category are to be invariant under isomorphism."
@@ -36,7 +38,7 @@ For $ \phi \colon Y \to X $ define the function
 Thus $ \lim_{a \in A } \Hom_{ \mathcal{ C } } ( - , D ( a ) ) \colon \mathcal{ C }^{\op} \to \Set $ is a presheaf of sets on $ \mathcal{ C } $.
 
 \begin{defi}
-    A limit of a diagram $ D \colon A \to \mathcal{ C } $ is a cone $ p \in \lim_{a \in A } \Hom_{ \mathcal{ C } } ( X, D ( a ) ) $ that is universal in the sense that $ \forall Y \in \mathcal{ C }, \forall q \in \lim_{a \in A} \Hom_{\mathcal{ C }} ( Y , D ( a ) ) \exists! \varphi\colon Y \to X $ such that $ \varphi^* ( p ) = q $.
+    A limit of a diagram $ D \colon A \to \mathcal{ C } $ is a cone $ p \in \lim_{a \in A } \Hom_{ \mathcal{ C } } ( X, D ( a ) ) $ that is universal in the sense that $ \forall Y \in \mathcal{ C } , \forall q \in \lim_{a \in A} \Hom_{\mathcal{ C }} ( Y , D ( a ) ) , \exists! \varphi \colon Y \to X $ such that $ \varphi^* ( p ) = q $.
     We write $ \lim_{ a \in A } D ( a ) $ for any limit of $ D $ (which may or may not exist).
 \end{defi}
 
@@ -88,7 +90,7 @@ We furthermore obtain, that for an isomorphism $\psi \colon Y \to X $ in $\mathc
         Z
     \end{tikzcd}
     \]
-    then the limit of the diagram (if it exists ) is called a pullback.
+    then the limit of the diagram (if it exists) is called a pullback.
     \[
     \begin{tikzcd}
         W
@@ -116,12 +118,12 @@ We furthermore obtain, that for an isomorphism $\psi \colon Y \to X $ in $\mathc
 
 The commutativity condition takes place in $ \Hom_{ \mathcal{ C } } ( X \times_Z Y , Z ) \ni g \circ f' = f \circ g' $
 
-\underline{ Makkai's Pronciple of Equivalence }
+\underline{Makkai's Principle of Equivalence}:
 All grammatically correct properties of objects in a fixed 2-category are to be invariant under equivalence.
 
 \begin{rmk}
-    We want to $ \Cat $ be the strict 2-category of (small) categories with functors as 1-morphisms and natural transformations as 2-morphisms.
-    Now natural transformation allow for a notion of equivalence of morphisms, that is in a 1-category we only knew what it meant for two morphisms to be equal, but now we can talk about two functors being naturally isomorphic given us a notion of equivalence of 1-morphisms, via the 2-morphisms.
+    We want $ \Cat $ to be the strict 2-category of (small) categories with functors as 1-morphisms and natural transformations as 2-morphisms.
+    Now natural transformation allow for a notion of equivalence of morphisms, that is in a 1-category we only knew what it meant for two morphisms to be equal, but now we can talk about two functors being naturally isomorphic giving us a notion of equivalence of 1-morphisms, via 2-morphisms.
 \end{rmk}
 
 \begin{defi/prop}[Godement Product]
@@ -179,7 +181,7 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
 \end{defi/prop}
 
 \begin{proof}
-    We show that $ \beta * \alpha \colon G_1 \circ F_1 \Rightarrow g_2 \circ F_2 $ is indeed a natural transformation. 
+    We show that $ \beta * \alpha \colon G_1 \circ F_1 \Rightarrow G_2 \circ F_2 $ is indeed a natural transformation. 
     For that we take the following diagram 
      \[
      \begin{tikzcd}
@@ -201,7 +203,7 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
          Y
          &
          G_1 ( F_1 ( Y ) )
-         \ar[ r , " G_1 ( \alpha_1 ) "']
+         \ar[ r , " G_1 ( \alpha_Y ) "']
          &
          G_1 ( F_2 ( Y ) ) 
          \ar[ r, " {\beta_{ F_2 ( Y ) }}"']
@@ -209,6 +211,7 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
          G_2 ( F_2 ( Y ) ) 
      \end{tikzcd}
      \]
+     the inner squares commute by the naturality of $ \alpha $ and $ \beta $, thus the outer square commutes, meaning it is a natural transformation.
 \end{proof}
 
 \begin{prop}
@@ -234,7 +237,7 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
     	\arrow[shorten <=5pt,shorten >=5pt,Rightarrow,to path={(M') -- node[label=right:$\delta$] {} (D')}]{}    	
     \end{tikzcd}	
 	\]
-    Then $ ( \delta \beta ) * ( \gamma \alpha ) = ( \delta * \gamma ) \circ ( \beta * \alpha )$.
+    Then $ ( \delta \beta ) * ( \gamma \alpha ) = ( \delta * \gamma ) \circ ( \beta * \alpha ) $.
 \end{prop}
 
 \begin{proof}
@@ -280,7 +283,7 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
 \end{proof}
 
 \begin{defi}
-    The Godement products bellow are called whickerings
+    The Godement products bellow are called whiskerings
     \[
     \begin{tikzcd}[column sep = huge]
     	\mathcal{C}
@@ -329,6 +332,7 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
 \end{defi}
 
 \begin{construction}
+	\label{2-pullback_groupoids}
     Given a cospan of groupoids 
     \[
     \begin{tikzcd}
@@ -342,7 +346,7 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
         \mathcal{ C }
     \end{tikzcd}
     \]
-    its 2-pullback is the diagonal of groupoids.
+    its 2-pullback is the diagonal of groupoids along on $ \mathcal{ C } $ inside the product.
     \[
     \begin{tikzcd}
         \mathcal{ A } \times_{ \mathcal{ C } } \mathcal{ B } 
@@ -358,93 +362,27 @@ All grammatically correct properties of objects in a fixed 2-category are to be 
         \mathcal{ C }
     \end{tikzcd}
     \]
-    The objects are given as $ \Ob ( \mathcal{ A } \times_\mathcal{ C } \mathcal{ B } ) = ( a \in \mathcal{ A } , b \in \mathcal{ B }, \varphi \colon F ( a ) \isomorphism G ( b ) $ in $ \mathcal{ C } )$ and morphisms are given by tuples of morphisms $ ( u , v ) \colon ( a , b, \varphi ) \to ( a' , b' , \varphi' ) $, where $ u \colon a \to a' $ and $ v \colon b \to b '$ are morphisms in the respective groupoids, such that the following square commutes
+    The objects are given as $ \Ob ( \mathcal{ A } \times_\mathcal{ C } \mathcal{ B } ) = ( a \in \mathcal{ A } , b \in \mathcal{ B }, \varphi \colon F ( a ) \isomorphism G ( b ) $ in $ \mathcal{ C } )$ and morphisms are given by tuples of morphisms $ ( u , v ) \colon ( a , b, \varphi ) \to ( a' , b' , \varphi' ) $, where $ u \colon a \to a' $ and $ v \colon b \to b '$ are morphisms in the respective groupoids, such that the following square commutes:
     \[
     \begin{tikzcd}
         F ( a ) 
-        \ar[r, "\varphi" , " \sim "']
-        \ar[d, "F( a )"']
+        \ar[r, " \varphi " , " \sim "']
+        \ar[d, " F ( a ) "']
         &
         G ( b )
-        \ar[d, " G ( v )"]
+        \ar[d, " G ( v ) "]
         \\
         F ( a' )
-        \ar[r, "\varphi", "\sim"']
+        \ar[r, " \varphi' ", " \sim "']
         &
-        G(b')
+        G ( b' )
     \end{tikzcd}
     \]
 \end{construction}
 
 Lecture 15.04
 
-Let $ X ,  Y , Z \in \Set $ and consider a pullback diagram 
-\[
-\begin{tikzcd}
-	X \times_Z Y 
-	\ar[r, " \pi_Y "]
-	\ar[d, " \pi_X "]
-	&
-	Y
-	\ar[d, " g \circ ?"]
-	\\
-	X
-	\ar[r, " f"]
-	&
-	Z    
-\end{tikzcd}
-\]
-where $ X \times_Z Y \coloneqq \{ ( x , y ) \in X \times Y \mid f ( x ) = g ( y ) \}$ and 
-\begin{comment}
-\[
-\begin{align*}
-	\Hom_{\Set} ( \prescript{\forall}{}{W} , X \times_Z  Y ) 
-	&\isomorphism
-	\Hom_{ \Set } ( W , X ) \times_{\Hom_{\Set} ( W , Z ) } \Hom_{ \Set } (  W , Y ) 
-	\\
-	(\varphi \colon W \to X \times_Z Y ) 
-	&\mapsto
-	\left(
-	\begin{tikzcd}
-		W 
-		\ar[r, " \pi_Y \circ \varphi "]
-		\ar[d , " \pi_X \circ \varphi "]
-		&
-		Y
-		\ar[d, "g"]
-		\\
-		X
-		\ar[r, "f"]
-		&
-		Z        
-	\end{tikzcd} 
-	\right)
-\end{align*}
-\]
-\end{comment}
-
-\begin{construction}
-	Let $ \mathcal{A} , \mathcal{B}, \mathcal{ C } $: groupoids
-	\[
-	\begin{tikzcd}
-		\mathcal{A} \times_{\mathcal{ C }}^{(2)} \mathcal{B}
-		\ar[r, " {\pi_{\mathcal{ A }}}"]
-		\ar[d, " {\pi_{\mathcal{ B }}}"]
-		&
-		\mathcal{B}
-		\ar[d ,"G"]
-		\\
-		\mathcal{A}
-		\ar[r , "F"]
-		&
-		\mathcal{C}
-	\end{tikzcd}
-	\]
-\end{construction}
-
-Lecture 15.04
-
-Let $ X , Y , Z \in \Set $ and consider a pullback diagram
+Let $ X , Y , Z \in \Set $ and consider a pullback diagram:
 \[
 \begin{tikzcd}
 	X \times_Z Y 
@@ -460,54 +398,55 @@ Let $ X , Y , Z \in \Set $ and consider a pullback diagram
 	Z
 \end{tikzcd}
 \] 
-Where the fiber product is given by $ X \times_Z Y \coloneqq \{ ( x , y ) \in  X \times Y \times f ( x ) = g ( x ) \} $ such that the following isomorphism holds.
+Where the fiber product is given by $ X \times_Z Y \coloneqq \{ ( x , y ) \in  X \times Y , f ( x ) = g ( x ) \} $ such that the following isomorphism holds for all $ W $.
 
-%\begin{\align*}
-%	\Hom_{ \Set } ( \prescript{\forall}{}{W} , X \times_Z Y ) 
-%	&\isomorphism 
-%	\Hom_{ \Set } ( W , X ) \times_{ \Hom_{ \Set } ( W , Z ) \Hom_{ \Set } ( W , Y )
-%	\\
-%	( \varphi \colon X \times_Z  Y )
-%	&\mapsto
-%\end{align*}
-
-\begin{tikzcd}
-	W 
-	\ar[r, " \pi_Y \circ \varphi"]
-	\ar[d, " \pi_X \circ \varphi"]
-	&
-	Y
-	\ar[d, "g" ]
+\begin{align*}
+	\Hom_{ \Set } ( \prescript{\forall}{}{W} , X \times_Z Y ) 
+	&\isomorphism 
+	\Hom_{ \Set } ( W , X ) \times_{ \Hom_{ \Set } ( W , Z ) } \Hom_{ \Set } ( W , Y )
 	\\
-	X
-	\ar[r, " f " ]
-	&
-	Z
-\end{tikzcd}
+	( \varphi \colon X \times_Z  Y )
+	&\mapsto
+	\begin{tikzcd}
+		[ampersand replacement = \&]
+		W 
+		\ar[r, " \pi_Y \circ \varphi"]
+		\ar[d, " \pi_X \circ \varphi"]
+		\&
+		Y
+		\ar[d, "g" ]
+		\\
+		X
+		\ar[r, " f "' ]
+		\&
+		Z
+	\end{tikzcd}
+\end{align*}
 
-\todo{do this properly}
-Thus the case for pullback of a diagram of objects is clear, but what does the pullback of morphism sets look like?
+Thus the case of a pullback of objects is clear, but what does the pullback of morphism-sets look like?
 
 \begin{construction}
-	Let $ \mathcal{A} , \mathcal{B} , \mathcal{C} $ be groupoids
+\label{2-pullback_functor_categories}
+	Let $ \mathcal{ A } , \mathcal{ B } , \mathcal{ C } $ be groupoids
 	and 
 	\[
 	\begin{tikzcd}
-		\mathcal{A} \times_{\mathcal{ C }}^{(2)} \mathcal{B}
-		\ar[r, " {\pi_{\mathcal{ A }}}"]
-		\ar[d, " {\pi_{\mathcal{ B }}}"]
+		\mathcal{ A } \times_{ \mathcal{ C } }^{ ( 2 ) } \mathcal{ B }
+		\ar[r, " { \pi_{ \mathcal{ A } } } " ]
+		\ar[d, " { \pi_{ \mathcal{ B } } } "' ]
+		\ar[r, Rightarrow, shift right=7, " \sim "', " \phi " ]
 		&
-		\mathcal{B}
-		\ar[d ,"G"]
+		\mathcal{ B }
+		\ar[d ," G " ]
 		\\
-		\mathcal{A}
-		\ar[r , "F"]
+		\mathcal{ A }
+		\ar[r , " F "' ]
 		&
-		\mathcal{C}
+		\mathcal{ C }
 	\end{tikzcd}
 	\] 
-	be the 2-pullback of $ \mathcal{ A } \xrightarrow{ F } \mathcal{ C }$.
-	Its objects are triples $ X = ( a \in \mathcal{ A } , b \in \mathcal{ B } , \varphi_X \colon F ( a ) \isomorphism G ( b ) ) $ and for another triple $ X' = ( a' \in \mathcal{ A } , b' \in \mathcal{ B } , \varphi{X'} \colon F ( a' ) \isomorphism G ( b' ) ) $ the morphisms are given by tuples $  ( \mathcal{ A } \ni u \colon a \to a' , \mathcal{ v } \ni v \colon b \to b' ) $ such that 
+	be the 2-pullback of $ \mathcal{ A } \xrightarrow{ F } \mathcal{ C } $.
+	Its objects are triples $ X = ( a \in \mathcal{ A } , b \in \mathcal{ B } , \varphi_X \colon F ( a ) \isomorphism G ( b ) ) $ and for another triple $ X' = ( a' \in \mathcal{ A } , b' \in \mathcal{ B } , \varphi_{ X' } \colon F ( a' ) \isomorphism G ( b' ) ) $ the morphisms are given by tuples $  ( \mathcal{ A } \ni u \colon a \to a' , \mathcal{ B } \ni v \colon b \to b' ) $ such that 
 	\[
 	\begin{tikzcd}
 		F ( a )
@@ -523,23 +462,26 @@ Thus the case for pullback of a diagram of objects is clear, but what does the p
 		G ( b ' ) 
 	\end{tikzcd}
 	\] 
-	that is $ \varphi_{X'} \circ F ( u ) = G ( v ) \circ \varphi_X.$
-	For a groupoid $ \mathcal{ D } $ we may consider the induced cospan of groupoids 
+	commutes, that is $ \varphi_{X'} \circ F ( u ) = G ( v ) \circ \varphi_X.$
+	For a groupoid $ \mathcal{ D } $ we may consider the induced cospan of groupoids:
 	\[
 		\begin{tikzcd}
 			\Fun ( \mathcal{ D } , \mathcal{ A } ) \times_{ \Fun ( \mathcal{ D } , \mathcal{ C } )  } \Fun ( \mathcal{ D } , \mathcal{B } )
 			\ar[d]
 			\ar[r]
+			\ar[r, Rightarrow, shift right=7, "\sim", "2-PB"']
 			&
 			\Fun( \mathcal{ D } , \mathcal{ B } )
 			\ar[d, " G \circ ? "]
 			\\
 			\Fun ( \mathcal{ D } , \mathcal{ A } )
-			\ar[r, " F  \circ ? "]
+			\ar[r, " F  \circ ? "']
 			&
 			\Fun( \mathcal{ D } , \mathcal{ C }) 
 		\end{tikzcd}
 	\]
+	Since functors into a groupoid are again a groupoid we can apply the construction above, i.e. the 2-pullback of groupoids.
+	
 	\begin{Interlude}
 		Fix a groupoid $ G $.  
 		Then, the construction $ \mathcal{ D } \in \Gpd \mapsto \Fun ( \mathcal{ D } , \mathcal{ G } )$ is suitably functorial, which means 
@@ -548,29 +490,29 @@ Thus the case for pullback of a diagram of objects is clear, but what does the p
 			For all $ D \in \Gpd $ it holds that $ \Fun ( \mathcal{ D } , \mathcal{ G } ) $ is a groupoid.
 			
 			\item 
-			For all $  F \colon \mathcal{ D }_ \to \mathcal{ D }_2 $ it holds that $ ? \circ F \colon \Fun ( \mathcal{D}_2 , \mathcal{G} ) \to \Fun ( \mathcal{ D }_1 , \mathcal{G} ) $ is a functor, which means that 
+			For all $  F \colon \mathcal{ D }_1 \to \mathcal{ D }_2 $ it holds that $ ? \circ F \colon \Fun ( \mathcal{ D }_2 , \mathcal{ G } ) \to \Fun ( \mathcal{ D }_1 , \mathcal{ G } ) $ is a functor, given on morphisms as: 
 			\[
 			\begin{tikzcd}
 				\mathcal{ D }_2
-				\arrow[bend left=50]{rr}[name=U',label=above:$G_1$]{}
-				\arrow[bend right=50]{rr}[name=D',label=below:$G_2$]{}
+				\arrow[bend left=50]{rr}[name=U',label=above:$ G_1 $]{}
+				\arrow[bend right=50]{rr}[name=D',label=below:$ G_2 $]{}
 				&&
 				\mathcal{ G }
-				\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U') -- node[label=right:$\beta$] {} (D')}]{} 
+				\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U') -- node[label=right:$ \beta $] {} (D')}]{} 
 			\end{tikzcd}
 		\mapsto
-			\begin{tikzcd}
+			\begin{tikzcd}[column sep=1.4cm]
 				\mathcal{ D }_1
 				\arrow[bend left=50]{rr}[name=U',label=above:$G_1 \circ F $]{}
 				\arrow[bend right=50]{rr}[name=D',label=below:$G_2 \circ F $]{}
 				&&
 				\mathcal{ G }
-				\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U') -- node[label=right:$\beta_F$] {} (D')}]{} 
+				\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U') -- node[label=right:$ \beta * \id_F $] {} (D')}]{} 
 			\end{tikzcd}
 			\] 
 			
 			\item 
-			For a natural transformation between functors between groupoids.
+			For a natural transformation $ \alpha $ of functors between groupoids,
 			\[
 			\begin{tikzcd}
 				\mathcal{ D }_1
@@ -581,9 +523,9 @@ Thus the case for pullback of a diagram of objects is clear, but what does the p
 				\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U') -- node[label=right:$\alpha$] {} (D')}]{} 
 			\end{tikzcd}
 			\]
-			there is a natural transformation
+			there is a natural transformation:
 			\[
-			\begin{tikzcd}
+			\begin{tikzcd}[column sep=1.5cm]
 				\Fun( \mathcal{ D }_2 , \mathcal{ G } )
 				\arrow[bend left=50]{rr}[name=U',label=above:$? \circ F_1$]{}
 				\arrow[bend right=50]{rr}[name=D',label=below:$? \circ F_2$]{}
@@ -596,72 +538,72 @@ Thus the case for pullback of a diagram of objects is clear, but what does the p
 	\end{Interlude}
 \end{construction}
 
-Let us take the 2- pullback from above $ \mathbb{ F } \mathcal{D} \coloneqq \Fun ( \mathcal{ D } , \mathcal{ A } ) \times_{ \Fun ( \mathcal{ D } , \mathcal{ C } ) } \Fun ( \mathcal{ D } , \mathcal{ B } ) $ and analyze the map $ \mathcal{ D } \to \mathbb{ F } \mathcal{ D } $ 
+Let us take the 2-pullback $ \mathbb{ F } \mathcal{D} \coloneqq \Fun ( \mathcal{ D } , \mathcal{ A } ) \times_{ \Fun ( \mathcal{ D } , \mathcal{ C } ) } \Fun ( \mathcal{ D } , \mathcal{ B } ) $, see \ref{2-pullback_functor_categories} and analyze the map $ \mathcal{ D } \to \mathbb{ F } \mathcal{ D } $. 
 
 \begin{itemize}
 	\item 
 	For all groupoids $ \mathcal{D} $ the category $ \mathbb{F} \mathcal{D} $ is a groupoid.
 	
 	\item 
-	For all $ F \colon \mathcal{D}_1 \to \mathcal{D}_2 $ the attribution $ \mathbb{F} \mathcal{D}_2 \to \mathbb{ F } \mathcal{D}_1 $ is a functor.
+	For all morphisms of groupoids $ F \colon \mathcal{D}_1 \to \mathcal{D}_2 $ the attribution $ \mathbb{F} \mathcal{D}_2 \to \mathbb{ F } \mathcal{D}_1 $ is a functor.
 	
 	\item 
-	The objects are given as $ ( p_{ \mathcal{ A } } \colon \mathcal{ D } \to \mathcal{A } , p_{ \mathcal{B } } \colon \mathcal{ D } \to \mathcal{ B } , \phi \colon F \circ p_{ \mathcal{ A } } \isomorphism  G \circ p_{ \mathcal{ B }} ) $,
-	that is the 2-pullback, i.e. the datum of a pullback diagram
+	The objects of $ \mathbb{ F } \mathcal{D}_1 $ are given as $  ( p_{ \mathcal{ A } } \colon \mathcal{ D }_1 \to \mathcal{ A } , p_{ \mathcal{ B } } \colon \mathcal{ D }_1 \to \mathcal{ B } , \phi \colon F \circ p_{ \mathcal{ A } } \isomorphism  G \circ p_{ \mathcal{ B } } ) $,
+	that is the 2-pullback, to be more specific they are given by the datum of a pullback diagram:
 	\[
 	\begin{tikzcd}	
-		\mathcal{A} \times_{ \mathcal{ C } } \mathcal{ B}
+		\mathcal{ D }_1 = \mathcal{ A } \times_{ \mathcal{ C } } \mathcal{ B }
 		\ar[r, " \pi_{ \mathcal{ B } } "]
 		\ar[r , shift right=4ex, shorten <=3pt, Rightarrow, shorten >=3pt, " \phi " ]
-		\ar[d, " \pi_{ \mathcal{ A }}"']
+		\ar[d, " \pi_{ \mathcal{ A } }"']
 		&
-		\mathcal{B}
+		\mathcal{ B }
 		\ar[d, " G "]
 		\\ 
-		\mathcal{A }
+		\mathcal{ A }
 		\ar[r, " F "' ]
 		&
-		\mathcal{C}
+		\mathcal{ C }
 	\end{tikzcd}
 	\]
 	
 	\item 
-	For all functors $ H \colon \mathcal{D}_1 \to \mathcal{D}_2$ we get $ \mathbb{F} \mathcal{ D }_2 \to \mathbb{F} \mathcal{D}_2$, that is for a second pullback square 
+	For all functors $ H \colon \mathcal{ D }_1 \to \mathcal{ D }_1$ we get $ \mathbb{ F } \mathcal{ D }_2 \to \mathbb{ F } \mathcal{ D }_2$, that is for a second pullback square 
 	\[
 	\begin{tikzcd}	
 		\mathcal{D}_2
-		\ar[r, " q_{\mathcal{B } }"]
-		\ar[d, " q_{ \mathcal{A} }"]
+		\ar[r, " q_{\mathcal{ B } } "]
+		\ar[d, " q_{ \mathcal{ A } } "']
 		\ar[r , shift right=4ex, shorten <=3pt, Rightarrow, shorten >=3pt, " \psi " ]
 		&
-		\mathcal{B}
+		\mathcal{ B }
 		\ar[d, " G "]
 		\\
-		\mathcal{A} 
+		\mathcal{ A } 
 		\ar[r, " F "]
 		&
-		\mathcal{C}
+		\mathcal{ C }
 	\end{tikzcd}
 	\]
-	with a functor between the fiberproducts, is mapped to the following.
+	we obtain a commutative diagram as follows:
 	\[
 	\begin{tikzcd}
-		\mathcal{D_1}
+		\mathcal{ D }_1
 		\ar[rrd, bend left, bend left, " q_{ \mathcal{ B } } \circ H "]
 		\ar[rd, " H "]
-		\ar[rdd, bend right," q_{ \mathcal{ A } } \circ H "]
+		\ar[rdd, bend right," q_{ \mathcal{ A } } \circ H "']
 		\\
 		&
-		\mathcal{D }_2 
+		\mathcal{ D }_2 
 		\ar[r, " q_{ \mathcal{ B } }"]
-		\ar[d, " q_{ \mathcal{ A } }"]
+		\ar[d, " q_{ \mathcal{ A } }"']
 		\ar[r , shift right=4ex, shorten <=3pt, Rightarrow, shorten >=3pt, " \psi " ]
 		&
-		\mathcal{B}
+		\mathcal{ B }
 		\ar[d, " G "]
 		\\
 		&
-		\mathcal{A}
+		\mathcal{ A }
 		\ar[r, " F "]
 		&
 		\mathcal{ C }
@@ -671,22 +613,23 @@ Let us take the 2- pullback from above $ \mathbb{ F } \mathcal{D} \coloneqq \Fun
 	$\psi_H \colon F \circ q_{ \mathcal{A} } \circ H \implies G \circ q_{ \mathcal{ B } } \circ H.$
 \end{itemize}
 
-The next question we can naturally ask is what morphisms in $ \mathbb{F } ( \mathcal{ D } )$ look like 
+The next question we can naturally ask is, what do morphisms in $ \mathbb{ F } \mathcal{ D } $ look like?
+They are given by quadruples natural transformations $ ( \alpha , \beta , F_{ \alpha } , G_{ \beta } ) $, such that:
 \[
 \begin{tikzcd}
-	( p_{ \mathcal{ A } }\colon \mathcal{D}_2 
+	( p_{ \mathcal{ A } }\colon \mathcal{ D }_2 
 	\ar[r]
 	\ar[d, Rightarrow, shift left = 2ex, " \alpha"]
 	&
-	\mathcal{D} , p_{\mathcal{B}} \colon \mathcal{D}_2
+	\mathcal{ A } , p_{ \mathcal{ B } } \colon \mathcal{ D }_2
 	\ar[r]
 	\ar[d, Rightarrow, shift left = 2ex, " \beta"]
 	&
-	\mathcal{B} , F \circ p_{ \mathcal{A} }
+	\mathcal{ B } , F \circ p_{ \mathcal{ A } }
 	\ar[r , Rightarrow, " \phi" , " \sim"']
-	\ar[d, Rightarrow, " F_{\alpha}"]
+	\ar[d, Rightarrow, " F_{ \alpha }"]
 	&
-	G \circ p_{ \mathcal{ B }} )
+	G \circ p_{ \mathcal{ B } } )
 	\ar[d, Rightarrow,  " G_\beta"]
 	\\
 	( q_{ \mathcal{A } }\colon \mathcal{D}_2 
@@ -716,37 +659,58 @@ $
 there is a diagram 
 $
 \begin{tikzcd}
-	\mathbb{F} \mathcal{ D }_1
+	\mathbb{F} \mathcal{ D }_2
 	\arrow[bend left=50]{rr}[name=U',label=above:$\mathbb{F}H_1$]{}
 	\arrow[bend right=50]{rr}[name=D',label=below:$\mathbb{F}H_2$]{}
 	&&
-	\mathbb{F}\mathcal{ D }_2
+	\mathbb{F}\mathcal{ D }_1
 	\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U')-- node[label=right:$\mathbb{F}\gamma$] {} (D')}]{} 
-\end{tikzcd}
+\end{tikzcd}.
 $
 
-Thus for any two pullback diagrams we obtain morphisms
 
-\todo{maybe draw this huge diagram}
+
 
 \begin{prop}
 	Let $ \mathcal{ A } \xrightarrow{ F } \mathcal{ C } \xleftarrow{ G } \mathcal{ B } $ be a cospan of groupoids.
 	Then for all groupoids $ \mathcal{ D } $, it holds that 
 	\begin{align*}
-		\mathbb{ X } \colon \mathbb{F} ( \mathcal{ A } \times^{ ( 2 ) }_{ \mathcal{C } }\mathcal{B })
+		\mathbb{ X } \colon \mathbb{ F } ( \mathcal{ A } \times^{ ( 2 ) }_{ \mathcal{ C } }\mathcal {B })
 		&\to
-		\mathbb{F} ( \mathcal{D } \xleftarrow{ \mathbb{F} H } \mathbb{F } ( \mathcal{ A } \times_{ \mathcal{C }}^{ ( 2 ) }  \mathcal{B} ) )		
+		\mathbb{ F } ( \mathcal{ D } \xleftarrow{ \mathbb{ F } H } \mathbb{ F } ( \mathcal{ A } \times_{ \mathcal{ C } }^{ ( 2 ) }  \mathcal{ B } ) )		
 		\\
-		( \mathcal{D} \xrightarrow{ H } \mathcal{ A } \times_{ \mathcal{ C }}^{ ( 2 ) } \mathcal{ B } )
+		( \mathcal{ D } \xrightarrow{ H } \mathcal{ A } \times_{ \mathcal{ C } }^{ ( 2 ) } \mathcal{ B } ) 
 		&\mapsto
-		H^*( can )
+		\begin{tikzcd}
+			[ampersand replacement=\&]
+			\mathcal{ D }
+			\ar[r]
+			\ar[rr, dashed, bend left]
+			\ar[rd, dashed , bend right]
+			\&
+			\mathcal{ A } \times_{ \mathcal{ C } } \mathcal{ B } 
+			\ar[r, " \pi_{ \mathcal{ B } } "]
+			\ar[d, " \pi_{ \mathcal{ A } } "]
+			\ar[ r , Rightarrow, shift right=7, " \phi"]
+			\&
+			\mathcal{ B } 
+			\ar[d, " G "]
+			\\
+			\&
+			\mathcal{ A } 
+			\ar[r, " F "]
+			\&
+			\mathcal{ C }
+		\end{tikzcd}
+		=
+		H^*( \can )
 	\end{align*}
 	is an isomorphism. 
 \end{prop}
 
 \begin{exmp}
 	Let $ A , B , C $ be groups and $ \mathbb{B} A , \mathbb{B} B , \mathbb{B} C $ their associated groupoids, then for group homomorphisms $ A \xrightarrow { f } C  \xleftarrow { g } B $,
-	we get that the objects correspond to triples $ ( *_A , *_B , *_C \xrightarrow{c \in C} *_C ) $	
+	we get that the objects of $ \mathbb{ B } A \times^{ ( 2 ) }_{ \mathbb{ B } C }  \mathbb{ B } B $ correspond to triples $ c_1 = ( *_A , *_B , *_C \xrightarrow{ c \in C } *_C ) $ and a morphism from $ c_1 $ to $ c_2 = ( *_A , *_B , *_C \xrightarrow{ c' \in C } *_C ) $ from correspond to choices $ a \in A , b \in B $ such that $ c' a = b c $.
 \end{exmp}
 
 

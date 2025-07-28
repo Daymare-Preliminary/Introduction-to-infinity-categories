@@ -1,4 +1,9 @@
+\babel@toc {nil}{}\relax 
 \contentsline {section}{\numberline {1}Motivation}{2}{section.1}%
 \contentsline {section}{\numberline {2}Heuristics: Isomorphism vs. Equivalence}{4}{section.2}%
-\contentsline {section}{\numberline {3}Functors in 2-category theory}{19}{section.3}%
-\contentsline {section}{\numberline {4}Nerves of differential graded categories}{23}{section.4}%
+\contentsline {section}{\numberline {3}2-categories}{11}{section.3}%
+\contentsline {section}{\numberline {4}Functors in 2-category theory}{19}{section.4}%
+\contentsline {section}{\numberline {5}Grothendieck Construction}{22}{section.5}%
+\contentsline {section}{\numberline {6}Homotopy theory of simplicial sets}{28}{section.6}%
+\contentsline {section}{\numberline {7}Duskin nerve}{29}{section.7}%
+\contentsline {section}{\numberline {8}Nerves of differential graded categories}{37}{section.8}%

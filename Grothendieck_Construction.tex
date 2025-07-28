@@ -1,5 +1,6 @@
 \section{Grothendieck Construction}
 
+The reference for this section is \cite[B.1.2, B.1.3]{Elephant_JOH02}.
 
 Let $ A $ be a small 1-category, $ X \colon A^{ \op } \to \Set $ a presheaf.
 
@@ -12,7 +13,7 @@ $ \int^A X $ with
 	
 	\item 
 	morphisms given for another tuple $ ( b \in A , y \in X ( b ) ) $
-	by a morphism $ f' \colon a \to b$ such that $ f^* ( y ) = x $. 
+	by a morphism $ f \colon a \to b$ such that $ f^* ( y ) = x $. 
 \end{itemize}
 
 \begin{exmp}	
@@ -23,13 +24,13 @@ $ \int^A X $ with
 \end{exmp}
 
 \begin{exmp}	
-	Let $ \int^{ A \times A^{ \op }} \Hom_A ( - , - ) $ be the twisted arrow category of $ A $
+	Let $ \int^{ A \times A^{ \op }} \Hom_A ( - , - ) $ be the twisted arrow category of $ A $.
 	\begin{itemize}
 		\item 
 		The objects are given as $ ( ( a , b ) \in  A \times A^{\op}, x \colon a \to b ) $,
 		
 		\item 
-		the morphisms are given by tuples $ ( f , g ) $, where $ f \colon a \to a' , g \colon b' \to b $ and the following square commutes
+		the morphisms are given by tuples $ ( f , g ) $, where $ f \colon a \to a' , g \colon b' \to b $ such that the following square commutes
 		\[
 		\begin{tikzcd}	
 			a'
@@ -45,10 +46,10 @@ $ \int^A X $ with
 			b
 		\end{tikzcd}
 		\]
-		for all objects $ ( ( a' , b' ) \in A \times A^{ \op } , y \colon a' \to b' ), ((a,b) \in A \times A^{ \op }, x \colon a \to b )$
+		for all objects $ ( ( a' , b' ) \in A \times A^{ \op } , y \colon a' \to b' ), ( ( a , b ) \in A \times A^{ \op }, x \colon a \to b )$.
 	\end{itemize}
 
-	Consider the functor $ \Set_* \xrightarrow{v} \Set$ where $ \Set_*$ is the category of pointed sets.
+	Consider the functor $ \Set_* \xrightarrow{ v } \Set $ where $ \Set_* $ is the category of pointed sets.
 	We can also construct the category of elements of $ X $ as the following pullback
 	
 	\[
@@ -58,12 +59,12 @@ $ \int^A X $ with
 		&
 		\Set^{ \op }
 		\\
-		\int^A X \cong \mathcal{X}
-		\ar[u , " p "]
+		\int^A X \cong \mathcal{ X }
+		\ar[u , " p " ]
 		\ar[r]
 		&
-		(Set_*)^{\op}
-		\ar[u, "v^{\op}"]
+		( Set_* )^{ \op }
+		\ar[u, " v^{ \op } "]
 	\end{tikzcd}
 	\]
 	
@@ -74,12 +75,12 @@ $ \int^A X $ with
 
 \begin{thm}
 	The functor $ \int^A \colon \Fun ( A^{ \op } , \Set ) \to \Cat/A $ is fully faithful,
-	its essential image consists of the discrete Grothendieck fibrations, i.e. thos functors 
-	$ \mathcal{ X } \xrightarrow{ p } A $ such that $ \forall x \in \mathcal{X} $ and $ \forall f \colon a \to b = p ( y) $ there exists a unique $ \varphi \colon x \to y  $ such that $ p( \varphi ) = f $.
+	its essential image consists of the discrete Grothendieck fibrations, i.e. those functors 
+	$ \mathcal{ X } \xrightarrow{ p } A $ such that $ \forall x \in \mathcal{ X } $ and $ \forall f \colon a \to b = p ( y) $ there exists a unique $ \varphi \colon x \to y  $ such that $ p( \varphi ) = f $.
 \end{thm} 
 
 \begin{Idea}
-	Let $ \mathcal{X} \xrightarrow{ p } Y $ be a discrete Grothendieck fibration of some presheaf $ X \colon A^{ \op } \to \Set $, then we have a pullback square
+	Let $ \mathcal{ X } \xrightarrow{ p } Y $ be a discrete Grothendieck fibration of some presheaf $ X \colon A^{ \op } \to \Set $, then we have a pullback square
 	\[
 	\begin{tikzcd}
 		\mathcal{ X }_a 
@@ -89,7 +90,7 @@ $ \int^A X $ with
 		\mathcal{ X }
 		\ar[d, " p"]
 		\\
-		\mathds{1}
+		\mathds{ 1 }
 		\ar[r]
 		&
 		A
@@ -102,7 +103,8 @@ $ \int^A X $ with
 \end{Idea}
 
 \begin{defi}
-	The Grothendieck construction of a 2-functor $ X \colon A^{ \op } \to \underline{\Cat} $ is the 1-category $ \int^A X $ with objects $ ( a \in A , x \in X_a ) $ and morphisms for another object $ ( b \in B , y \in X_b )$ given by tuples $ ( f , \varphi ) $ such that $ f \colon a \to b $ and $ \varphi \colon x \to f^* ( y ) $.
+\label{Grothendieck_constr_defi}
+	The \textbf{Grothendieck construction} of a 2-functor $ X \colon A^{ \op } \to \underline{\Cat} $ is the 1-category $ \int^A X $ with objects $ ( a \in A , x \in X_a ) $ and for another object $ ( b \in B , y \in X_b )$ morphisms are given by tuples $ ( f , \varphi ) $ such that $ f \colon a \to b $ and $ \varphi \colon x \to f^* ( y ) $.
 	
 	The composition law in $ \int^A X $ is given as follows
 	\[
@@ -121,13 +123,13 @@ $ \int^A X $ with
 	\]
 	where
 	\[
-		X \xrightarrow{ \varphi } f^* ( y ) \xrightarrow{ f^* ( x ) } f^* ( g* ( z )) \xrightarrow{ \mu } ( gf )^*( z )
+		X \xrightarrow{ \varphi } f^* ( y ) \xrightarrow{ f^* ( \psi ) } f^* ( g^* ( z )) \xrightarrow{ \mu } ( gf )^*( z )
 	\] 
-	and $ \alpha = \mu \circ f^*( x ) \circ \varphi $.
+	and $ \alpha = \mu \circ f^*(\psi ) \circ \varphi $.
 \end{defi}
 
 We need to verify that the composition law is associative and unital.
-For the identities we have 
+For the identity morphisms it holds that 
 \[
 	( a \in A , x \in X_a ) \xrightarrow{ ( \id_a , x \xrightarrow{ \epsilon } \id^* ( x ) ) } ( a \in A , x \in X_a ) 
 \] 
@@ -137,7 +139,7 @@ where
 \]
 
 \begin{thm}
-	The functor $ \int^A \colon 2-Fun ( A^{ \op } , \underline{\Cat } ) \to \Cat /A $ is fully faithful, with essential image the Grothendieck fibrations.
+	The functor $ \int^A \colon \twoFun ( A^{ \op } , \underline{\Cat } ) \to \Cat /A $ is fully faithful, with essential image the Grothendieck fibrations.
 \end{thm}
 
 \begin{exmp}
@@ -178,7 +180,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		\ar[rrrd, " h "' ]
 		&&&
 		( a \in A , x \in X_a )
-		\ar[d, " { ( a \xrightarrow{ f } , x \xrightarrow{ \varphi } f^* ( y ) ) } " ]
+		\ar[d, " { ( a \xrightarrow{ f } c , x \xrightarrow{ \varphi } f^* ( y ) ) } " ]
 		\\
 		&&&
 		( c \in A , z \in X_c )
@@ -208,7 +210,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		\ar[r , " ( \id_a )^* ( \varphi ) "]
 		&
 		( \id_a )^* ( f^* ( y ) )
-		\ar[r, "\mu" , "\sim"']
+		\ar[r, " \mu " , " \sim "']
 		&
 		( f \circ \id_a )^* ( y ) = f^* ( y )
 		\\
@@ -220,7 +222,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		\ar[r, " \varphi " ]
 		&
 		f^* ( y ) 
-		\ar[u, "{ ( \epsilon_a )_{ f^* y } }" ]
+		\ar[u, " { ( \epsilon_a )_{ f^* y } } " ]
 		\ar[ru, " \id_{ f^* ( y ) } "' ]
 	\end{tikzcd}
 	\]
@@ -253,7 +255,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		( d \in A , z \in X_d )
 	\end{tikzcd}
 	\]
-	Let us examine this composition more carefully, we have
+	Let us examine these compositions in detail, we have
 	\[
 		a \xrightarrow{f} b \xrightarrow{g} c \xrightarrow{h} d
 	\]
@@ -289,10 +291,11 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		( g f h )^* ( z ) 
 	\end{tikzcd}
 	\]
-	Since the squares commute by the associativity constraint, we get that both compositions are equal and associativity constraint holds.
+	Since the squares commute by the associativity constraint, we get that both compositions are equal and thus the associativity constraint holds.
 \end{proof}
 
 \begin{defi}
+\label{p-cartesian_defi}
 	A morphism $ \varphi \colon Y \to X $ is called p-cartesian if $ \forall g ,  \exists! \rho $ such that 
 	\[
 	\begin{tikzcd}
@@ -319,16 +322,11 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		b = p ( X ) 
 	\end{tikzcd}
 	\]
-\end{defi}
-
-\begin{defi}
-	A functor of 1-categories $ \mathcal{ X } \xrightarrow{ p } A $ is a Grothendieck fibration.
-	If $ \forall X \in \mathcal{ X } , \forall a \xrightarrow{ f } b = p ( X ) $ there exists a morphism $ Y \xrightarrow{ \varphi } X $ in $ \mathcal{ X } $ that is p-cartesian such that $ p ( \varphi ) = f $.
-	That is if the following lift exists 
+	or equivalently if the following lift exists
 	\[
 	\begin{tikzcd}	
 		\{ 1 \to 2 \}
-		\ar[r, hook]
+		\ar[r, hook, " i " ]
 		&
 		\lambda^2_2
 		\ar[r, " F "]
@@ -345,6 +343,12 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		A
 	\end{tikzcd}
 	\]
+	where $ F ( i ( 1 \to 2 ) ) = \varphi $.
+\end{defi}
+
+\begin{defi}
+	A functor of 1-categories $ \mathcal{ X } \xrightarrow{ p } A $ is a Grothendieck fibration.
+	If $ \forall X \in \mathcal{ X } , \forall a \xrightarrow{ f } b = p ( X ) $ there exists a morphism $ Y \xrightarrow{ \varphi } X $ in $ \mathcal{ X } $ that is p-cartesian such that $ p ( \varphi ) = f $.
 \end{defi}
 
 \begin{defi}
@@ -401,7 +405,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 	\begin{tikzcd}
 		&
 		( b \in A , g^* ( z ) \in X_b )
-		\ar[rd, "{ ( g , \id_{ g^* ( z ) } = \psi }" ] 	
+		\ar[rd, "{ ( g , \id_{ g^* ( z ) } = \psi ) }" ] 	
 		\\
 		( a \in A , x \in X_a )
 		\ar[rr, " {\forall ( h , x \isomorphism h^* ( z ) ) = \alpha } "' ]
@@ -413,7 +417,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 	In order for the lifting diagram to commute, we need to construct $ u $ as follows.
 	We have the composition
 	\begin{align*}
-		x \xrightarrow{u} f^* ( g^* ( z ) ) \xrightarrow{f^* ( \id_{ g^* ( z ) ) } } f^* ( g^* ( z ) ) \xrightarrow{ \mu } ( gf )^* ( z )
+		x \xrightarrow{ u } f^* ( g^* ( z ) ) \xrightarrow{ f^* ( \id_{ g^* } ) } f^* ( g^* ( z ) ) \xrightarrow{ \mu } ( gf )^* ( z )
 		\\
 		= x \xrightarrow{v} ( g f )^* ( z )  
 	\end{align*}
@@ -423,9 +427,9 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 
 \begin{defi}
 \label{isofibration}
-	The functor $ \mathcal{ X } \xrightarrow{p} A $ is called an \underline{isofibration}
+	The functor $ \mathcal{ X } \xrightarrow{p} A $ is called an \textbf{isofibration}
 	if $ \forall f \colon a \isomorphism p ( x ) = b $ there exists $ Y \xrightarrow{\varphi} X $ an isomorphism in $ \mathcal{ X } $ such that $ p ( \varphi ) = f $.
-	That is if we have the following lifting diagram:
+	That is if there exists a solution to the following lifting problem:
 	\[
 	\begin{tikzcd}
 		\Lambda_0^0
@@ -435,7 +439,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		\mathcal{ X }
 		\ar[d, " p "]
 		\\
-		\Lambda^1
+		\Delta^1
 		\ar[ru, dashed, " \exists \varphi"]
 		\ar[r, " a \xrightarrow{f} p ( x ) "']
 		&
@@ -445,7 +449,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 \end{defi}
 
 \begin{lem}
-	If $ p \colon \mathcal{ X } \to A $ is a Grothendieck fibration then $ p $ is an iso fibration.
+	If $ p \colon \mathcal{ X } \to A $ is a Grothendieck fibration then $ p $ is an isofibration.
 \end{lem}
 
 \begin{proof}
@@ -506,5 +510,5 @@ defined by sending each object  $ a $ of $ A $ to the two-pullback $ \mathcal{ X
 \]
 now for any morphism $ f \colon a \to b $ we obtain a functor $ f^* \colon \mathcal{ X }_b \to \mathcal{ X }_a $.
 Let $ x \in \mathcal{ X }_b \xrightarrow{ f^* } \mathcal{ X }_a $
-and $ \varphi \colon f^* ( x ) \to x $ in $ \mathcal{X} $ (notice the slight abuse of notation when we identify an object in the fiber with its image in $\mathcal{ X )$) so that $ p ( \varphi ) = f $.
+and $ \varphi \colon f^* ( x ) \to x $ in $ \mathcal{X} $ (notice the slight abuse of notation when we identify an object in the fiber with its image in $ \mathcal{ X } $) so that $ p ( \varphi ) = f $.
 
