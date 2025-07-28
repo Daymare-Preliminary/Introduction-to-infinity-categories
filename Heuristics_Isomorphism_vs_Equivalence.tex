@@ -713,5 +713,219 @@ $
 	we get that the objects of $ \mathbb{ B } A \times^{ ( 2 ) }_{ \mathbb{ B } C }  \mathbb{ B } B $ correspond to triples $ c_1 = ( *_A , *_B , *_C \xrightarrow{ c \in C } *_C ) $ and a morphism from $ c_1 $ to $ c_2 = ( *_A , *_B , *_C \xrightarrow{ c' \in C } *_C ) $ from correspond to choices $ a \in A , b \in B $ such that $ c' a = b c $.
 \end{exmp}
 
+\subsection{Exercises}
 
+\begin{Exercise}
+	Let $ \mathcal{ C } $ be a small category and denote by $ \widehat{ \mathcal{ C } } \coloneqq \Fun ( \mathcal{ C } , \Set ) $ its category of presheaves.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that for any object $ c \in \mathcal{ C } $ there is a functor $ \widehat{ c } \coloneqq \Hom_{ \mathcal{ C } } ( -, c ) \colon \mathcal{ C }^{\op} \to \Set $.
+		
+		\item 
+		Show that for any morphism $ f \colon c \to d $ in $ \mathcal{ C } $ there is a natural transformation $ f_* \colon \widehat{ c } \implies \widehat{ d } $ defined by postcomposition.
+		
+		\item 
+		Conclude that there is a functor $ \mathcal{ Y } \colon \mathcal{ C } \to \widehat{\mathcal{ C }}$.
+	\end{enumerate}
+\end{Exercise}
 
+\begin{Exercise}
+	Observe that we can use the Yoneda functor to construct a functor $ ( \mathcal{ Y }_{ \mathcal{ C } } )^* \circ \mathcal{ Y }_{ \widehat{ \mathcal{ C }}} : \widehat{ \mathcal{ C }} \to \widehat{ \widehat { \mathcal{C }}} \to \widehat{ \mathcal{ C } }$ 
+	which associates to a presheaf $ X \in \widehat{ \mathcal{ C } } $ the presheaf $ ( c \mapsto \Nat ( \mathcal{ Y }_{ \mathcal{ C } } (c) , X ) ) $.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that there is a natural transformation $ \chi^X \colon ( \mathcal{ Y }_{ \mathcal{ C } } )^* \circ \mathcal{Y}_{\widehat{ \mathcal{ C } } } ( X ) \implies X $ defined by 
+		\begin{align*}
+			\chi^X_c : ( \mathcal{ Y _{ \mathcal{ C }}})^* \circ \mathcal{ Y }_{ \widehat { \mathcal{ C }}}( X ) ( c ) 
+			&=
+			\Nat ( \widehat{ c } , X ) \to X ( c ) 
+			\\
+			\eta 
+			&\mapsto
+			\eta_c ( \id_c )
+		\end{align*}
+		for each $ c \in \mathcal{ C } $.
+		
+		\item 
+		Show that $ \{ \chi^X \}_{ X \in \widehat{ \mathcal{ C } } }$ assemble into a natural transformation $ \chi \colon ( \mathcal{ Y }_{ \mathcal{ C } } )^* \circ  \mathcal{ Y }_{\widehat{ \mathcal{ C }}} \Rightarrow \id_{ \widehat { \mathcal{ C  } }}$.
+		
+		\item 
+		Show that for a presheaf $ X \in \widehat{ \mathcal{ C } } $ and $ c \in \mathcal{ C } $, any element $ x \in X ( c ) $ defines a natural transformation $ \eta^x \colon \mathcal{ Y } ( c )  \Rightarrow X $ defined by  
+		\begin{align*}
+			\eta_d^x \colon \widehat{ c } ( d) = \Hom_{ \mathcal{ C } } ( d , c ) 
+			&\to 
+			X ( d ) 
+			\\
+			f
+			&\mapsto
+			X ( f ) ( x ) 
+		\end{align*}
+		for every $ d \in \mathcal{ C } $.
+		
+		\item 
+		Deduce that the natural transformation $ \chi^X $ is a natural isomorphism for every presheaf $ X $.
+		Moreover, conclude that $ \chi $ is a natural isomorphism itself.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Fix a small category $ \mathcal{ C } $. 
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that the category of small categories admits products.
+		
+		\item 
+		Deduce that the functor $ \Fun ( \mathcal{ C } , - ) \colon \Cat \to \Cat $ which associates to a small category $ \mathcal{ D } $ the category of functors $ \mathcal{ C } \to \mathcal{ D } $ admits $ - \times \mathcal{ C } \colon \Cat \to \Cat $ as a left adjoint.
+		
+		\item 
+		Show that this adjunction upgrades to an isomorphism of categories 
+		\[
+		\Phi \colon \Fun ( \mathcal{ C } , \Fun ( \mathcal{ D } , \mathcal{ E } ) ) \isomorphism 
+		\Fun ( \mathcal{ C } \times \mathcal{ D } , \mathcal{ E } )
+		\]
+		in the category of large categories.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Fix a small category $ \mathcal{ C } $
+	\begin{enumerate}[label=(\alph*)]
+		\item  
+		Deduce that $ \phi (( \mathcal{ Y }_{ \mathcal{ C } } )^* \circ \mathcal{ Y }_{ \widehat{ \mathcal{ C } } } )$ is isomorphic to the evaluation functor in $ \Fun ( \widehat{ \mathcal{ C } } \times \mathcal{ C } , \Set $).
+		
+		\item 
+		Deduce that $ \Nat ( \mathcal{ Y } ( c ) , X ) \cong X ( c ) $ naturally in both $ X $ and $ c $.
+		
+		\item 
+		Conclude that $ \mathcal{ Y } \colon \mathcal{ C } \to \widehat{\mathcal{ C } }  $ is fully faithful.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Consider two small categories $ A $ and $ B $ and a functor $ F \colon B  \to \Fun ( A , \mathcal{ C } )$. Assume further that $  \lim_B ( \ev_a \circ F ) $ exists in $ \mathcal{ C } $ for every $ a \in A$.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that a cone $ C $ of $ F $ is a limit cone if and only if for every $ a \in A $ the evaluation $ C ( a ) $ is a limit cone of $ \ev_a \circ F $.
+		
+		\item 
+		Show that $ \Fun ( A , \mathcal{ C } )^{ \op } \cong \Fun ( A^{\op}, \mathcal{ C }^{\op} ) $ and give the dual statement of (a).
+		
+		\item 
+		Deduce that for any small category $ A $ the category of presheaves $ \widehat{ A } $ is cocomplete.
+	\end{enumerate}  
+	Let us note that the existence of $ \lim_B ( \ev_a \circ F ) $ in (a) is a necessary condition as monomorphisms in functor categories are not necessarily pointwise monomorphisms.
+\end{Exercise}
+
+\begin{Exercise}
+	We have seen that a category $ A $ fully faithfully embeds into its presheaf category $ \widehat{ A }$ via the Yoneda embedding.
+	Conversely, we will now show that any presheaf comes with a diagram in $ \mathcal{ Y } ( A ) $ whose colimit is $ X $ itself.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that for a presheaf $ X \in \widehat{ A }$ there is an associate category $ \int^A X $ with objects $ ( a , x ) $ where $ a \in A $ and $ x \in X ( a ) $ and morphisms  $ f \colon ( a , x ) \to ( b ,y ) $ given by morphisms $ f \colon a \to b $ in $ A $ such that $ X ( f ) ( y ) = x $.
+	\end{enumerate}
+	
+	The category $ \int^A X $ is called the category of elements of $ X $.
+	
+	\begin{enumerate}[label=(\alph*),resume]
+		\item 
+		Show that the forgetful functor together with the Yoneda embedding
+		\begin{align*}
+			\mathcal{ Y } \circ \pi_X \colon \int^A X &\xrightarrow{ \pi_X} A \xrightarrow{ \mathcal{ Y }} \widehat{ A }
+			\\
+			(a,x) &\mapsto a \mapsto \widehat{a}
+		\end{align*}
+		admits $ X $ as its colimit.
+		
+		\item 
+		Show that a morphism $ f \colon X \to Y$ in $ \widehat{ A } $ induces a functor $ \int^A f \colon \int^A X \to \int^A Y $, upgrading the assignment to a functor $ \int^A \colon \widehat{ A } \to \Cat$.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Let $ u \colon A \to \mathcal{ C } $ be a functor between small categories. By precomposing we obtain a functor $ u^* \colon \widehat{ \mathcal{ C } } \to \widehat{ A } $ and precomposing this with the Yoneda embedding we obtain a functor $ \Tilde{u}^* \coloneqq u^* \circ \mathcal{ Y } \colon \mathcal{ C } \to \widehat{ \mathcal{ C } } \to \widehat{ A } $.
+	Assuming that $ \mathcal{ C } $ is cocomplete, we aim to show $ \Tilde{u}^* $ admits a left adjoint $ u_! \colon \widehat{ A } \to \mathcal{ C } $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that if $ u_! $ exists, then it preserves colimits.
+		
+		\item 
+		Show that if $ F \colon \widehat{ A } \to \mathcal{ C } $ preserves colimits, then $ F \dashv ( F \circ \mathcal{ Y } )^*$.
+	\end{enumerate}
+	
+	Hence, it is sufficient to show that there exists a colimit preserving functor $ u_! \coloneqq U \colon \widehat{ A } \to \mathcal{ C } $ such that $ U \circ \mathcal{ C } $ and $ u $ are isomorphic in $ \Fun ( A , \mathcal{ C } )$.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Show that the assignment
+		\[
+		U ( X ) \coloneqq \colim u \bigg( \int^A X \bigg) \coloneqq \colim_{ \int^A X } u \circ \pi_X
+		\]
+		assembles into a functor where a morphism $ f \colon X \to Y $ is send to the morphism induced by the diagram $ u ( \int^A f ) $ with the notation from Exercise 1.2.
+		
+		\item 
+		Argue that $ U $ is a colimit preserving by showing that $ \int^A \colim_{ i \in I } X_i $ is a colimit for $ \int^A X_i $ in $ \Cat $.
+		
+		\item 
+		Conclude by showing that $ U \circ \mathcal{ Y } \cong u $ in $ \Fun ( A , \mathcal{ C } )$.
+	\end{enumerate}
+\end{Exercise} 
+
+\begin{Exercise}
+	Let $ u \colon A \to B $ be a functor between small categories.
+	Let $ u^* \colon \widehat{ B } \to \widehat{ A } $ denote the functor obtained by precomposition with $ u $. 
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Deduce from Exercise 1.3 that a functor $ F \colon \widehat{ B } \to \mathcal{ C } $ admits a right adjoint if $ \mathcal{ C } $ is a cocomplete category.
+		
+		\item 
+		Show that $ u^* $ preserves colimits.
+		
+		\item 
+		Conclude that there exists a right adjoint $ u^* \dashv u_* $. Give an explicit description of $ u_* $.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Recall that for a presheaf $ X \in \widehat{ \mathcal{ C } } $ and $ c \in \mathcal{ C } $ and element $ u \in X_c \coloneqq X ( c ) $ is called universal if the natural transformation $ \eta^u \colon \widehat{ c } \to X $ from Exercise 0.2 is an isomorphism.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that $ u \in X_c $ is a universal element if and only if $ ( c , u ) $ is a final element if $ \int^A X $, i.e. any other object $ ( d , v ) $ admits a unique morphism $ f \colon ( d , v ) \to  ( c , u ) $.
+		
+		\item 
+		Deduce that a presheaf is representable, i.e. isomorphic to $ \widehat{ d } $ for some $ d \in \mathcal{ C } $ if and only if $ \int^A X $ has a final element.
+		
+		\item 
+		Show that for any isomorphism $ f \colon d \isomorphism c $ in $ \mathcal{ C },   X ( f ) $ induces a bijection between the universal elements in $ X_c $ and $ X_d $.
+		\[
+		f^* \coloneqq X ( f ) \colon \{ u \in X_c \text{ universal} \}
+		\isomorphism
+		\{ v \in X_d \text{ universal} \}
+		\]
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Let $ D \colon I \to \mathcal{ C } $ be a functor between small cetegories and consider $ \Tilde{ D } \coloneqq \mathcal{ Y } \circ D \colon I \to \mathcal{ C } \to \widehat{ \mathcal{ C } } $.
+	Recall that a cone of $ D $ is an object $ a \in \mathcal{ C } $ togehter with a morphism $ ( a_i \colon a \to D ( a ) )_{ i \in A } $ such that for each $ f \colon i \to j $ in $ I $ we have that $ a_j = D ( f ) \circ a_i.$ Furthermore, the cones form a category with morphisms $ g \colon ( a , ( a_i )_{ i \in I } ) \to ( b , ( b_i )_{ i \in I } ) $ by $ g \colon a \to b $ with $ a_i = b_i \circ g $ for all $ i \in I $.
+	\begin{enumerate}
+		\item 
+		Show that the category of cones of $ D $ in $ \mathcal{ C } $ is isomorphic to the category $ \int^{ \mathcal{ C } } \lim \Tilde{ D } $ which exists by the completeness of $ \widehat{ \mathcal{ C }}$.
+		
+		\item 
+		Deduce that $ D $ admits a limit if and only if $ \lim \Tilde{ D } $ admits a universal element if and only if $ \lim \Tilde{ D} $ is representable.
+		
+		\item 
+		Conclude that the Yoneda embedding  preserves limits.
+		
+		\item 
+		Conclude that any isomorphism $ f \colon d \isomorphism c $ in $ \mathcal{ C } $ induces an isomorphism
+		\[
+			f^* \colon \{ u \in \lim_{ i \in I } \Hom ( c , D ( i ) ) \text{ universal}\}
+			\isomorphism 
+			\{ v \in \lim_{ i \in I } \Hom ( d , D ( i ) ) \text{ universal}\}
+		\]
+		of universal elements.
+	\end{enumerate} 
+\end{Exercise}

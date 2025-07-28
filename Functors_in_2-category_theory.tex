@@ -328,3 +328,146 @@ The reference for this section is \cite[2.2.4-2.2.8]{kerodon}.
 	\end{itemize}
 \end{defi}
 
+\subsection{Exercises}
+
+\begin{Exercise}
+	Recall that in the lecture we have constructed for a 2-category $ \mathcal{ C } $ its left unit constraint $ \lambda = \lambda_{ ( x ,y ) } = ( \lambda_f )_{ f \in \Hom_{ \mathcal{ C } } ( x , y ) } $ as the preimage of 
+	\[
+	\id_Y \circ ( \id_Y \circ f ) 
+	\xRightarrow{ \alpha }
+	( \id_Y \circ \id_Y ) \circ f 
+	\xRightarrow{ u_Y * \id_f } 
+	\id_Y \circ f
+	\]
+	under the fully faithful functor $ \id_Y \circ - \colon \Hom_{ \mathcal{ C } } ( x , y ) \to \Hom_{ \mathcal{ C } } ( x , y ) $ respectively for each 1-morphism $ f \in \Hom_{ \mathcal{ C } } ( x , y ) $.
+	Furthermore, we have shown in the lecture that $ \lambda \colon \id_y \circ - \Rightarrow \id_{ \Hom_{ \mathcal{ C } } ( x ,y ) }$ assembles into a natural transformation.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Argue that $ \lambda $ is in fact a natural isomorphism.
+	\end{enumerate}
+	
+	Similarly ,we have defined the right unit constrained $ \rho \coloneqq \rho_ { ( x , y ) } \colon - \circ \id_x \implies \id_{ \Hom_{ \mathcal{ C } } ( x ,y ) } $ and then showed that the left and right unit constrained satisfy the triangle identity, $ \id_y * \lambda_f = ( \rho_g * \id_f ) \cdot \alpha $ in $ \Hom_{ \mathcal{ C } } ( x , z ) $ for $ f \in \Hom_{ \mathcal{ C } } ( x , y ) $ and $ g \in \Hom_{ \mathcal{ C } } ( y , z ) $.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Show that the following may be equivalently used in the definition of a 2-category.
+		\begin{enumerate}[label=(\arabic*)]
+			\item 
+			The functors $ \id \circ -$ and $ - \circ \id_x $ are fully faithful for every $ x , y \in \mathcal{ C } $ and there are isomorphisms $ u_x \colon \id_x \circ \id_x \to \id_x $ for every $x \in \mathcal{ C } $.
+			
+			\item 
+			There are natural isomorphisms $ \lambda \colon \id_y \circ - \implies \id_{ \Hom_{ \mathcal{ C } ( x , y ) } } $ and $ \rho \colon - \circ \id_x \implies \id_{ \Hom_{ \mathcal{ C } } ( x ,y ) } $ satisfying the triangle identity for every $ x , y , z  \in \mathcal{ C } $.
+			
+			\item 
+			The functors $ \id_y \circ - $ and $ - \circ \id_x $ are naturally isomorphic to the identity functor $ \id_{ \Hom_{ \mathcal{ C } } ( x , y ) }$ for every $ x , y \in \mathcal{ C } $.
+			
+			\item 
+			The functors $ \id_y \circ - $ and $ - \circ \id_x $ are equivalneces of categories for every $ x , y \in \mathcal{ C } $ and there are isomorphisms $ u_x \colon \id_x \circ \id_x \to \id_x $ for every $ x \in \mathcal{ C } $.
+		\end{enumerate}
+		
+		\item 
+		Show that two families of natural transformations $ \lambda' \coloneqq \lambda'_{ ( x , y ) } \colon \id_y \circ - \implies \id_{ \Hom_{ \mathcal{ C } } ( x , y ) }$ and $ \rho' \coloneqq \rho'_{ ( x , y ) } \colon - \circ \id_x \implies \id_{ \Hom_{ \mathcal{ C } } ( x , y )  } $ satisfying the triangle identity are the left and right unit constraint if and only if both families are the unitors at the identity 1-morphisms, $ \lambda_{ \id_x }' = u_x = \rho'_{ \id_x }$.
+	\end{enumerate}
+	
+	Recall that in the definition of a lax functor $ F \colon \mathcal{ C } \to \mathcal{ D } $ we required that the functor preserves the left and right unit constraint in the sense that 
+	\begin{align*}
+		\lambda_{ F ( f ) } 
+		&=
+		F ( \lambda_f ) \cdot \mu_{ \id_y , f } \cdot ( \epsilon_y * \id_{ F ( f ) } ) \colon \id_{ F ( y ) } \circ F ( f ) 
+		\xRightarrow{ \epsilon_y * \id_{ F ( f ) } } 
+		F ( \id_y ) \circ F ( f ) 
+		\xRightarrow{ \mu_{ \id_y , f } }
+		F ( \id_y \circ f ) 
+		\xRightarrow{ \lambda_f }
+		F ( f ) 
+		\\
+		\rho_{ F ( f ) } 
+		&=
+		F ( \rho_f ) \cdot \mu_{ f , \id_x } \cdot ( \id_{ F ( f ) } * \epsilon_x ) \colon F ( f ) \circ \id_{ F ( y ) }
+		\xRightarrow{ \id_{ F ( x ) } * \epsilon_x } 
+		F ( f ) \circ F ( \id_x ) 
+		\xRightarrow{ \mu_{ f , \id_x } }
+		F ( f \circ \id_x ) 
+		\xRightarrow{ \rho_f }
+		F ( f )
+	\end{align*}
+	for all $ x ,y \in \mathcal{ C } $ and $ f \in \Hom_{ \mathcal{ C } } ( x , y ) $.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Show that equivalently, in the definition of a Lax functor we may require that 
+		\[
+		\epsilon_x \cdot u_{ F ( x ) }^{ \mathcal{ D } } = F ( u_x^{ \mathcal{ C } } ) \cdot \mu_{ \id_x , \id_x } \cdot ( \epsilon_x * \epsilon_x )
+		\]
+		for every $ x \in \mathcal{ C } $ and additionally for every 1-morphism
+		$ f \colon x \to y $ in $ \mathcal{ C } $ the canonical 2-morphisms
+		\begin{align*}
+			\mu_{ \id_y , f } \cdot ( \epsilon_y * \id_{ F ( f ) } ) \colon \id_{ F ( y ) } \circ F ( f ) 
+			& \xRightarrow{ \epsilon_y * \id_{ F ( f ) } } 
+			F ( \id_y ) \circ F ( f ) 
+			\xRightarrow{ \mu_{ \id_y , f } }
+			F ( \id_y \circ f )
+			\\
+			\mu_{ f , \id_x } \cdot ( \id_{ F ( f ) } * \epsilon_x ) \colon  F ( f ) \circ \id_ { F ( x ) } 
+			& \xRightarrow{ \id_{ F ( f ) } * \epsilon_x }
+			F ( f ) \circ F ( \id_X ) 
+			\xRightarrow{ \mu_{ f , \id_x } }
+			F ( f \circ \id_x )
+		\end{align*}
+		are monomorphisms.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Recall that there is an embedding of the category of small categories into the category of small 2-categories, $ \iota \colon \Cat \to 2$-$ \Cat $, by adding to a category $ \mathcal{ D } $ only identity 2-morphisms.
+	The goal of the exercise is to show that $ \iota $ admits a left adjoint.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Confirm that $ \iota $ is fully faithful by arguing that any lax functor $ F \colon \mathcal{ C } \to \iota ( \mathcal{ D } ) $ is in fact a strict functor.
+	\end{enumerate}
+	
+	By defintion the connected components $ \pi_0 ( \mathcal{ D } ) $ of a small category $ \mathcal{ C } $ are defined as the coequalizer
+	\[
+	\begin{tikzcd}
+		\Mor ( \mathcal{ D } ) 
+		\ar[r, shift left, "\text{target}"]
+		\ar[r, shift right, "\text{source}"']
+		&
+		\Ob ( \mathcal{ D } ),
+	\end{tikzcd}
+	\]
+	i.e. the set of all objects modulo the equivalence relation that identifies objects which have a morphism between them.
+	The coarse homotopy category $ h \mathcal{ C } $ of a 2-category $ \mathcal{C} $ is defined to be the category with the same objects as $ \mathcal{ C } $ and $ \Hom_{ h \mathcal{ c } } ( x , y ) \coloneqq \pi_0 ( \Hom_{ \mathcal{ C } } ( x , y ) ) $ for objects $ x , y \in h \mathcal{ C } $.  
+	\begin{enumerate}[resume, label = (\alph*)]
+		\item 
+		Define the composition law of the coarse homotopy category $ h \mathcal{ C } $ and confirm that it is indeed a category.
+		
+		\item 
+		Show that $ h $ upgrades to a functor $ h \colon 2 \text{-}\Cat \to \Cat $ which is a left adjoint to $ \iota $. Describe the universal property of the coarse homotopy category.
+		
+	\end{enumerate}
+	
+	Recall that the pith $ \Pith ( \mathcal{ C } ) $ of a 2-category $ \mathcal{ C } $ is the largest contained (2,1)-category.
+	The homotopy category of a 2-category $ \mathcal{ C } $ is defined to be the coarse homotopy category of its pith, that is $ h \Pith ( \mathcal{ C } $.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Construct a comparison between the homotopy category of a 2-catgeory and its coarse homotopy category. Which way does the comparison map go ? When is it an equivalence?
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Recall from Exercise 3.4 that we defined for a group $ G $ acting on an abelian group $ \Gamma $ a monoidal category $ \mathcal{ C }_{ \alpha } \coloneqq ( \mathcal{ C } ( G , \Gamma ) , \otimes , \alpha , 0 ) $ for a 3-cocycle $ \alpha \colon G \times G \times G \to \Gamma $.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that for a monoidal functor $ F = ( F , \mu , \epsilon ) \colon \mathcal{ C }_{ \alpha } \to \mathcal{ C }_{ \beta } $, the unit constraint $ \epsilon \in \Gamma $ is already determined by the tensor constraint $ \mu \colon G \times G \to \Gamma $.
+		
+		\item 
+		Show that the identity functor $ \id_{ \mathcal{ C } ( G , \Gamma ) }$ upgrades to a monoidal functor $ \iota_{ \beta, \alpha } \colon \mathcal{ C }_{ \alpha } \to \mathcal{ C }_{ \beta } $ if and only if $\beta - \alpha $ is in the image of $ d^2 \colon \Hom_{ \Set } ( G \times G , \Gamma ) \to \Hom_{ \Set } ( G \times G \times G , \Gamma )$.
+		
+		\item 
+		Give an interpretation of the third cohomology $ H^3 ( G , \Gamma ) $ of $ G $ valued in $ \Gamma $.
+	\end{enumerate}
+\end{Exercise}

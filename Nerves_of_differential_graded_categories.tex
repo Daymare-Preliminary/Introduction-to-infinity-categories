@@ -225,5 +225,99 @@ In the case of $ \Ch ( \Mod_k )_{ \dg } $, we have
 	The nerve of a dg-category $ N_{ \dg } ( \mathcal{ A } ) \in \SetD $ is an $ \infty $-category.
 \end{thm}
 
+\begin{Exercise}
+	Given a partially ordered set $ P $, its differential graded path category $ \Pathdg ( P ) $ has the same objects as $ P $ and for every finite totally ordered subset $ S \subset P $ with $ \min ( S ) = x \neq y = \max ( S ) $ a morphism $ f_S \colon x \to y $ of degree $ \lvert S \rvert - 2 $, i.e. the number of elements between $ x $ and $ y $ in $ S $.
+	Moreover, for every $ x \in P $ there is an identity morphism $ \id_x $ of degree $ 0 $ as well as all formal compositions of these morphisms with the identity acting as identity as well as formal sums.
+	We define the differential 
+	\[
+	d ( f_S ) \coloneqq \sum_{ l = 1 }^k ( - 1 )^l ( f_{ \{ s_l \leq s \in S \} } \circ f_{ \{ s_l \geq s \in S \} } - f_{ S \setminus \{ s_l \} } )
+	\]
+	for $ S = \{ x < s_1 < \dotsm < s_k < y \} $ and extend it obeying the graded Leibniz rule $ d ( g \circ f ) = d ( g ) \circ f + ( - 1 )^{ \lvert g \rvert } g \circ d ( f ) $ for $ g $ homogeneous of degree $ \lvert g \rvert $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Confirm that $ d ( d ( f_S ) ) = 0 $ and that $ d ( d ( g \circ f ) ) = 0 $ if $ d \circ d ( f ) = 0 $ and $ d \circ d ( g ) = 0 $.
+		
+		\item 
+		Explain how a morphism of partially ordered sets $ f \colon P \to Q $ induces a morphism 
+		\[
+		\Pathdg ( f ) \colon \Pathdg ( P ) \to \Pathdg ( Q ). 
+		\]
+		(Recall that a morphism between dg categories must be degree preserving, compatible with composition and preserve identities.)
+		Conclude that there is a functor $ \Pathdg \colon \poSet \to \catdg $ from partially ordered sets to differential graded categories.
+	\end{enumerate}
+	
+	Restricting, we obtain a functor $ p \colon \Delta \to \catdg $ and we define the differential graded Nerve as $ N_{dg} \coloneqq p^* \colon \catdg \to \SetD $.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Given a differential graded category $ \mathcal{ D } $, describe the n-smplices of $ N_{dg} ( \mathcal{ D } ) $.
+		
+		\item 
+		Show that $ N_{dg} ( \mathcal{ D } ) $ is an $ \infty $-category.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	The goal of this exercise is to show that the normalised Moore complexes from 7.3 induces an equivalence $ N_{ \bullet } \colon \Ab_{ \Delta } \to \Ch_{ \mathbb{ N }_0 } ( \mathbb{ Z } ) $ between simplicial abelian groups and non-negative chain complexes of abelian groups. 
+	Let $ A \colon \Delta^{ \op } \to \Ab $ be a simplicial abelian group.  
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that for $ x \in A_n $ with $ \partial_j^n ( x ) = 0 $ for all $ 0 < i + 1 < j \leq n $ we have for 
+		\[
+		x^{ \leq i } \coloneqq x - \sigma_i^{ n - 1 } \partial_{ i + 1 }^n ( x ) 
+		\]
+		that $ \partial_j^n ( x^{ \leq i } ) = 0 $ for all $ 0 < i < j \leq n $.
+		Deduce that any element of $ N_n ( A ) $ can be represented by an $ x \in A_n $ such that $ \partial^n_j ( x ) = 0 $ for all $ 0 < j \leq n $.
+	\end{enumerate}
+	
+	We define the subcomplex $ C_{ \bullet }^{ \leq 0 } ( A ) \subseteq C_{ \bullet } ( A ) $ by $ C_n^{ \leq 0 } ( A ) \coloneqq \{ a \in A_n \mid \forall 0 < j \leq n \quad \partial_j^n ( a ) = 0 \} $.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Show that the canonical morphism 
+		\[
+		\bigoplus_{ 0 \leq m \leq n } \bigoplus_{ \alpha \colon [ n ] \twoheadrightarrow [ m ] \atop \text{ surjective } }
+		A ( \alpha ) ( C_m^{ \leq 0 } ( A ) ) \to C_n ( A )
+		\]
+		is in fact an isomorphism.
+		(Hint: For the injectivity, define a partial ordering 
+		\[
+		\alpha = ( k , \alpha \colon [ n ] \twoheadrightarrow [ k ] ) \leq 
+		( m , \beta \colon [ n ] \twoheadrightarrow [ m ] ) = \beta
+		\]
+		if $ k \leq m $ and if $ k = m $, then $ \beta \leq \alpha $ pointwise.
+		Then show that for $ \sum_\alpha A ( \alpha ) ( x_\alpha ) = 0 $ we have that 
+		$ x_\beta = 0 $ if $ x_{ \alpha } = 0 $ for all $ \alpha \leq \beta $ by applying $ A ( \gamma ) $ for $ \gamma \colon [ m ] \to [ n ] , \gamma ( j ) \coloneqq \min \beta^{ - 1 } ( j ) . $ )
+		
+		\item 
+		Deduce that the canonical map $ C_{ \bullet }^{ \leq 0 } ( A ) \to C_{ \bullet } ( A ) \to N_{ \bullet } ( A ) $ is an isomorphism of complexes.
+		
+		\item 
+		Conclude that the normalised Moore complex is a fully faithful functor by showing that any morphism $ f \colon A \to B $ is uniquely determined by a collection of group homomorphisms 
+		\[
+		f_n{ \leq 0 } \colon C_n^{ \leq 0 } ( A ) \to C_n^{ \leq 0 } ( B ) 
+		\]
+		where $ n \in \mathbb{ N }_0 $.
+	\end{enumerate}
+	
+	We define the Eilenberg-Maclane functor $ K \colon \Ch_{ \mathbb{ N }_0 } ( \mathbb{ Z } ) \to \Ab_{ \Delta } $ as $ K \coloneqq ( N_{ \bullet } ( - , \mathbb{ Z } ) \circ \mathcal{ Y }_{ \Delta } )^* \circ \mathcal{ Y }_{ \Ch_{ \mathbb{ N }_0 } ( \mathbb{ Z } ) } $.
+	\[
+	K ( C_{ \bullet } )_n \coloneqq K ( C_{ \bullet } ) ( n ) = \Hom_{ \Ch_{ \mathbb{ N }_0 } ( \mathbb{ Z } ) } ( N_{ \bullet } ( \Delta^n , \mathbb{ Z } ) , C_{ \bullet } )
+	\]
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Make the description of $ N_{ \bullet } ( \Delta^n , \mathbb{ Z } ) $ from Exercise 7.3(c) explicit.
+		Use this to argue that $ f \in C_n^{ \leq 0 } ( K ( C_{ \bullet } ) ) $ if and only if $ f $ annihilates the subcomplex $ N_{ \bullet } ( \Lambda_0^n , \mathbb{ Z } ) $, i.e. $ f \mid_{ N_{ \bullet } ( \Lambda_0^n , \mathbb{ Z } ) } = 0 $.
+		
+		\item 
+		Deduce that $ f \mapsto f ( \id_n ) $ induces an isomorphism of complexes $ C_{ \bullet }^{ \leq 0 } ( K ( C_{ \bullet } ) ) \to C_{ \bullet } $.
+		
+		\item 
+		Conclude that $ N_{ \bullet } \colon \Ab_{ \Delta } \to \Ch_{ \mathbb{ N }_0 } ( \mathbb{ Z } ) $ is an equivalence of categories.
+	\end{enumerate}
+	
+	Since $ N_{ \bullet } $ is an equivalence, it preserves colimits. Hence, we have seen in (a slight generalisation of Exercise 1.3 that $ N_{ \bullet } $ admits a right adjoint which is $ K $ by construction. Thus $ K $ is a quasi inverse of $ N_{ \bullet } $.
+\end{Exercise}
 
 

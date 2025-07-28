@@ -512,3 +512,165 @@ now for any morphism $ f \colon a \to b $ we obtain a functor $ f^* \colon \math
 Let $ x \in \mathcal{ X }_b \xrightarrow{ f^* } \mathcal{ X }_a $
 and $ \varphi \colon f^* ( x ) \to x $ in $ \mathcal{X} $ (notice the slight abuse of notation when we identify an object in the fiber with its image in $ \mathcal{ X } $) so that $ p ( \varphi ) = f $.
 
+\subsection{Exercises}
+
+\begin{Exercise}
+	A functor $ G \colon \mathcal{ B } \to \mathcal{ C } $ is called an isofibration if for any $ b \in \mathcal{ B } $ and any isomorphism $ f \colon G ( b ) \isomorphism c' $ there is an isomorphism $ f' \colon b \isomorphism b'$ with $ G ( f' ) = f $.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that the opposite $ G^{ \op } \colon  \mathcal{ B }^{ \op } \to \mathcal{ C }^{ \op } $ of an isofibration $ G \colon \mathcal{ B } \to \mathcal{ C } $ is an isofibration.
+		
+		\item 
+		Show that for a functor $ F \colon \mathcal{ A } \to \mathcal{ C } $ and an isofibration $ G \colon \mathcal{ B } \to \mathcal{ C } $
+		the canonical inclusion $ \iota \colon \mathcal{ A } \times_ { \mathcal{ C } } \mathcal{ B } \to \mathcal{ A } \times^{ ( 2 ) }_{ \mathcal{ C } } \mathcal{ B } $ of the pullback in $ \Cat $ to the 2-pullback in $ \underline{ \Cat } $ is an equivalence of categories.
+	\end{enumerate}
+	
+	Recall that in the lecture, we defined a Grothendieck fibration to be the functor $ p \colon \mathcal{ X } \to  A $ such that for any $ x \in \mathcal{ X } $ and any morphism $ f \colon a \to p ( x ) $ admits a (p-)cartesian lift $ f' \colon y \to x $ with $ p ( f' ) = f $.
+	Here we call a morphism $ f' \colon y \to x $ (p-)cartesian if for any morphism $ g' \colon z \to x $, whenever $ p ( g' ) = p ( f' ) \circ h $ for some $ h \colon p ( z ) \to p ( y ) $, there exists a unique lift $ h' \colon z \to y $ such that $ p ( h' ) = h $ and $ g' = f' \circ h' $.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Show that a (p-)cartesian lift of an isomorphism is an isomorphism.
+		Conclude that any Grothendieck fibration $ p \colon \mathcal{ X } \to A $ is an isofibration.
+		
+		\item 
+		Conclude that the 2-pullback of a Grothendieck fibration $ p \colon \mathcal{ X } \to  A $ along a functor $ a \colon [ 0 ] \to \mathcal{ A } $ is the fiber $ \mathcal{ X }_a $ of $ p $ at $ a $, i.e. the ordinary pullback along $ a $.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Consider a 2-functor $ F \colon A \to \underline{ \Cat } $ from an ordinary category $ A $ to the 2-category of categories.
+	The Grothendieck construction $ \in_A F $ of $ F $ is an ordinary category whose objects are tuples $ ( a , x ) $ of an object $ a \in A $ and objects of the category $ x \in F ( a ) $.
+	A morphisms in $ \int_A F $ is a tuple $ ( f , u ) \colon ( a , x ) \to ( b , y ) $
+	consisting of a morphism $ f \colon a \to b $ in $ A $ and a morphism $ u \colon F ( f ) ( x ) \to y $ in $ F ( b ) $ where we used that $ F ( f ) \colon F ( a ) \to F ( b ) $ is a functor.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Use the additional structure of the 2-functor $ F $ to define a composition law on $ \int_A F $ extending the composition of morphisms in $ A $.
+		Specify the identity morphisms and confirm that $ \int_A F $ is a category.
+		
+		\item 
+		Explain why the Grothendieck construction $ \int_A F $ and $ \int^{ A^{ \op } } F $ yield in general different categories.
+	\end{enumerate}
+	
+	A functor $ p \colon \mathcal{ X } \to A $ is called a Grothendieck opfibration if its opposite $ p^{ \op } \colon \mathcal{ X }^{ \op } \to A^{ \op } $ is a Grothendieck fibration.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Give the definition of a Grothendieck opfibration without reference to a Grothendieck fibration and cartesian morphisms. 
+		Include also a defintion of (p-)cocartesian morphisms.
+		
+		\item 
+		Show that the composition of two (p-)cocartesian morphisms is (p-)cocartesian for some functor $ p \colon \mathcal{ X } \to A $.
+		
+		\item 
+		Show that the canonical forgetful functor $ \int_A F \to  A $ is a Grothendieck opfibration.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Fix a Grothendieck opfibration $ p \colon \mathcal{ X } \to A $.
+	We aim to construct a 2-functor $ f_p \colon A \to \underline{ \Cat } $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Describe the category $ F ( a ) \coloneqq \mathcal{ X }_a $ which is defined as the fibre of $ p $ at $ a $, i.e. the pullback of $ p $ along $ a \colon [ 0 ] \to  A $.
+	\end{enumerate}
+	
+	Using the axiom of choice, we fix for every $ x \in \mathcal{ X } $ and $ f \colon p ( x ) \to b $ a (p-)cocartesian lift $ f_x \colon x \to x_f $.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Show that for a fixed morphism $ f \colon a \to b $ in $ A $, the above choices induce a functor $ F ( f ) \colon F ( a ) \to F ( b ) $ with $ F ( f ) ( x ) \coloneqq x_f $ for $ x \in F ( a ) $ and $ F ( f ) ( u ) \coloneqq u_f $ for $ u $ a morphism in $ A $.
+		Here $ u_f $ for $ u \colon x \to y $ in $ F ( a ) $ is defined as the unique lift of $ f_y \circ u $ along $ f_x $ induced by $ \id_b $.
+		\[
+		\begin{tikzcd}
+			&
+			x_f
+			\ar[rd, dashed, "\exists! u_f "]
+			\\
+			x
+			\ar[ru, "f_x"]
+			\ar[r, "u"']
+			&
+			y
+			\ar[r,"f_y"']
+			&
+			y_f
+		\end{tikzcd}
+		\xrightarrow{ p }
+		\begin{tikzcd}
+			& 
+			b
+			\ar[rd, equal]
+			\\
+			a
+			\ar[ru, " f "]
+			\ar[r, equal]
+			&
+			a
+			\ar[r, "f"']
+			&
+			b
+		\end{tikzcd}
+		\]
+		
+		\item 
+		Deduce from the dual of Exercise 5.1(c) that the collection $\epsilon_a \coloneqq ( ( \id_a )_x )_{x \in F ( a ) } $ is a natural isomorphism
+		\[
+		\epsilon_a \colon \id_{ F ( a ) } \implies F ( \id_a )
+		\]
+		for every $ a \in A $.
+		
+		\item 
+		Use Exercise 5.2(d) to construct a natural isomorphism 
+		\[
+		\mu_{g,f} \colon F ( g ) \circ F ( f ) \implies F ( g \circ f )
+		\]
+		for any two composable morphisms $ f \colon a \to b $ and $ g \colon b \to c $ in $ A $.
+		
+		\item 
+		Conclude that $ F = ( F , \mu , \epsilon ) \colon A \to \underline{\Cat} $ is a 2-functor.
+		(Hint: Deduce from Exercise 4.3(d) that it suffices to show that $ \epsilon_a = \mu_{ \id_a , \id_a } \cdot ( \epsilon_a * \epsilon_a ) $ for all $ a \in A $ and $ \mu_{ hg , f } \cdot ( \mu_{h,g} * \id_f ) = \mu_{ h , gf }  \cdot ( \id_h * \mu_{ g ,f } )$ for three composable morphisms $ f , g , h $ in $ A $.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Consider a pair of functors $ L \colon \mathcal{ C }_0 \to \mathcal{ C }_1 $ and $ R  \colon \mathcal{ C }_1 \to \mathcal{ C }_0 $ and view them as strict 2-functors $ F \coloneqq F_L \colon [ 1 ] \to \underline{ \Cat } $ and $ G \coloneqq G_R \colon [ 1 ]^{ \op } \to \underline{ \Cat } $ where $ [ 1 ] \coloneqq \{ 0 < 1 \} $ is the category with two objects and one morphism between them.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that the functor $ H \colon \int_{ [ 1 ] } F \to \int^{ [ 1 ] } G $ with constant fibres over $ [ 1 ] $, i.e. $ H ( i , c ) = ( i , c ) $ and $ H ( \id_i , u ) = ( \id_i , u ) $ for $ i \in [ 1 ] $, are in bijection to natural transformations
+		\[
+		\eta \colon \Hom_{ \mathcal{ C }_1 } ( L ( - ) , ? ) \to \Hom_{ \mathcal{ C }_0 } ( - , R ( ? ) )
+		\]
+		of functors $ \mathcal{ C }_1^{ \op } \times \mathcal{ C }_0 \to \Set $.
+		
+		\item 
+		Conclude that we have an adjunction $ L \dashv R $ if and only if $ \int_{ [1 ] } F $ and $ \int^{ [ 1 ] } G $ are isomorphic via a functor with constant fibres.
+		Deduce in particular that in this case $ \int_{ [ 1 ] } F $ and $ \int^{ [ 1 ] } G $ together with the forgetful functors are isomorphic categories over $ [ 1 ] $.
+		
+		\item 
+		Show that if $ L \dashv R $, then $ p_G \colon \int^{ [ 1 ] } G \to [ 1 ] $ is also a Grothendieck opfibration.
+	\end{enumerate}
+	
+	A functor $ p \colon \mathcal{ X } \to  A $ that is both a Grothendieck fibration and a Grothendieck opfibration is called a Grothendieck bifibration.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Explain how a Grothendieck bifibration $ p \colon \mathcal{ X } \to [ 1 ] $ gives rise to a pair of functors $ L \colon \mathcal{ C }_0 \to \mathcal{ C }_1 $ and $ R \colon \mathcal{ C }_1 \to \mathcal{ C }_0 $.
+		Furthermore, show that they form an adjoint pair, $ L \dashv R $, by constructing an explicit natural isomorphism $ \eta \colon \Hom_{ \mathcal{ C }_1 } ( L ( - ) , ? ) \to \Hom_{ \mathcal{ C }_2 } ( - , R ( ? ) ) $ for any choice of cleavage.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Let $ \mathcal{ C } $ be a complete category and consider the arrow category $ \Fun ( [ 1 ] , \mathcal{ C } ) $ together with the projection
+	\[
+		p 
+		\coloneqq 
+		\ev_1 \colon \Fun ( [ 1 ] , \mathcal{ C } ) \to \mathcal{ C } 
+	\]
+	given by evaluating at $ 1 \in [ 1 ] $.
+	Describe the (p-)cartesian morphisms in $ \Fun ( [ 1 ] , \mathcal{ C } ) $.
+	( Recall that pullback squares are also called cartesian squares.) Is $ p $ a Grothendieck fibration?
+\end{Exercise}

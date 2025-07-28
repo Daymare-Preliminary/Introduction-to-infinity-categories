@@ -862,3 +862,114 @@ For the next part let $ \mathcal{ C } $ be a fixed 2-category and let $ N^D ( \m
 	\]
 	Since the horn given by the simplices above extends, we obtain $\gamma \delta = \id_h $. 
 \end{proof}
+
+\subsection{Exercises}
+
+\begin{Exercise}
+	Given a 2-category $ \mathcal{ C } $, we defined in the lecture its Duskin Nerve to have as n-simplices the strictly unital lax functors $ [ n ] \to \mathcal{ C } $.
+	Hence an n-simplex $ X \colon [ n ] \to \mathcal{ C } $ consists of a choice of objects $ \{ X_i \}_{ 0 \leq i \leq n } $ and 1-morphisms $ f_{ j , i } \colon  X_i \to X_j $ for $ 0 \leq i \leq j \leq n $ and the composition constraint, i.e. 2-morphism $ \mu_{ k , j , i } \colon f_{ k , j } \circ f_{ j , i } \to f_{ k , i } $.
+	We assume the identity constraint to be the identity, we must have $ f_{ i, i }  = \id_{ X_i } $ for $ 0 \leq i \leq n $ and $ \mu_{ j , j , i } = \lambda_{ f_{ j , i } } $ and $ \mu_{ j , i , i } = \rho_{ f_{ j , i } } $ for $ 0 \leq i \leq j \leq n$.
+	Furthermore, the composition constraint must satisfy
+	\[
+	\mu_{ l , k , i } \cdot ( \id_{ f_{ l , k } } * \mu_{ k , j , i } ) = \mu_{ l , j , i } \cdot ( \mu_{ l , k , j } * \id_{ f_{ j , i } } ) \cdot \alpha_{ f_{ l , k } , f_{ k , j } , f_{ j , i } }
+	\]
+	for all $ 0 \leq i \leq j \leq k \leq l \leq n $.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Argue that in the above $ \mu_{ i , i , i } $ is well defined for $ 0 \leq i \leq n $ and if $ j = k $, then the composition constraint is automatically fulfilled.
+		
+		\item 
+		Show that in any 2-category we have that 
+		\[
+		\alpha_{ \id_z , g , f } = ( \lambda_g^{ - 1 } * \id_f ) \cdot \lambda_{ g \circ f } \quad \text{ and } \quad \alpha_{ g , f , \id_x } = \rho_{ g \circ f }^{ - 1 } \cdot ( \id_g * \rho_f ) 
+		\]
+		for any two 1-morphism $ f \colon x \to y $ and $ g \colon y \to z $ in $ \mathcal{ C } $.
+		
+		\item 
+		Deduce, that it suffices to require
+		\[
+		\mu_{ l , k , i } \cdot ( \id_{ f_{ l , k } } * \mu_{ k , j , i } ) 
+		=
+		\mu_{ l , j , i } \cdot ( \mu_{ l , k , j } * \id_{ f_{ j , i } } ) \cdot 
+		\alpha_{ f_{ l , k } , f_{ k , j } , f_{ j , i } } 
+		\]
+		for all $ 0 \leq i < j < k < l \leq n $ in the description of the n-simplices.
+		
+		\item 
+		Conclude with the help of Exercise 6.3 that the Duskin nerve is 3-coskeletal.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Let $ P = ( P , \leq ) $ be a partially ordered set. 
+	The goal of this exercise is to show that strictly unit lax functors $ P \to \mathcal{ C } $ for a strict $ 2 $-category $ \mathcal{ C } $ are in bijection to strict functors from the path 2-category $ \Path ( P ) $.
+	Here $ \Path ( P ) $ is the strict 2-category with the same objects as $ P $ and for two objects $ x , y \in P $ their morphism category $ \intHom_{ \Path ( P ) } ( x , y ) $ is given by the opposite category of finite totally ordered subsets $ S \subset P $ with $ \min ( S ) = x $ and $ \max ( S ) = y $ ordered by inclusion.
+	The horizontal composition is given by the union with the singletons $ \{ x \} $ serving as identities.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Compute the homotopy and coarse homotopy category of $ \Path ( P ) $ from Exercise 4.4.
+		Which one should be called the path (1-)category of $P$?
+		
+		\item 
+		Show that there is a unique strictly unital lax functor $ T_P \colon P \to \Path ( P ) $ which is the identity on objects and sends the 1-morphism $ x \leq y $ to the final element of $ \Hom_{ \Path ( P ) } ( x , y ) $.
+		
+		\item 
+		Show that a strict 2-functor $ F \colon \Path ( P ) \to \mathcal{ C } $ is completely determined by $ f_{ y , x } \coloneqq F ( \{ x \leq y \} ) $ and 
+		$ \mu_{ z , y , x } \coloneqq F ( \{ x \leq y \leq z \} ) \supseteq \{ x \leq z \} ) $ and that any such choice of $ \{ f_{ y ,x } \}_{ x ,y \in P } $ and $ \mu $ determines a unique functor if and only if $ \mu $ satisfies the associativity constraint of a strictly unital functor $ \Tilde{ F } \colon P \to \mathcal{ C } $.
+		
+		\item 
+		Conclude that precompostion with $ T_P $ induces a bijection 
+		\[
+		( T_P )^* \colon \{ \text{ strict functors } \Path ( P ) \to \mathcal{ C } \}
+		\leftrightarrow \{ \text{ strictly unital lax functors } P \to \mathcal{ C } \}.
+		\]
+		
+		\item 
+		Deduce that $ \Path $ upgrades to a functor from the category of partially ordered sets to the category of strict 2-categories with strict functors. 
+		Use this to give an alternative description of the Duskin Nerve of a strict 2-category.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	A functor $ F \colon \Delta^{ \op } \to \mathcal{ C } $ is called a simplicial object in $ \mathcal{ C } $ where we often identify the functor with objectwise images $ F_n \coloneqq F ( [ n ] ) $ and the images of the face maps $ \partial_i^n \coloneqq F ( d_i^n ) \colon F_n \to F_{ n - 1 } $ and degeneracy maps $ \sigma_i^n \coloneqq F ( s_i^n ) \colon F_n \to F_{ n + 1 } $.
+	Recall that we thus have in particular that for the face maps and degeneracy maps obey the following relations
+	\begin{align*}
+		\partial_i^{ n - 1 } \partial_j^n = \partial_{ j - 1 }^{ n - 1 } \partial_i^n \quad \text{if } i < j
+		\\
+		\sigma_i^{ n + 1 } \sigma_j^n = \sigma_{ j + 1 }^{ n + 1 } \sigma_i^n \quad \text{if } i \leq j
+	\end{align*}
+	\[
+	\partial_i^{ n + 1 } \sigma_j^n =
+	\begin{cases}
+		\sigma_{ j - 1 }^{ n - 1 } \partial_i^n & \text{ if } i < j 
+		\\
+		\id_{ F_n } & \text{ if } i \in \{ j , j + 1 \} 
+		\\
+		\sigma_{ j }^{ n - 1 } \partial_{ i - 1 }^n & \text{ if } i > j +1
+	\end{cases}
+	\]
+	and that any morphism in the image of $ F $ can be written as a composition of face maps followed by degeneracy maps.
+	Let now $ A \colon \Delta^{ \op } \to \Ab $ be a simplicial abelian group.
+	For $ n \in \mathbb{ N }_0 $ the face maps assemble into a morphism $ \partial^n \coloneqq \sum_{ i = 0 }^n ( - 1 )^i \partial_i^n \colon A_n \to A_{ n - 1 } $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that $ C_{ \bullet } ( A ) \coloneqq ( A_n , \partial^n )_{ n \in \mathbb{ N }_0 } $ is an $ \mathbb{ N }_0 $-graded chain complex, i.e. $ \partial^n \partial^{ n + 1 } = 0 $.
+		Furthermore, show that $ D_{ \bullet } ( A ) \coloneqq \sum_{ 0 \leq i \leq n \in \mathbb{ N }_0 } \im ( \sigma_i^n ) \subseteq C_{ \bullet } ( A ) $ is a subcomplex.
+		
+		\item 
+		Argue that both constructions $ C_{ \bullet } $ and $ D_{ \bullet } $ are functorial on the category of simplicial groups.
+		Conclude that there is a functor $ N_{ \bullet } \coloneqq C_{ \bullet } / D_{ \bullet } $.
+	\end{enumerate}
+	
+	The complex $ N_{ \bullet } ( A ) $ is called the normalized Moore complex of $ A $.
+	Recall that the forgetful functor $ \Ab \to \Set $ admits a left adjoint $ Fr \colon \Set \to \Ab $ which associates to a set $ S $ the free group $ \mathbb{ Z } S $. 
+	The normalised Moore complex of a simplicial set $ X $ is then defined to be $ N_{ \bullet } ( X , \mathbb{ Z } ) \coloneqq N_{ \bullet } \circ Fr_* ( X ) = N_{ \bullet } ( Fr \circ X ) $.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Argue that for a simplicial set $ X $, its normalised Moore complex $ N_{ \bullet } ( X ) $ is level wise a free abelian group whose basis are the non-degenerate simplices.
+		Describe the differential of $ N_{ \bullet } ( X ) $ in terms of this basis.
+	\end{enumerate}
+\end{Exercise}

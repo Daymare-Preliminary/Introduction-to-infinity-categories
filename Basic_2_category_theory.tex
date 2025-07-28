@@ -724,3 +724,254 @@ Lecture 24.4
 \begin{defi}
 	The homotopy category of $ \mathcal{ C } $ is $ \hPith ( \mathcal{ C } ) $.
 \end{defi}
+
+\subsection{Exercises}
+
+\begin{Exercise}
+	In the lecture, we defined the Godement product $ \beta * \alpha \colon G_1 \circ F_1 \Rightarrow G_2 \circ F_1 $ of two natural transformations $ \alpha \colon F_1 \Rightarrow F_2 $ and $ \beta \colon G_1 \Rightarrow G_2 $ for functors $ F_i \colon \mathcal{ A } \to \mathcal{ B } $ and $ G_i \colon \mathcal{ B } \to \mathcal{ C } $ for $ i \in \{ 1 , 2 \} $, pointwise given by $  (\beta * \alpha )_c \coloneqq G_2 ( \alpha_c ) \circ \beta_{ F_1 ( c ) } = \beta_{ F_2 ( c ) } \circ G_1 ( \alpha_c ) $.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that there is a strict 2-category of categories $ \Cat $ with functor categories as homomorphisms and horizontal composition given by the Godement product, in other words, show that 
+		\begin{itemize}
+			\item 
+			the Godement product is unital, i.e. $\id_{G_1} * \alpha = \alpha$ and $ \beta * \id_{F_1} =\beta,$
+			
+			\item 
+			the Godement product is associative, i.e. $ ( \gamma * \beta) * \alpha = \gamma * ( \beta * \alpha ) $ for $ \gamma \colon H_1 \Rightarrow H_2 \colon \mathcal{ C } \to \mathcal{ D } $,
+			
+			\item 
+			for any two categories $ \mathcal{ C } $ and $ \mathcal{ D } $, we have that both functors 
+			\begin{align*}
+				\id_{ \mathcal{ C } } \circ ( - ) , ( - ) \circ  \id_{ \mathcal{ D } }\colon \Fun ( \mathcal{ C } , \mathcal{ D } ) 
+				&\to 
+				\Fun ( \mathcal{ C } , \mathcal{ D } )
+				\\
+				\eta 
+				&\mapsto 
+				\id_{\id_{\mathcal{ C }}} * \eta , \eta * \id_{\id_{\mathcal{ C }}}
+			\end{align*}
+			are the identity functor $ \id_{ \Fun( \mathcal{ C } , \mathcal{ D } ) } $ and
+			
+			\item 
+			vertical and horizontal composition are compatible with each other, i.e. for natural transformations $ \eta \colon F \to F', \eta' \colon F' \to F'', \xi \colon G \to G'$ and $G' \to G''$ of functors $ F , F' , F'' \colon \mathcal{ A } \to \mathcal{ B } $ and $ G , G', G'' \colon \mathcal{ B } \to \mathcal{ C } $ we have that 
+			\[
+			( \xi' \cdot \xi ) * ( \eta' \cdot \eta ) = ( \xi' * \eta' ) \cdot ( \xi * \eta ) 
+			\]
+			for $ \cdot $ the pointwise composition of natural transformations.
+		\end{itemize}
+	\end{enumerate}
+	The centre of a category $ \mathcal{ C } $ is defined to be the natural endomorphisms of the identity functor $ \id_{ \mathcal{ C } } \colon \mathcal{ C } \to \mathcal{ C } $. 
+	Observe that the centre $ Z ( \mathcal{ C } ) \coloneqq \End_{ \Fun ( \mathcal{ C } , \mathcal{ C } )} ( \id_{ \mathcal{ C } } ) $ is a set that comes both with the pointwise composition $ \cdot $ as well as the Godement product $ * $.
+	\begin{enumerate}[resume]
+		\item 
+		Let $ M $ be a set with two unital binary operations $ \cdot , * \colon M \times M \to M $ such that
+		\[
+		( a \cdot b ) * ( c \cdot d ) = ( a * c ) \cdot ( b * d ). 
+		\]
+		The Eckmann-Hilton argument states that then both products agree and $ ( M , \cdot , e ) $ is an abelian monoid. Prove that this assertion is true.
+		
+		\item 
+		Conclude that the centre of a category is an abelian monoid with either product. 
+		
+	\end{enumerate}
+\end{Exercise} 
+
+\begin{Exercise}
+	Fix three groupoids $ \mathcal{ A } , \mathcal{ B } $ and $ \mathcal{ C } $ together with functors $ F \colon \mathcal{ A } \to \mathcal{ C } $ and $ G \colon \mathcal{ B } \to \mathcal{ C } $.
+	Recall that we defined the 2-pullback $ \mathcal{ A } \times_{ \mathcal{ C } }^{ ( 2 ) } \mathcal{ B } $ with objects $ ( A \in \mathcal{ A } , B \in \mathcal{ B } , \varphi \colon FA \to GB )$.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Confirm that $ \mathcal{ A } \times_{ \mathcal{ C } }^{ ( 2 ) } \mathcal{ B } $ is a groupoid.
+		
+		\item 
+		Show that $ \Fun ( \mathcal{ D } , \mathcal{ C } ) $ is a groupoid for any groupoid $ \mathcal{ D } $.
+		
+		\item 
+		Show that the canonical morphism 
+		\[
+		\Fun ( - , \mathcal{ A } \times_{ \mathcal{ C } }^{ ( 2 ) } \mathcal{ B } ) 
+		\to
+		\Fun ( - , \mathcal{ A } ) \times_{ \Fun ( - , \mathcal{ C } )} ^{(2)} \Fun ( - , \mathcal{ B } )
+		\]
+		is an isomorphism of functors $ \Gpd^{ \op } \to \Gpd$.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Fix a monoid $ M = ( M , \otimes , e ) $ and view it as a category $ \mathcal{ M } $ whose objects are the elements of $ M $ with only identity morphisms.
+	Define the monoidal category of $ M $ to be the 2-category $ \underline{ BM } $ with one object $ \star $ and $ \End_{ \underline{ BM } } ( \star ) \coloneqq \mathcal{ M } $.
+	Show that $ \underline{ BM } $ is indeed a 2-category with horizontal composition functor
+	\[
+	\otimes \colon \mathcal{ M } \times  \mathcal{ M } = M \times M \to M = \mathcal{ M }
+	\]
+	which is defined on morphisms in the unique way $ \id_m \otimes \id_n = \id_{ m \times n } $.
+	How does this construction compare to an ordinary 1-category with one object viewed as a 2-category with only identity 2-morphisms?
+\end{Exercise}
+
+\begin{Exercise}
+	A strict monoidal category is a category $ \mathcal{ C } $ together with a functor $ - \times - \colon \mathcal{ C } \times \mathcal{ C } \to \mathcal{ C } $ and distinguished element $ \mathds{ 1 } \in \mathcal{ C } $ such that its delooping $ B \mathcal{ C } $ with single object $ \star $ and $ \End_{ B \mathcal{ C } } $ defines a strict 2-category with horizontal composition $ \otimes $ and $ \id_* \coloneqq \mathds{ 1 } $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Spell out the explicit axioms of a strict monoidal category without reference to a 2-category.
+	\end{enumerate}
+	
+	Consider the category $ \mathcal{ V } \coloneqq \mathcal{ V } ( \mathbb{ K } ) $ which has as objects the natural numbers $ \mathbb{ N }_0 $ and homomorphisms from $ n $ to $ m $ given by $ n \times m $-matrices over a fixed field $ \mathbb{ K } $.
+	Equip it with a monoidal structure via
+	\begin{align*}
+		- \otimes - \colon \mathcal{ V } \otimes \mathcal{ V } 
+		&\to 
+		\mathcal{ V } 
+		\\
+		( n , m ) 
+		&\mapsto
+		mn
+		\\
+		( A , B ) 
+		&\mapsto
+		A \otimes B
+	\end{align*}
+	where for matrices $ A $ and $ B $ we denote by $ A \otimes B $ their Kronecker product, i.e. the matrix $ ( a_{ij}B)_{ij}$ for $ A = ( a_{ij})_{ij}$.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Confirm that $ \mathcal{ V } $ is a strict monoidal category with unit element $ \mathds{ 1 } \coloneqq 1 $.
+		
+		\item 
+		What is the difference between $ \mathcal{ V } $ and the category $ \vect_{fd} ( \mathbb{ K } ) $ of finite dimensional $ \mathbb{ K } $-vector spaces equipped with the ordinary tensor product?
+		Is $ \vect_{fd} ( \mathbb{ K } ) $ with the ordinary tensor product a strict monoidal category.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Fix a strict 2-category $ \mathcal{ C } = ( \mathcal{ C } , \Hom_{ \mathcal{ C } } ( \circ , * ) ) $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that any object $ c \in \mathcal{ C } $ induces a strict 2-functor
+		\[
+		\Hom_{ \mathcal{ C } } ( c , - ) \colon \mathcal{ C } \to \underline{\Cat}
+		\]
+		from $\mathcal{ C } $ to the 2-category of categories $ \underline{ \Cat } $.
+		
+		\item 
+		Define the composition law of $ \mathcal{ C }^{ \op } $ with $ \Hom_{ \mathcal{ C }^{\op }} ( c , d ) \coloneqq \Hom_{\mathcal{ C } } ( d, c ) $ and confirm that your definition yields a strict 2-category.
+		
+		\item 
+		Show that $ \Hom_{ \mathcal{ C } } ( - , c ) \colon \mathcal{ C }^{ \op } \to \underline{ \Cat }$ is also a 2-functor by arguing that 
+		\[
+		\Hom_{\mathcal{ C } } ( - , c ) = \Hom_{ \mathcal{ C }^{\op} } ( c , - )
+		\]
+		for all $ c \in \mathcal{ C } $.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Fix a group $ G = ( G , \cdot , 1 ) $ and an abelian group $ \Gamma = ( \Gamma , + , 0 ) $ together with a group homomorphism $ \chi \colon G \to \Aut_{\Grp} ( \Gamma ) $.
+	Instead of $ \chi ( g ) ( \gamma ) $ we will also write $ g ( \gamma ) $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that there is a cochain complex of abelian groups $ C^{ \bullet } ( G , \Gamma ) $ with $ C^n ( G , \Gamma ) \coloneqq \Hom_{ \Set } ( G^n , \Gamma ) $ with $ G^0 \coloneqq \{ 1\}$ and differential 
+		\begin{align*}
+			d^n ( \varphi ) ( g_1 , \dotsc ,  g_{n+1} ) 
+			\coloneqq&
+			g_1 ( \varphi ( g_2 , \dotsc ,  g_{n+1} ) ) + ( - 1 )^{ n + 1 } \varphi ( g_1 , \dotsc ,  g_n ) 
+			\\
+			&+ \sum_{i = 1}^n ( - 1 )^i \varphi ( g_1 , \dotsc ,  g_{ i-1 } , g_ig_{i+1} , g_{i+2}, \dotsc ,  g_{n+1} )
+		\end{align*}
+		for $ n \in \mathbb{ N }_0 $ and $ 0 $ otherwise. 
+		In other words, show that $ d^{n+1} \circ d^n = 0 $ for all $ n \in \mathbb{ Z } $.
+	\end{enumerate}
+	
+	We call a morphism $ \varphi \colon G^n \to \Gamma  $ an n-cocycle if $ d^n ( \varphi ) = 0 $.
+	The $ n $-th cohomology $ H^n ( G , \Gamma ) $ of $ G $ with coefficients in $ \Gamma $ is defined as the quotient of $ \ker ( d^n ) $ by the image of $d^{n-1}$.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Describe the 0-th cohomology $ H^0 ( G , \Gamma ) $.
+	\end{enumerate}
+	
+	Consider now a category $ \mathcal{ C } = \mathcal{ C } ( G , \Gamma ) $ whose objects are the elements of $ G $, any object has endomorphisms $ \Gamma $ and no other morphisms exist.
+	
+	\begin{enumerate}[resume, label=(\alph*)]
+		\item 
+		Show that there is a functor $ \otimes \colon \mathcal{ C } \times \mathcal{ C } \to \mathcal{ C } $ which on objects is just the multiplication of $ G $ and for morphisms $ \gamma \otimes \delta \coloneqq \gamma + x ( \delta ) $ for $ ( \gamma, \delta ) \colon ( x , y ) \to ( x, y ) $.
+		
+		\item 
+		Argue that upgrading $ \mathcal{ C } $ to a monoidal category with tensor product (horizontal multiplication) $ \otimes $ and unit constraint $ 0 \colon 1 \times 1 \to 1 $ is equivalent to choosing a $ 3 $-cocycle $ \alpha \colon G \times G \times G \to \Gamma$.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Let $ \mathcal{ C } $ be a small category with pullbacks.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that for objects $ x , y \in \mathcal{ C } $ there is a category $ \Span ( \mathcal{ C } ) ( x , y ) $ with objects
+		\[
+		\coprod_{ z \in \mathcal{ C } } ( \Hom_{ \mathcal{ C } }  ( z , x ) \times \Hom_{ \mathcal{ C } } ( z , y ) )
+		\]
+		and morphism sets
+		\[
+		\Hom_{ \Span ( \mathcal{ C } ) ( x , y ) } ( x \xleftarrow{f} z \xrightarrow{g} y,
+		x \xleftarrow{f'} z'
+		\xrightarrow{g'} y )
+		\coloneqq
+		\{ \eta \in \Hom_{ \mathcal{ C }} ( z , z' ) \mid f = f' \circ \eta \wedge g = g' \circ \eta \}
+		\]
+		with the induced comosition law from $ \mathcal{ C } $.
+		
+		\item 
+		Show that the pullbacks in $ \mathcal{ C } $ induce functors 
+		\[
+		\mu_{ x , y , z } \colon \Span ( \mathcal{ C } ) ( y , z ) \times \Span ( \mathcal{ C } ) ( x , y )  \to 
+		\Span ( \mathcal{ C } ) ( x , z ) 
+		\]
+		for every $ x , y , z \in \mathcal{ C } $.
+		
+		\item 
+		Explain how the above data assembles into a 2-category $ \underline{ \Span } ( \mathcal{ C } )$. Justify that it is not a strict 2-category.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	Consider the final category $ [ 0 ] $ which has one object whose only endomorphism is its identity.
+	We may canonically view it as a (strict) 2-category $ \underline{ [ 0 ] } $ with only an identity 2-morphism.
+	Let $ \mathcal{ M } \coloneqq( \mathcal{ M } , \otimes , \mathds{ 1 } ) $ be a monoidal category with delooping 2-category $ B \mathcal{ M } $. 
+	An algebra object of $ \mathcal{ M } $ is defined as a lax functor $ A \colon \underline{ [ 0 ] } \to B \mathcal{ M } $. 
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Give the definition of an algebra object of $ \mathcal{ M } $ without reference to 2-categories.
+		
+		\item 
+		Justify the name algebra object by computing algebra objects of the monoidal category $ \vect_{ \mathbb{ K } } \coloneqq ( \vect_{ \mathbb{ K } }, \otimes , \mathbb{ K } ) $ for a field $ \mathbb{ K } $.
+		
+		\item 
+		Describe algebra objects in the following monoidal categories.
+		\[
+		\begin{tikzcd}
+			1. ( \set , \times , ¸\{ \star \} ) 
+			&
+			2. ( \Ab , \otimes, \mathbb{ Z } )
+			&
+			3. ( \Cat , \times, [ 0 ] )
+		\end{tikzcd}
+		\]
+		
+		\item 
+		Sketch that the algebra objects in $ \mathcal{ M } $ form themselves a monoidal category $ \Alg ( \mathcal{ M } ) $.
+		
+		\item 
+		Argue that the algebra objects of $ \Alg ( \mathcal{ M } ) $ are 'commutative algebra objects'.
+		
+		\item 
+		Give the definition of a coalgebra object.
+		
+		\item 
+		Show that for a group $ G $, the group algebra $ \mathbb{ K } G $ carries the structure of a coalgebra with comultiplication $ g \mapsto g \otimes g $ and counit $ g \mapsto 1_{ \mathbb{K} }$ in the monoidal category $ \vect_{ \mathbb{ K } }$.
+		
+		\item 
+		What kind of additional structure on $ \mod ( \mathbb{ K } G ) $ could the coalgebra structure above yield?
+	\end{enumerate}
+\end{Exercise}
+
