@@ -692,3 +692,192 @@ Informally speaking right fibrations correspond to presheaves of $ \infty $-grou
 	Let $ F \colon A \to \mathcal{ C } $ be an $ \infty $-category $ A $ a limit of $ F $ is a final object of $ \mathcal{ C } / F $.
 \end{defi}
 
+\subsection{Exercises}
+
+\begin{Exercise}
+	Consider the augmented simplex category $ \Delta_{ \aug } $ which extend $ \Delta $ by the initial object $ \left[ - 1 \right] \coloneqq \emptyset $ as well as the inclusion $ \emptyset \subseteq \left[ n \right] $.
+	We denote by $ \iota \colon \Delta \to \widehat{\Delta}_{ \aug } $ the canonical inclusion and denote by $ \widehat{ \Delta }_{ \aug } \coloneqq \Fun ( \Delta_{ \aug } , \Set ) $ the category of augmented simplicial sets.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that $ \iota^* \colon \widehat{\Delta}_{ \aug }
+		\to \SetD $ admits both a left and a right adjoint , $ \iota_! \adj \iota^* \adj \iota_* $ , and describe them as objects. 
+	\end{enumerate}
+	
+	We equip $ \Delta_{ \aug } $  with a monoidal structure $ \left[ m \right] \star \left[ n \right] \coloneqq \left[ m + 1 + n \right] $ with unit object $ \left[ - 1 \right] $.
+	Following Exercise 1.3 we can extend the functor $ \star \colon \Delta_{ \aug } \times \Delta_{ \aug } \to \Delta_{ \aug } \to \widehat{ \Delta }_{ \aug } $ to a monoidal product on the presheaf category $ \widehat{ \Delta }_{ \aug } $ using the canonical map.
+	\begin{align*}
+		\can \colon \widehat{ \Delta }_{ \aug } \times \widehat{ \Delta }_{ \aug } 
+		&\to 
+		\Fun ( \Delta^{ \op }_{ \aug } \times \Delta^{ \ op }_{ \aug } , \Set ) 
+		\\
+		( X , Y )
+		&\mapsto
+		( X \boxtimes Y \colon ( m , n ) \mapsto X ( m ) \times Y ( n ) )
+	\end{align*}
+	(This induced monoidal structure on the presheaf category is also known as Day convolution.)
+	
+	\begin{enumerate}[label=(\alph*),resume]
+		\item 
+		Show that for any augmented simplicial set $ X \in \widehat{ \Delta }_{ \aug } $ both functors 
+		\[
+		- \star X , X \star - \colon 
+		\widehat{ \Delta }_{ \aug }
+		\to 
+		\widehat{ \Delta }_{ \aug }
+		\]
+		are colimit preserving.
+		
+		\item 
+		Show that for two augmented simplicial sets $ X , Y \in \widehat{ \Delta }_{ \aug }$, we have $ ( X \star Y )_n 0 
+		\coprod_{ i + 1 + j = n } X_i \times X_j $ for $ - 1 \leq n \in \mathbb{ Z } $. 
+		Furthermore, explain the difference between $ X \star Y $ and $ Y \star X $.
+		\newline
+		(Hint: Observe that $ \Hom ( \left[	n \right] , \left[	p + 1 + q \right] ) = \coprod_{ i + j + 1 = n } \Hom ( \left[ i \right] , \left[ p \right ] ) \times \Hom ( \left[ j \right] , \left[ q \right] ) $ in $ \Delta_{ \aug } .$)
+	\end{enumerate}	
+	
+	We define a monoidal product $ \star \colon \SetD \times \SetD \to \SetD $ by $ X \star Y  \coloneqq \iota^* ( \iota_* X \star \iota_* Y ) $ and call $ X \star Y $ the join of $ X $ and $ Y $.
+	Notice that $ X \star Y $ canonically contains $ X $ and $ Y $ as simplicial subsets (set $ j = - 1 $ respective $ i = - 1 $ in (c)) so that we get functors 
+	\[
+	X \star - \colon \SetD \to X / \SetD 
+	\qquad 
+	- \star Y \colon \SetD \to Y / \SetD
+	\]  
+	where $ X / \SetD $ is the coslice category, i.e. the category whose objects are morphisms $ X \to Z $ and morphisms are commuting triangles. 
+	Recall that for a functor $ D \colon I \to X / \SetD $ its colimit is given by the colimit of $ D_X \colon \emptyset \trianglelefteq I \to \SetD $ together with the induced map $ X = D_X ( \emptyset ) \to \colim_{ \emptyset \trianglelefteq I } D_X.$
+	Here
+	$ \emptyset \trianglelefteq I $ is the category that augments $ I $ by an initial element $ \emptyset $ and $ D_X ( \emptyset \to i ) \coloneqq D ( i ) $.
+	
+	\begin{enumerate}[label=(\alph*),resume]
+		\item 
+		Utilize Exercise 1.3 to show that there exist adjoints $ X \star - \adj X \setminus ? $ and $ - \star X \adj ? / X $ called left and right slice.
+		
+		\item 
+		Follow a similar strategy as the one outlined in Exercise 6.4 to show that a morphism of simplicial sets $ f \colon X \to Y $ induces morphisms of adjunctions
+		\begin{align*}
+			( X \star - \adj X \setminus ? ) \to ( Y \star - \adj Y \setminus ? )
+			\qquad
+			\text{ and }
+			\qquad
+			( - \star X \adj ? / X )
+			\to 
+			( - \star Y \adj ? / Y )
+		\end{align*}
+		in the sense of Exercise 8.3
+	\end{enumerate}
+	Setting $ X = \Delta^0 $, the above construction can be used to define the $ \infty $-categorical version of the slice and coslice category.
+\end{Exercise}
+
+\begin{Exercise}
+	We aim to show that for an inner fibration $ p \colon X \to Y $ betweeen $ \infty $-categories, for any monomorphism $ A \hookrightarrow B $ any lifting problem
+	\[
+	\begin{tikzcd}
+		\{ 0 \} \star B \cup \Delta^1 \star A
+		\ar[d, hook]
+		\ar[r, "f"]
+		& 
+		X
+		\ar[d, "p"]
+		\\
+		\Delta^1 \star B 
+		\ar[r, " g"' ]
+		&
+		Y
+	\end{tikzcd}
+	\]
+	admits a solution if the edge $ \alpha \colon \Delta^1 \hookrightarrow \Delta^1 \star T 
+	\xrightarrow{ g } $ is invertible.
+	So we fix an inner fibration $ p \colon X \to Y $ and a monomorphism $ A \hookrightarrow B $.
+	Here we used that by the description of the join in Exercise 10.2, the join of two monomorphisms is a monomorphism so that the notation
+	\[
+	L \star A \cup K \star B 
+	\coloneqq 
+	L \star A 
+	\coprod_{ A \star K } 
+	K \star B 
+	\hookrightarrow 
+	L \star B
+	\]
+	makes sense for the simplicial sets $ K \subseteq L $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Utilize Exercise 8.3 to deduce from Exercise 10.1 that it suffices to show that the induced morphism 
+		\[
+		X / B 
+		\to 
+		X / A 
+		\times_{ Y / A }
+		Y / B 
+		\]
+		is a right fibration between $ \infty $-categories with $ \alpha' \colon \Delta^1 \to X / A \times_{ Y / A } Y / B $ an invertible edge.
+		
+		\item 
+		Show that with the help of Exercise 8.3
+		that 
+		\[
+		X / B 
+		\to
+		X / A \times_{ Y / A } Y / B  
+		\]
+		is a right fibration if 
+		\[
+		\Delta^n \setminus X 
+		\to
+		\Lambda_k^n \setminus X \times_{ Lambda_k^n \setminus Y } \times \Delta^n \setminus Y
+		\]
+		is a trivial fibration for all $ 0 < k \leq n $.
+		
+		\item 
+		Show one of the following identities for subobjects of $ \Delta^{ m + 1 + n } = \Delta^m \star \Delta^n $.
+		\begin{align}
+			\partial \Delta^m \star \Delta^n \cup \Delta^m \star \partial \Delta^n
+			&=
+			\partial \Delta^{ m + 1 + n }
+			\\
+			\Lambda_k^m \star \Delta^n \cup \Delta^m \star \partial \Delta^n
+			&=
+			\Lambda_k^{ m + 1 + n }
+			\\
+			\partial \Delta^m \star \Delta^n \cup \Delta^m \star \Lambda_k^n 
+			&=
+			\Lambda_{ m + 1 + k }^{ m + 1 + n }
+		\end{align}
+		
+		\item 
+		Deduce that $ \Delta^n \setminus X  \to \Lambda_k^n \setminus X \times_{ \Lambda_k^n \setminus Y } \Delta^n \setminus Y $ is a trivial fibration for all $ 0 < k \leq n $ and any inner fibration $ p \colon X \to Y $.
+		
+		\item 
+		Prove Joyal's Theorem, i.e. that the initially posed lifting problem admits a solution.
+		\newline
+		(Hint: Consider the case where $ Y = \Delta^0 $ is final and $ A = \emptyset $ is initial to show that $ X / A \times_{ Y / A } Y / B $ is an $\infty$-category if $ Y $ is an $ \infty $-category. Then use the same diagrams to show that $ \alpha' $ is invertible.) 
+	\end{enumerate} 
+\end{Exercise}
+
+\begin{Exercise}
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Let $ p \colon X \to Y $ be an inner fibration between $ \infty $-categories. Deduce from Exercise 10.3 that for $ n \geq 2 $ any lifting problem 
+		\[
+		\begin{tikzcd}
+			\Lambda_0^n 
+			\ar[r, "f"]
+			\ar[d, hook]
+			&
+			X
+			\ar[d, "p"]
+			\\
+			\Delta^n 
+			\ar[r, "g"]&
+			Y
+		\end{tikzcd}
+		\]
+		where the edge $ \alpha \colon \Delta^1 \subseteq \Delta^n \xrightarrow{ g } $ is invertible, admits a solution, i.e. some $ h \colon \Delta^n \to X $ such that $ f = h \circ \iota $ and $ g = p \circ h $.
+		
+		\item 
+		Conclude that if $ p \colon X \to Y $ is a right fibration and $ Y $ is a Kan complex, then $ p $ is a Kan fibration and $ X $ is a Kan complex.
+		
+		\item 
+		Conclude that an $ \infty $-category $ X $ is an $ \infty $-groupoid in the sense of Exercise 10.1 if and only if $ X $ is a Kan complex.
+	\end{enumerate}
+\end{Exercise}
+

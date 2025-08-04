@@ -35,3 +35,221 @@ We are going to use this model structure to obtain
 	\Set_\Delta [ \Wcateq^{ - 1 } ]_\infty &\simeq \infty-category of small infinity categories
 \end{align*}
 
+\subsection{Exercises}
+
+\begin{Exercise}
+	Let $ \An_{ \in } $ be the smallest saturated set containing the inner horn inclusions, i.e.
+	\[
+	\An_{ in } \coloneqq l ( r ( \{ \Lambda_k^n \to \Delta^n \mid 0 < k < n \ \in \mathbb{ N }_+ \} ) ) 
+	\]
+	which we call the class of inner anodyne extensions.
+	Here we used the fact that for a set of morphisms between presheaves $ \mathcal{ F } $ the smallest saturated set containing them is given by $ l ( r ( \mathcal{ F } ) ) $ which is saturated by Exercise 8.2.
+	Our goal is to give different descriptions of the set of inner anodyne morphisms.
+	\begin{align*}
+		\An'_{ in }
+		&\coloneqq 
+		l ( r ( \{ \Delta^2 \times \partial \Delta^n \cup \Lambda_1^2 \times \Delta^n \to \Delta^2 \times \Delta^n \mid n \in \mathbb{ N }_0 \} ) ) 
+		\\
+		\An''_{ in }
+		&\coloneqq 
+		l ( r ( \{ \Delta^2 \times A \cup \Lambda_1^2 \times B \to \Delta^2 \times B \mid A \hookrightarrow B \text{ monomorphism} \} ) ) 
+	\end{align*}
+	
+	Here all the morphsims are the canonical ones and we define $ \Delta^2  \times \Lambda_1^2 \cup \Lambda_1^2 \times \Delta^n \to \Delta^2 \times \Delta^n $.
+	Deduce that $ \An_{ in } \subseteq \An''_{ in } $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that the inner Horn inclusion $ \Lambda_k^n \to \Delta^n $ is a retract of $ \Delta^2 \times \Lambda_k^n \cup \Lambda_1^2 \times \Delta^n \to \Delta^2 \times \Delta^n. $
+		Deduce that $ \An_{ in } \subseteq \An_{ in }'' $.
+		\newline
+		(Hint: Consider the maps $s_k \colon \left[ n \right] \to \left[ 2 \right] \times \left[ n \right] $ and $ r_k \colon \left[ 2 \right] \times \left[ n \right] \to \left[ n \right] $ defined below.
+		\[
+		s_k ( j ) 
+		\coloneqq
+		\begin{cases}
+			( 0 , j ) & \text{ if } j < k 
+			\\
+			( 1 , k ) & \text{ if } j = k 
+			\\
+			( 2 , j ) & \text{ if } j > k 
+		\end{cases}
+		\quad
+		r_k ( i , j ) 
+		\coloneqq
+		\begin{cases}
+			\min \{ j , k \} & \text{ if } i = 0
+			\\
+			k & \text{ if } i = 1
+			\\
+			\max \{ j , k \} & \text{ if } i = 2 
+		\end{cases}
+		\]
+		Then apply the nerve.
+		
+		\item 
+		Use the fact that the smallest saturated set containing the boundary inclusions $ \{ \partial \Delta^n \to \Delta^n \mid n \in \mathbb{ N }_0 \} $ is the set of all monomorphisms to show that $ \An'_{ in } = \An''_{ in } $.
+		(Hint: Deduce from Exercise 8.3 that the set of morphisms $ A \to B $ such that $ \Delta^2 \times A \amalg_{ \Lambda_1^2 \times A } \Lambda_1^2 \times B \to \Delta^2 \times B $
+		is in $ \An'_{ in } $ can be described as $ l ( \mathcal{ F } ) $ for some class of morphisms $ \mathcal{ F } $.)
+	\end{enumerate}
+	Consider the maps $ u_{ i , j  } \colon \left[ n + 1 \right] \to \left[ 2 \right] \times \left[ n \right] $
+	\[
+	u_{ i , j } ( k ) 
+	\coloneqq
+	\begin{cases}
+		( 0 , k ) & \text{ if } 0 \leq k \leq i 
+		\\
+		( 1 , k - 1 ) & \text{ if } i < k \leq j + 1 
+		\\
+		( 2 , k - 1 ) & \text{ if } j + 1 < k \leq n + 1
+	\end{cases}
+	\quad
+	v_{ i , j } ( k )
+	\coloneqq
+	\begin{cases}
+		( 0 , k ) & \text{ if } 0 \leq k \leq i 
+		\\
+		( 1 , k - 1 ) & \text{ if } i < k \leq j + 1 
+		\\
+		( 2 , k - 2 ) & \text{ if } j + 1 < k \leq n + 2 
+	\end{cases}
+	\]
+	for $ 0 \leq i \leq j \leq n $ and denote by $ U_{ i , j } \coloneqq \im ( N ( u_{ i , j } ) ) $ and $ V_{ i , j } \coloneqq \im ( N ( v_{ i , j } ) ) $ the simplicial subsets corresponding to their images.
+	Define a simplicial subset $ X ( 0 ) \coloneqq \Delta^2 \times \partial \Delta^n \cup \Lambda^2_1 \times \Delta^n $ and 
+	\[
+	X ( i + j ) 
+	\coloneqq 
+	X ( j ) \cup \bigcup_{ 0 \leq  i \leq j } U_{ i , j } \subseteq \Delta^2 \times \Delta^n
+	\]
+	for $ 0 < j < n .$
+	Furthermore let $ Y ( 0 ) \coloneqq X ( n ) $ and
+	\[
+	Y ( j + 1 ) 
+	\coloneqq 
+	Y ( j ) \cup \bigcup_{ 0 \leq i \leq j } U_{ i , j } \subseteq \Delta^2 \times \Delta^n
+	\]
+	for $ 0 < j \leq n $.
+	
+	\begin{enumerate}[label=(\alph*), resume]
+		\item 
+		Show that the inclusions $ X ( 0 ) \to X ( n ) $ and $ Y ( 0 ) \to Y ( n + 1 ) $ are inner anodyne extensions.
+		Confirm that $ Y ( n + 1 ) = \Delta^2 \times \Delta^n $ and deduce that $ \An'_{ in } \subseteq \An_{ in } $.
+		\newline
+		(Hint: Show that there is an isomorphism
+		\[
+		N ( u_{ i , j } ) \mid_{ \Lambda_{ i + 1 }^{ n + 1 } } 
+		\colon
+		\Lambda_{ i + 1 }^{ n + 1 } 
+		\to 
+		\bigg( X ( j ) \cup \bigcup_{ 0 \leq l < i } U_{ l , j } \bigg) \cap U_{ i , j }
+		\]
+		for $ 0 \leq i \leq j < n $ and from this construct an appropriate pushout of an inner horn inclusion. Repeat a similar argument for $ Y $.)
+		
+		\item 
+		Conclude that $ \An_{ in } = \An'_{ in } = \An''_{ in } $.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	We now want to give a few applications of the descriptions of the inner anodyne extensions from Exercise 9.2 to better describe the inner fibrations $ r ( \An_{ in } ) $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that for any monomorphism $ A \hookrightarrow B $ and any anodyne extension $ K \to L $ the canonical map 
+		\[
+		L \times A \cup K \times B \to L \times B 
+		\]
+		is an anodyne extension.
+		\newline
+		(Hint: Fixing the monomorphism $ A \hookrightarrow B $, follow a similar strategy as the one outlined in 9.2(b).)
+	\end{enumerate}
+	
+	Recall that the class of trivial fibrations is defined to be $ r ( \{ \partial \Delta^n \to \Delta^n \mid n \in \mathbb{ N }_0 \} ) = r ( Mono ) $ in $ \SetD $.
+	Notice that the trivial fibrations are thus Kan fibrations, left fibrations and right fibrations automagically.
+	In general, we regard the trivial fibrations as a well behaved class of equivalences.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Utilise Exercises 8.3 to show that for a morphism $ p \colon X \to Y $ the following are equivalent.
+		
+		\begin{enumerate}
+			\item 
+			The morphism $ p $ is an inner fibration.
+			
+			\item 
+			For any monomorphism $ A \hookrightarrow B $ the induced morphism
+			\[
+			\Hom ( B , X ) \to \Hom ( A , X ) \times_{ \Hom ( A , Y ) } \Hom ( B , Y ) 
+			\]
+			is an inner fibration.
+			
+			\item 
+			For any inner anodyne extension $ K \to L $ the induced morphism
+			\[
+			\Hom ( L , X  ) \to \Hom ( K , X ) \times_{ \Hom ( K , Y ) } \Hom ( L , Y ) 
+			\]
+			is a trivial fibration.
+			
+			\item 
+			The morphism 
+			\[
+			\Hom ( \Delta^2 , X ) \to \Hom ( \Lambda_1^2 , X ) \times_{ \Hom ( \Lambda_1^2 , Y 	) } \Hom ( \Delta^2 , Y )
+			\]
+			induced by the inner horn inclusion $ \Lambda_1^2 \to \Delta^2 $ is a trivial fibration.
+		\end{enumerate}
+		
+		\item 
+		Give meaning to the equivalence $ ( 1 ) \iff ( 4 ) $ in the case $ Y = \Delta^0 $.
+		
+		\item 
+		Given an inner fibration $ p \colon X \to Y $, describe $ ( 2 ) $ in the case that the monomorphism is the inclusion of the empty presheaf.
+		Explain the case when additionally $ Y = \Delta^0 $.
+	\end{enumerate}
+\end{Exercise}    
+
+\begin{Exercise}
+	A functor $ p \colon \mathcal{ X } \to A $ between ordinary categories is said to be a fibration in groupoids if any morphism in $ \mathcal{ X } $ is (p-)cartesian and moreover any morphism $ f \colon a \to p ( y ) $ admits a lift $ f' \colon x \to y $ such that $ p ( f' ) = f $.
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that if $ p $ is a fibration in groupoids, then $ p $ is a Grothendieck fibration whose fibres are groupoids.
+		
+		\item 
+		Show conversely that for a lax functor $ F \colon A^{ \op } \to \underline{ \Grp } $ its Grothendieck construction $ \int^A F \to A $ is a fbration in groupoids.
+	\end{enumerate}
+	
+	Similarly to the inner fibrations, we define the class of right fibrations to be $ r ( \{ \Lambda_k^n \subseteq \Delta^n \mid 0 < k \leq n \} )$.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that the nerve of a functor is an inner fibration.
+		
+		\item 
+		Show that a functor $ p \colon \mathcal{ x } \to A $ is a fibration in groupoids if and only if $ N ( p ) $ is a right fibration.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+	An inner fibration $ p \colon X \to Y $ between $ \infty $-categories is called an isofibration if for any $ x \in X $ and any invertible edge $ \alpha \colon p ( x ) \to y' $ there exists an invertible edge $ \alpha' \colon x \to x' $ such that $ p ( \alpha' ) = \alpha $.
+	Recall that an edge $ \alpha \in X_1 $ in an $ \infty $-category $ X $ is called invertible if there are 2-simplices $ \delta, \delta' \colon \Delta^2 \to X $ such that $ \partial_0 ( \delta ) = \alpha = \partial_2 ( \delta' ) , \partial_1 ( \delta ) = \sigma_0 ( \partial_0 ( \alpha ) ) $ and $ \partial_1 ( \delta' ) = \sigma_0 ( \partial_1 ( \alpha ) ) $.
+	Equivalently, an edge $ \alpha $ in an $ \infty $-category $ X $ is invertible if and only if it is invertible in its homotopy category $ \tau X $.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that an inner fibration $ p \colon X \to Y $ between $ \infty $-categories is an isofibration if and only if $ \tau ( p ) $
+		is an isofibration of ordinary categories in the sense of Exercise 5.1. In particular, the nerve of a
+		functor is an isofibration of $ \infty $-categories if and only if the functor is an isofibration of ordinary categories.
+		
+		\item 
+		Deduce with the help of Exercise 5.1(a) that in the definition of isofibration between $ \infty $-categories, we may equivalently require that any invertible edge $ \alpha \colon x \to p ( y' ) $ admits a lift $ \alpha' \colon y \to y'$.
+		
+		\item 
+		Show that a right fibration $ p \colon X \to Y $ is conservative, i.e. if for an edge $ \alpha \in X_1 $ its image $ p ( \alpha ) $ is invertible, then $ \alpha $ is invertible.
+		Deduce that a right fibration $ p \colon X \to Y $ between $ \infty $-categories is an isofibration.
+	\end{enumerate}
+	
+	We call an $ \infty $-category an $ \infty $-groupoid if every edge is invertible.
+	
+	\begin{enumerate}[label=(\alph*),resume]
+		\item
+		Conclude that if $ p \colon X \to Y $ is a right fibration and $ Y $ is an $ \infty $-groupoid, then $ X $ is also an $ \infty $-groupoid. 
+	\end{enumerate}
+\end{Exercise}
+

@@ -49,27 +49,27 @@ $ \int^A X $ with
 		for all objects $ ( ( a' , b' ) \in A \times A^{ \op } , y \colon a' \to b' ), ( ( a , b ) \in A \times A^{ \op }, x \colon a \to b )$.
 	\end{itemize}
 
-	Consider the functor $ \Set_* \xrightarrow{ v } \Set $ where $ \Set_* $ is the category of pointed sets.
+	Consider the forgetful functor $ \Set_* \xrightarrow{ v } \Set $ where $ \Set_* $ is the category of pointed sets, i.e. objects are given as $ ( X \in \Set, x \in X ) $ and for another object $ ( Y \in \Set, y \in Y ) $ a morphism is given by a morphism of sets $ f \colon X \to Y $, such that $ f ( x ) = y $.
 	We can also construct the category of elements of $ X $ as the following pullback
 	
 	\[
 	\begin{tikzcd}
+		\int^A X \cong \mathcal{ X }
+		\ar[d, " p " ]
+		\ar[r]
+		&
+		\Set_*^{ \op }
+		\ar[d, " v^{ \op } "]
+		\\
 		A
 		\ar[r, " X^{ \op } "]
 		&
 		\Set^{ \op }
-		\\
-		\int^A X \cong \mathcal{ X }
-		\ar[u , " p " ]
-		\ar[r]
-		&
-		( Set_* )^{ \op }
-		\ar[u, " v^{ \op } "]
 	\end{tikzcd}
 	\]
 	
-	the objects of the pullback are given as $ \mathcal{ X } = ( a \in A , ( X_a, x \in X_a )) $
-	with morphisms $ f\colon a \to b $ such that $ f^* ( y ) = x $ for another object $ ( b \in B , ( X_b , y \in X_b ))$, thus we have the same objects as in the Grothendieck construction, just with the additional, but redundant data, of $ X_a $.
+	the objects of the pullback are given as $ \mathcal{ X } = ( a \in A , ( X_a, x \in X_a )) $, or more explicitely, in terms of the object of the fibered product, a tuple $ ( a \in  A , ( Y , y ) \in \Set_* ; X_a = Y, \text{so } v ( y ) \in X ( a ) ) $, so we have an object $ a $ the fibre $ X_a $ and an element of the fibre $ v ( y ) = x $, which corresponds to above, 
+	with morphisms $ f\colon a \to b $ such that $ f^* ( x' ) = x $ for another object $ ( b \in B , ( X_b , x' \in X_b ))$, thus we have the same objects as in the Grothendieck construction, just with the additional, but redundant data, of $ X_a $.
 \end{exmp}
 
 
@@ -219,14 +219,14 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		&
 		X
 		\ar[u, " ( \epsilon_a )_* "]
-		\ar[r, " \varphi " ]
+		\ar[r, " \varphi "' ]
 		&
 		f^* ( y ) 
 		\ar[u, " { ( \epsilon_a )_{ f^* y } } " ]
 		\ar[ru, " \id_{ f^* ( y ) } "' ]
 	\end{tikzcd}
 	\]
-	The right triangle commutes by the definition of $ \epsilon $ and the square by the naturality of $ \epsilon_a $ .
+	The right triangle commutes by the definition of $ \epsilon $ and the square by the naturality of $ \epsilon_a $.
 	Now for the associativity take the following diagram:
 	\[
 	\begin{tikzcd}	
@@ -236,11 +236,11 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		&
 		( b \in A , x \in X_b )
 		\ar[d, " {  ( g , v ) } "]
-		\ar[rd, " { (  h g , \mu \cdot g^* ( v ) \circ u ) } " ]
+		\ar[rd, " { (  h g , \mu \circ g^* ( v ) \circ u ) } " ]
 		\\
 		&
 		( c \in A , y \in X_c )
-		\ar[r , " { ( h , w ) } "]
+		\ar[r , " { ( h , w ) } "']
 		&
 		( d \in A , z \in X_d )
 	\end{tikzcd}
@@ -274,7 +274,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 		\ar[d," f^* ( g^* ( w )) "]
 		&
 		( g \circ f )^* ( y ) 
-		\ar[d, " { ( g \circ f )*(w) } "]
+		\ar[d, " { ( g \circ f )^*(w) } "]
 		\\
 		&&
 		f^* ( g^* ( h^* ( z )))
@@ -353,7 +353,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 
 \begin{defi}
 	Let $ \mathcal{ C } $ be a category. 
-	A lifitng problem in $ \mathcal{ C } $ is a commutative square 
+	A lifting problem in $ \mathcal{ C } $ is a commutative square 
 	\[
 	\begin{tikzcd}
 		A
@@ -370,7 +370,7 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 	\end{tikzcd}	
 	\]
 	in $ \mathcal{ C } $. 
-	A solution to the lifting problem (a lift) is a morphism $ h \colon B \to X $ such that $ ph = q, h \circ i = f $.
+	A solution to the lifting problem (a lift) is a morphism $ h \colon B \to X $ such that $ p \circ h = q $ and $ h \circ i = f $.
 \end{defi}
 
 \begin{prop}
@@ -378,11 +378,11 @@ Let $ X \colon A^{ \op } \to \underline{ \Cat } $ be a 2-functor and $ A $ a sma
 \end{prop} 
 
 \begin{proof}
-	Let $ Z = ( c \in A , z \in X_c ) \in \int^A_X $ be an object and $g \colon b \to p ( z ) = c $ in $ A $ be a morphism in $ A $, then $ g^* \colon X_c \to X_b $ and $ z \mapsto g^* ( z ) $.
+	Let $ Z = ( c \in A , z \in X_c ) \in \int^A X $ be an object and $g \colon b \to p ( z ) = c $ in $ A $ be a morphism in $ A $, then $ g^* \colon X_c \to X_b $ and $ z \mapsto g^* ( z ) $.
 	Consider 
 	\[
 		\psi \coloneqq ( b \in A , g^* ( z ) \in X_b ) 
-		\xrightarrow{(g , g^* ( z ) \xrightarrow{\id} g^* ( z ) )}
+		\xrightarrow{ ( g , g^* ( z ) \xrightarrow{ \id } g^* ( z ) ) }
 		( c \in A , z \in X_c ) = X 
 	\]
 	\underline{Claim}: $ \psi $ is p-cartesian.
@@ -510,7 +510,8 @@ defined by sending each object  $ a $ of $ A $ to the two-pullback $ \mathcal{ X
 \]
 now for any morphism $ f \colon a \to b $ we obtain a functor $ f^* \colon \mathcal{ X }_b \to \mathcal{ X }_a $.
 Let $ x \in \mathcal{ X }_b \xrightarrow{ f^* } \mathcal{ X }_a $
-and $ \varphi \colon f^* ( x ) \to x $ in $ \mathcal{X} $ (notice the slight abuse of notation when we identify an object in the fiber with its image in $ \mathcal{ X } $) so that $ p ( \varphi ) = f $.
+and $ \varphi \colon f^* ( x ) \to x $ in $ \mathcal{X} $ (notice the slight abuse of notation when we identify an object in the fiber with its image in $ \mathcal{ X } $) so that $ p ( \varphi ) = f $, i.e. choose a (p-)cartesian lift $ \varphi $, that exists since $ p $ is a Grothendieck fibration, of $ f \colon a \to b $.
+This way we can define $ X $ by sending $ a \in A $ to $ X_a $ 
 
 \subsection{Exercises}
 
@@ -526,7 +527,7 @@ and $ \varphi \colon f^* ( x ) \to x $ in $ \mathcal{X} $ (notice the slight abu
 		the canonical inclusion $ \iota \colon \mathcal{ A } \times_ { \mathcal{ C } } \mathcal{ B } \to \mathcal{ A } \times^{ ( 2 ) }_{ \mathcal{ C } } \mathcal{ B } $ of the pullback in $ \Cat $ to the 2-pullback in $ \underline{ \Cat } $ is an equivalence of categories.
 	\end{enumerate}
 	
-	Recall that in the lecture, we defined a Grothendieck fibration to be the functor $ p \colon \mathcal{ X } \to  A $ such that for any $ x \in \mathcal{ X } $ and any morphism $ f \colon a \to p ( x ) $ admits a (p-)cartesian lift $ f' \colon y \to x $ with $ p ( f' ) = f $.
+	Recall that in the lecture, we defined a Grothendieck fibration to be a functor $ p \colon \mathcal{ X } \to  A $ such that for any $ x \in \mathcal{ X } $ and any morphism $ f \colon a \to p ( x ) $, $ f $ admits a (p-)cartesian lift $ f' \colon y \to x $ with $ p ( f' ) = f $.
 	Here we call a morphism $ f' \colon y \to x $ (p-)cartesian if for any morphism $ g' \colon z \to x $, whenever $ p ( g' ) = p ( f' ) \circ h $ for some $ h \colon p ( z ) \to p ( y ) $, there exists a unique lift $ h' \colon z \to y $ such that $ p ( h' ) = h $ and $ g' = f' \circ h' $.
 	
 	\begin{enumerate}[resume, label=(\alph*)]
@@ -541,7 +542,7 @@ and $ \varphi \colon f^* ( x ) \to x $ in $ \mathcal{X} $ (notice the slight abu
 
 \begin{Exercise}
 	Consider a 2-functor $ F \colon A \to \underline{ \Cat } $ from an ordinary category $ A $ to the 2-category of categories.
-	The Grothendieck construction $ \in_A F $ of $ F $ is an ordinary category whose objects are tuples $ ( a , x ) $ of an object $ a \in A $ and objects of the category $ x \in F ( a ) $.
+	The Grothendieck construction $ \int_A F $ of $ F $ is an ordinary category whose objects are tuples $ ( a , x ) $ of an object $ a \in A $ and objects of the category $ x \in F ( a ) $.
 	A morphisms in $ \int_A F $ is a tuple $ ( f , u ) \colon ( a , x ) \to ( b , y ) $
 	consisting of a morphism $ f \colon a \to b $ in $ A $ and a morphism $ u \colon F ( f ) ( x ) \to y $ in $ F ( b ) $ where we used that $ F ( f ) \colon F ( a ) \to F ( b ) $ is a functor.
 	

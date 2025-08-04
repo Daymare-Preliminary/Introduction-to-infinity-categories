@@ -147,7 +147,7 @@ We fix a 2-category $ \mathcal{ C } $ that we want to construct a simplicial set
 		$ \forall 0 \leq i \leq j \leq n $ a 1-morphism $ f_{ j i } = X ( i \to j ) $,
 		
 		\item 
-		and $ \forall 0 \leq i \leq j \leq k \leq n $ a 2-morphism $ \mu_{ k j i } = f_{ k j } \cdot f_{ j i } \Rightarrow f_{ k i } $.
+		and $ \forall 0 \leq i \leq j \leq k \leq n $ a 2-morphism $ \mu_{ k j i } = f_{ k j } \circ f_{ j i } \Rightarrow f_{ k i } $.
 	\end{itemize}
 
 	Moreover the above data must satisfy
@@ -215,7 +215,7 @@ We fix a 2-category $ \mathcal{ C } $ that we want to construct a simplicial set
 \end{rmk}
 
 \begin{prop}
-	An n-simplex $ F \in N^D ( \mathcal{ C } )_n ( F \colon [ n ] \to \mathcal{ C } ) $ is uniquely determined by the following data:
+	An n-simplex $ F \in N^D ( \mathcal{ C } )_n , ( F \colon [ n ] \to \mathcal{ C } ) $ is uniquely determined by the following data:
 	\begin{itemize}
 		\item 
 		$ 0 \leq i \leq n , X_i \in \Ob( \mathcal{ C } ) , \forall  0 \leq  i < j \leq n, f_j \colon X_i \to X_j $ a collection of 1-morphisms in $ \mathcal{ C } $,
@@ -309,7 +309,7 @@ We fix a 2-category $ \mathcal{ C } $ that we want to construct a simplicial set
 		\ar[ru, Rightarrow, "\alpha"']
 	\end{tikzcd}
 	\]
-	By the pentagon axiom the outer composition in the diagram commutes, the bottom, top left and bottom right triangles commute by the triangle identity and the top middle square commutes by naturality of $ \rho $, thus the top right triangle commutes.
+	By the pentagon axiom the outer composition in the diagram commutes, the bottom, top left and bottom right triangles commute by the triangle identity and the top middle square commutes by naturality of $ \rho $, thus the top right triangle commutes since all morphisms are isomorphisms.
 	Lastly the diagram we aim to show commutes is the top right triangle with $ - \circ \id_X $ applied to it, since $ - \circ \id_X $ is fully faithful the original triangle commutes.
 \end{proof}
 
@@ -391,7 +391,7 @@ Then the boundary quadrilaterals are given by
 \begin{rmk}
 \label{every_simplex_thin}
 	Let $ X \in \SetD $ be an $ \infty $-category, then every 2-simplex of $ X $ is thin.
-	Conversely, if every 2-simplex of $ X $ is thin, then $ X $ is an $ \infty $ category if and only if the following diagram commutes:
+	Conversely, if every 2-simplex of $ X $ is thin, then $ X $ is an $ \infty $-category if and only if the following diagram commutes:
 	\[
 	\begin{tikzcd}
 		\Lambda_1^2 
@@ -404,6 +404,7 @@ Then the boundary quadrilaterals are given by
 		\ar[ru, dashed, "\exists"']
 	\end{tikzcd}
 	\]
+	That is we have already the horn fillings for all $ n \geq 3 $ and the only one missing for the condition to be an $ \infty $-category is this diagram.
 \end{rmk}
 
 \begin{rmk}
@@ -423,6 +424,7 @@ Then the boundary quadrilaterals are given by
 	\]
 	where the dashed arrow exists since we have the horizontal composition of 1-morphisms.
 	Thus we can extend any 2-horn and would have an infinity category if every 2-simplex were thin.
+	That is we have the converse observation to \ref{every_simplex_thin}.
 \end{rmk}
 
 \begin{thm}
@@ -431,35 +433,38 @@ Then the boundary quadrilaterals are given by
 
 \begin{proof}
 	Suppose $ \mathcal{ C } $ is a  (2,1)-category.
-	Assume every 2-simplex were thin by \ref{thin_iff_invertible}, then by \ref{remark_thin_Duskin} $ N^D ( \mathcal{ C } ) $ is an $ \infty $-category.
-	Conversely, if $ N^D (\mathcal{ C } ) $ is an $ \infty $-category, then by \ref{every_simplex_thin} every 2-simplex in $ N^D ( \mathcal{ C } ) $ is thin if the following is satisfied.
-	Let  
+	Assume every 2-simplex were thin by \ref{remark_thin_Duskin} $ N^D ( \mathcal{ C } ) $ is an $ \infty $-category.
+	Conversely, if $ N^D (\mathcal{ C } ) $ is an $ \infty $-category, then by \ref{every_simplex_thin} every 2-simplex in $ N^D ( \mathcal{ C } ) $ is thin.
+	Let now
 	\[
 	\begin{tikzcd}
 		X
-		\arrow[bend left=50]{rr}[name=U',label=above:$f$]{}
-		\arrow[bend right=50]{rr}[name=D',label=below:$j$]{}
+		\arrow[bend left=50]{rr}[name=U',label=above:$ f $]{}
+		\arrow[bend right=50]{rr}[name=D',label=below:$ g $]{}
 		&&
 		Y
 		\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U')-- node[label=right:$ \alpha $] {} (D')}]{} 
 	\end{tikzcd}
 	\]
 	be a 2-morphism in $ \mathcal{ C } $, then we obtain a commutative diagram
-	\[
-	\begin{tikzcd}	
-		\id_Y \circ f 
-		\ar[r, Rightarrow, "\lambda_f"]
-		\ar[rd, Rightarrow, "\rho"' ]
-		&
-		f
-		\ar[d, Rightarrow, " \gamma "]
-		\\
-		&
-		g
-	\end{tikzcd}
-	\]
-	where $\rho $ exists since $ N^D ( \mathcal{ C } ) $ is thin.
-	Now by assumption $ \rho $ is invertible, thus $ \rho $ is invertible.
+	\begin{equation}
+	\label{eq:2_simplex}
+		\begin{tikzcd}	
+			\id_Y \circ f 
+			\ar[r, Rightarrow, " \lambda_f " ]
+			\ar[rd, Rightarrow, " \rho "' ]
+			&
+			f
+			\ar[d, Rightarrow, " \alpha " ]
+			\\
+			&
+			g
+		\end{tikzcd}
+	\end{equation}
+	where $\rho $ exists since $ N^D ( \mathcal{ C } ) $ is an $ \infty $-category and this is a
+	horn at position 1.
+	The commutative triangle \ref{eq:2_simplex} is a 2-simplex and thus by \ref{thin_iff_invertible} the 3-morphism $ \mu_{ \lambda_f, \alpha } \colon \alpha \circ \lambda_f \to \rho $ is invertible.
+	%# last step of proof missing
 \end{proof}
 
 Lecture 27.5
@@ -474,7 +479,7 @@ For the next part let $ \mathcal{ C } $ be a fixed 2-category and let $ N^D ( \m
 		&
 		X_1
 		\ar[rd, "f_{21}"]
-		\ar[d, Rightarrow, "\gamma_{ 2 1 0 }"] 
+		\ar[d, Rightarrow, "\mu_{ 2 1 0 }"] 
 		&
 		\\
 		X_0
@@ -580,8 +585,7 @@ For the next part let $ \mathcal{ C } $ be a fixed 2-category and let $ N^D ( \m
 	\]
 	Where the dashed green lined simplex corresponds to the missing simplex given by $ \mu_{ 3 2 0 } $, which we can construct as follows.
 	Observe that since $ \id_{ f_ { 3 2 } } $ and $ \mu_{ 2 1 0 } = \gamma $ are invertible and composition is functorial, the composition is invertible as well. 
-	%# reference for Exercise missing
-	We know from an Exercise that if $ \mu_{ 3 2 0 } $ would exist, the following identity would hold and that it is sufficient that this holds to extend the horn
+	We know from Exercise \ref{exercise_identity_duskin_skeletalality} that if $ \mu_{ 3 2 0 } $ would exist, the following identity would hold and that it is sufficient that this holds to extend the horn
 	\[
 		\mu_{ 3 2 0 } ( \id_{ f_ { 3 2 } }  \circ \mu_{ 2 1 0 } ) 
 		=
@@ -866,12 +870,13 @@ For the next part let $ \mathcal{ C } $ be a fixed 2-category and let $ N^D ( \m
 \subsection{Exercises}
 
 \begin{Exercise}
+\label{exercise_identity_duskin_skeletalality}
 	Given a 2-category $ \mathcal{ C } $, we defined in the lecture its Duskin Nerve to have as n-simplices the strictly unital lax functors $ [ n ] \to \mathcal{ C } $.
 	Hence an n-simplex $ X \colon [ n ] \to \mathcal{ C } $ consists of a choice of objects $ \{ X_i \}_{ 0 \leq i \leq n } $ and 1-morphisms $ f_{ j , i } \colon  X_i \to X_j $ for $ 0 \leq i \leq j \leq n $ and the composition constraint, i.e. 2-morphism $ \mu_{ k , j , i } \colon f_{ k , j } \circ f_{ j , i } \to f_{ k , i } $.
 	We assume the identity constraint to be the identity, we must have $ f_{ i, i }  = \id_{ X_i } $ for $ 0 \leq i \leq n $ and $ \mu_{ j , j , i } = \lambda_{ f_{ j , i } } $ and $ \mu_{ j , i , i } = \rho_{ f_{ j , i } } $ for $ 0 \leq i \leq j \leq n$.
 	Furthermore, the composition constraint must satisfy
 	\[
-	\mu_{ l , k , i } \cdot ( \id_{ f_{ l , k } } * \mu_{ k , j , i } ) = \mu_{ l , j , i } \cdot ( \mu_{ l , k , j } * \id_{ f_{ j , i } } ) \cdot \alpha_{ f_{ l , k } , f_{ k , j } , f_{ j , i } }
+		\mu_{ l , k , i } \cdot ( \id_{ f_{ l , k } } * \mu_{ k , j , i } ) = \mu_{ l , j , i } \cdot ( \mu_{ l , k , j } * \id_{ f_{ j , i } } ) \cdot \alpha_{ f_{ l , k } , f_{ k , j } , f_{ j , i } }
 	\]
 	for all $ 0 \leq i \leq j \leq k \leq l \leq n $.
 	

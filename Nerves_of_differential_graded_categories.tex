@@ -205,19 +205,19 @@ In the case of $ \Ch ( \Mod_k )_{ \dg } $, we have
 
 \begin{defi}
 	Let $ \mathcal{ A } $ be a dg-category. 
-	The \underline{dg nerve of $ \mathcal{ A } $}, $ N_{ \dg } ( \mathcal{ A } ) \in \SetD $ is the simplicial set where for $ n \geq 0 $
+	The \textbf{dg nerve} of $ \mathcal{ A } $, denoted $ N_{ \dg } ( \mathcal{ A } ) \in \SetD $, is the simplicial set such that for $ n \geq 0 $
 	\begin{align*}
-		N_{ \dg } ( \mathcal{ A } ) 
+		N_{ \dg } ( \mathcal{ A } )_n
 		&\coloneqq 
-		\{ ( a_0 , a_1 , \dotsc , a_n ) \in \Ob ( \mathcal{ A } ) , ( f_I = f_{ n \geq i_k > \dotsc > i_0 \geq 0 } \in \mathcal{ A } ( a_{ i_0 } , a_{ i_k } ) )_{ I \subseteq [ n ] \atop 2 \leq \lvert I \rvert } \}
+		\{ ( a_0 , a_1 , \dotsc , a_n ) \in \Ob ( \mathcal{ A } ) , ( f_I = f_{ n \geq i_k > \dotsc > i_0 \geq 0 } \in \mathcal{ A } ( a_{ i_0 } , a_{ i_k } ) )_{ I \subseteq [ n ] \atop 2 \leq \lvert I \rvert } \},
 		\\
 		\lvert f_I \rvert 
 		&=
-		- ( \# ( I \setminus \{ i_k , i_0 \} ) ) 
+		- ( \# ( I \setminus \{ i_k , i_0 \} ) ),
 		\\
 		d_{ \mathcal{ A } } ( f_I ) 
 		&=
-		\sum_{ l = 1 }^{ k - 1 } ( - 1 )^l ( f_{ i_k > \dotsc > i_l } \circ f_{ i_l > \dotsc > i_0 } \circ \dotsc \circ f_{ i_k > \dotsc > i_l > \dotsc > i_0 })
+		\sum_{ l = 1 }^{ k - 1 } ( - 1 )^l ( f_{ i_k > \dotsc > i_l } \circ f_{ i_l > \dotsc > i_0 } \circ \dotsc \circ f_{ i_k > \dotsc > i_l > \dotsc > i_0 } ) .
 	\end{align*}
 \end{defi}
 

@@ -1,0 +1,135 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "main.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "References.bib",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 20,
+                "EditorGroup": 0,
+                "FileName": "Basic_2_category_theory.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 525
+            },
+            {
+                "Col": 280,
+                "EditorGroup": 0,
+                "FileName": "Heuristics_Isomorphism_vs_Equivalence.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 712
+            },
+            {
+                "Col": 73,
+                "EditorGroup": 0,
+                "FileName": "Motivation.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 3
+            },
+            {
+                "Col": 39,
+                "EditorGroup": 0,
+                "FileName": "Style_Homotopy_Theory.sty",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 170
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Grothendieck_Construction.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 516
+            },
+            {
+                "Col": 14,
+                "EditorGroup": 0,
+                "FileName": "Duskin_Nerve.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 974
+            },
+            {
+                "Col": 243,
+                "EditorGroup": 0,
+                "FileName": "Nerves_of_differential_graded_categories.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 319
+            },
+            {
+                "Col": 209,
+                "EditorGroup": 0,
+                "FileName": "Simplicial_categories.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 266
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "The_Joyal_Model_structure.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 2
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "main.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 31
+            },
+            {
+                "Col": 43,
+                "EditorGroup": 0,
+                "FileName": "Joins_slices.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 4
+            },
+            {
+                "Col": 57,
+                "EditorGroup": 0,
+                "FileName": "Homotopy_theory_of_simplicial_sets.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 5
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Exercises.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 76,
+                "EditorGroup": 0,
+                "FileName": "Functors_in_2-category_theory.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 7
+            },
+            {
+                "Col": 6,
+                "EditorGroup": 0,
+                "FileName": "References.bib",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 7
+            }
+        ],
+        "MasterFile": ""
+    }
+}

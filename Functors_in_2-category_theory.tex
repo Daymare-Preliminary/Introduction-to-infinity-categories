@@ -1,6 +1,6 @@
 \section{Functors in 2-category theory}
 
-The reference for this section is \cite[2.2.4-2.2.8]{kerodon}.
+The reference for this section is \cite[sections 2.2.4-2.2.8]{kerodon}.
 
 \begin{defi}
 \label{lax_functor_defi}
@@ -162,19 +162,19 @@ The reference for this section is \cite[2.2.4-2.2.8]{kerodon}.
 			\ar[r,shift right =2em, Rightarrow, "\mu"]
 			\ar[d, "\underline{ \mathcal{ C } } \times \underline{ \mathcal{ C } }"]
 			&
-			\underline{\Hom}_{\mathcal{E}_S}( X , Z ) = \{ * \}
-			\ar[d, "\underline{\mathcal{C}}"]
+			\underline{ \Hom }_{ \mathcal{ E }_S }( X , Z ) = \{ * \}
+			\ar[d, "\underline{ \mathcal{ C } }"]
 			\\
-			\underline{\Hom}_{B\mathcal{ M } } ( * , * ) \times
-			\underline{\Hom}_{B \mathcal{ M } } ( * , * )
+			\underline{ \Hom }_{ B \mathcal{ M } } ( * , * ) \times
+			\underline{ \Hom }_{ B \mathcal{ M } } ( * , * )
 			\ar[r, "\otimes"]
 			&
 			\Hom_{B\mathcal{ M } } ( * , * )
 		\end{tikzcd}
 		\]
-		where $ \mu \colon \underline{\mathcal{ C }}( Y , Z ) \otimes \underline{ \mathcal{ C } } ( X , Y ) \to \underline{ \mathcal{ C } ( X , Z ) }$.
+		where $ \mu \colon \underline{ \mathcal{ C } }( Y , Z ) \otimes \underline{ \mathcal{ C } } ( X , Y ) \to \underline{ \mathcal{ C } } ( X , Z ) $.
 		The above data should satisfy the following:
-		$ \forall X , Y \in \Ob ( \mathcal{ E }_S ) = S $.
+		$ \forall X , Y \in \Ob ( \mathcal{ E }_S ) = S $ 
 		\[
 		\begin{tikzcd}
 			\underline{ \mathcal{ C } } ( X , Y ) \otimes \underline{ \mathcal{ C } } ( X , Y ) 
@@ -247,7 +247,7 @@ The reference for this section is \cite[2.2.4-2.2.8]{kerodon}.
 \end{Exercise}
 
 \begin{defi}
-	A $ F \colon \mathcal{ C } \to \mathcal{ D } $ lax functor between 2-categories is 
+	A lax functor $ F \colon \mathcal{ C } \to \mathcal{ D } $ between 2-categories is 
 	\begin{itemize}
 		\item 
 		\textbf{unitary} if $  \forall X \in \mathcal{ C } , \epsilon_X $ is an isomorphism,

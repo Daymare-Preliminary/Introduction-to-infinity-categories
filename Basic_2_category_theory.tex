@@ -329,7 +329,9 @@ Lecture 22.04
 		\end{align*}
 	
 		\item 
-		and for all $ V , W ,X ,Y ,Z \in \Ob ( \mathcal{ C } )$ and all composable 1-morphisms $ V \xrightarrow{e} W \xrightarrow{f} X \xrightarrow{ g } Y \xrightarrow{ h } Z $
+		and for all $ V , W ,X ,Y ,Z \in \Ob ( \mathcal{ C } )$ and all composable 1-morphisms 
+		\newline
+		$ V \xrightarrow{e} W \xrightarrow{f} X \xrightarrow{ g } Y \xrightarrow{ h } Z $
 		the following diagram commutes
 		\[
 		\begin{tikzcd}[column sep=0.5cm]
@@ -415,10 +417,10 @@ Lecture 22.04
 			\prescript{}{ T }{ \Mod }_R 
 		\end{tikzcd}
 		\] 
-		$ ( \prescript{}{ T }{ M }_S , \prescript{}{ S }{ N }_R ) \mapsto (\prescript{}{ T }{ M \otimes_S N }_R ) $
+		$ ( \prescript{}{ T }{ M }_S , \prescript{}{ S }{ N }_R ) \mapsto (\prescript{}{ T }{ M \otimes_S N }_R ) $,
 		
 		\item 
-		For all $ R \in \Ob ( \Bim ), \id_R = \prescript{}{R}{R}_R \in \prescript{}{R}{\Mod}_R=\twoHom{\Bim}( R , R )$.
+		for all $ R \in \Ob ( \Bim ), \id_R = \prescript{}{R}{R}_R \in \prescript{}{R}{\Mod}_R=\twoHom{\Bim}( R , R )$.
 		\begin{align*}
 			\prescript{}{R}{R} \otimes_R R_R 
 			&\isomorphism 
@@ -507,21 +509,21 @@ Lecture 22.04
 	The left and right unit constraints determine natural isomorphisms.
 	\[
 	\begin{tikzcd}
-		\twoHom{ \mathcal{ C } } ( X , Y )
+		\twoHom_{ \mathcal{ C } } ( X , Y )
 		\arrow[bend left=50]{rr}[name=U',label=above:$ f \mapsto \id_Y \circ f $]{}
 		\arrow[bend right=50]{rr}[name=D',label=below:$ \mathds{ 1 } $]{}
 		&&
-		\twoHom{ \mathcal{ C } } ( X , Y )
+		\twoHom_{ \mathcal{ C } } ( X , Y )
 		\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U')-- node[label=right:$ \lambda $] {} (D')}]{}
 	\end{tikzcd}
 	\]
 	\[
 	\begin{tikzcd}
-		\twoHom{ \mathcal{ C } } ( X , Y )
+		\twoHom_{ \mathcal{ C } } ( X , Y )
 		\arrow[bend left=50]{rr}[name=U',label=above:$ f \mapsto f \circ \id_X $]{}
 		\arrow[bend right=50]{rr}[name=D',label=below:$ \mathds{ 1 } $]{}
 		&&
-		\twoHom{ \mathcal{ C } } ( X , Y )
+		\twoHom_{ \mathcal{ C } } ( X , Y )
 		\arrow[shorten <=10pt,shorten >=10pt,Rightarrow,to path={(U')-- node[label=right:$ \rho $] {} (D')}]{}
 	\end{tikzcd}
 	\]
@@ -589,13 +591,13 @@ Lecture 24.4
 		\\
 		\id_Y \circ ( \id_Y \circ g ) 
 		\ar[ru, Rightarrow, "\sim", " \alpha"']
-		\ar[rr, Rightarrow, " \id_Y \circ \lambda_g"]	
+		\ar[rr, Rightarrow, " \id_Y \circ \lambda_g "]	
 		&&
 		\id_Y \circ g
 	\end{tikzcd}
 	\]
 	where the left square commutes by the naturality of the associator constraint, and the top and bottom triangle commute by the left unit constraint.
-	For the right square we use the interchange law for composition and the Godement product to obtain $ ( \id_{ \id_Y } * \eta ) \circ ( v_Y * \id_f ) = ( v_\eta * \eta ) = ( v_Y * \id_g ) \circ ( \id_Y \circ \eta )$
+	For the right square we use the interchange law for composition and the Godement product to obtain $ ( \id_{ \id_Y } * \eta ) \circ ( v_Y * \id_f ) = ( v_\eta * \eta ) = ( v_Y * \id_g ) \circ ( \id_Y \circ \eta ) $.
 \end{proof}
 
 \begin{prop}
@@ -709,7 +711,8 @@ Lecture 24.4
 \end{defi}
 
 \begin{defi}
-	A $ ( 2 ,1 )$-category is a 2-category such that $ \forall X, Y \in \Ob ( \mathcal{ C } ), \Hom_{ \mathcal{ C } } (X , Y) $ is a groupoid.
+	A $ ( 2 ,1 )$-category is a 2-category such that $ \forall X, Y \in \Ob ( \mathcal{ C } ) , $
+	$ \Hom_{ \mathcal{ C } } (X , Y) $ is a groupoid.
 \end{defi}
 
 \begin{defi}

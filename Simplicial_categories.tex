@@ -2,10 +2,10 @@ Lecture 5.6.
 
 \section{Simplicial categories/Simplicially enriched categories}
 
-The reference for this section is \cite[2.4]{kerodon}.
+The reference for this section is \cite[section 2.4]{kerodon}.
 
 Consider the monoidal category $ ( \SetD , \times , \Delta^0 ) $.
-\begin{comment}
+
 \begin{defi}
 	A \textbf{simplicial category} $ \mathcal{ C }_\bullet $ is a category enriched in simplicial sets.
 	Explicitely $ \mathcal{ C }_\bullet $ consists of 
@@ -118,7 +118,7 @@ Consider the monoidal category $ ( \SetD , \times , \Delta^0 ) $.
 From these considerations we obtain the following pullback square
 \[
 \begin{tikzcd}[column sep=2cm]
-	\SetD-\Cat 
+	\SetD\text{-}\Cat 
 	\ar[r, hook, " { \mathcal{ C }_\bullet \mapsto ( [ n ] \mapsto \mathcal{ C }_n ) }"]
 	\ar[d, " \Ob "]
 		\ar[d, phantom,"PB",shift left=2cm]
@@ -153,40 +153,40 @@ From these considerations we obtain the following pullback square
 \end{exmp}
 
 \begin{exmp}
-	Let $ \mathcal{ C } \in \Cat $ and $ \underline{ \mathcal{ C } }_\bullet \in \Set_\Delta $-$ \Cat $ be simplicial categories with 
+	Let $ \mathcal{ C } \in \Cat $ and $ \underline{ \mathcal{ C } }_\bullet \in \Set_\Delta $-$ \Cat $ be the simplicial category with 
 	\begin{itemize}
 		\item 
 		$\Ob ( \underline { \mathcal{ C } }_\bullet ) = \Ob ( \mathcal{ C } ) $
 		
 		\item 
-		$ \forall X ,Y \in \Ob ( \underline{ \mathcal{ C }_\bullet } ) $ let 
+		$ \forall X ,Y \in \Ob ( \underline{ \mathcal{ C } }_\bullet ) $ let 
 		\[
 			\underline{ \Hom }_{ \underline{ \mathcal{ C } }_\bullet } ( X , Y )
 			\coloneqq
 			N ( \Hom_{ \mathcal{ C } } ( X , Y ) )
 		\]
-		The composition law is given as 
+		The composition law $ - \cdot - $ is given via the composition:
 		\[
 		\begin{tikzcd}
 			N ( \Hom_\mathcal{ C } ( Y , Z ) ) 
 			\times 
 			N ( \Hom_\mathcal{ C } ( X , Y ) )
-			\ar[r]
-			\ar[d, "\cong", "\can"']
+			\ar[r, " - \cdot - " ]
+			\ar[d, " \cong ", " \can "']
 			&
 			N ( \Hom_\mathcal{ C } ( X , Z ) )
 			\\
-			N ( \Hom_\mathcal{ C } ( Y , Z ) ) 
+			N ( \Hom_\mathcal{ C } ( Y , Z )  
 			\times 
-			N ( \Hom_\mathcal{ C } ( X , Y ) )
-			\ar[ru]
+			( \Hom_\mathcal{ C } ( X , Y ) )
+			\ar[ru, "{ N ( - \circ - ) } "' ]
 		\end{tikzcd}
 		\]
 	\end{itemize}
 \end{exmp}
 
 \begin{exmp}
-	Let $ \mathcal{ C } $ be a strict 2-category then $ \mathcal{ C }_{ \bullet } \in \SetDcat $ with 
+	Let $ \mathcal{ C } $ be a strict 2-category then $ \mathcal{ C }_{ \bullet } \in \SetDcat $ is the simplicial category given via 
 	\begin{enumerate}
 		\item 
 		$ \Ob ( \mathcal{ C }_\bullet ) 
@@ -194,7 +194,7 @@ From these considerations we obtain the following pullback square
 		\Ob ( \mathcal{ C } )$
 		
 		\item 
-		$ \forall X ,Y \in \Ob ( \mathcal{ C }_\bullet ), \underline{ \Hom }_{ \mathcal{ C }_{ \bullet } } ( X , Y ) \coloneqq N ( \underline{ \Hom }_{ \mathcal{ C } } ( X  ,Y ) ) \in \SetD $ with the induced composition law, associativity and unitality since $ \mathcal{ C } $ is strict.
+		$ \forall X ,Y \in \Ob ( \mathcal{ C }_\bullet ), \underline{ \Hom }_{ \mathcal{ C }_{ \bullet } } ( X , Y ) \coloneqq N ( \underline{ \Hom }_{ \mathcal{ C } } ( X  ,Y ) ) \in \SetD $ with the composition law, associativity and unitality induced by $ \mathcal{ C } $ since $ \mathcal{ C } $ is strict.
 	\end{enumerate}
 \end{exmp}
 
@@ -210,7 +210,7 @@ From these considerations we obtain the following pullback square
 		\Cat 
 		\ar[r, hook, "\adj"]
 		&
-		\SetD-\Cat
+		\SetD\text{-}\Cat
 		\\
 		\mathcal{ C } 
 		\ar[r, mapsto]
@@ -221,7 +221,7 @@ From these considerations we obtain the following pullback square
 \end{rmk}
 
 \begin{defi}
-	Let $ \mathcal{ C } , \mathcal{ D } \in \SetDcat $. A \textbf{simplicial functor} $ F \colon \mathcal{ C }_\bullet \mathcal{ D }_\bullet $ consists of 
+	Let $ \mathcal{ C } , \mathcal{ D } \in \SetDcat $. A \textbf{simplicial functor} $ F \colon \mathcal{ C }_\bullet \to \mathcal{ D }_\bullet $ consists of 
 	\begin{itemize}
 		\item 	
 		a map $ F \colon \Ob( \mathcal{ C }_\bullet ) \to \Ob ( \mathcal{ D }_\bullet ) , X \mapsto FX = F ( X ) $
@@ -254,16 +254,17 @@ From these considerations we obtain the following pullback square
 
 \begin{rmk}
 	We can also consider $ \Topcat $, that is categories enriched in the category of topological spaces.
-	Let $ \mathcal{ C } \in \Topcat $ then $ \mathcal{ C }_\bullet \in \SetDcat $ with the same objects as $ \twoHom_{ \Top_\bullet } ( X , Y ) \coloneqq \Sing ( \Hom_{ \mathcal{ C } } ( X , Y ) ) \in \SetD $. 
+	Let $ \mathcal{ C } \in \Topcat $ then $ \mathcal{ C }_\bullet \in \SetDcat $ with the same objects as $ \twoHom_{ \Top_\bullet } ( X , Y ) \coloneqq \Sing ( \Hom_{ \mathcal{ C } } ( X , Y ) ) \in \SetD $.
 \end{rmk}
-\end{comment}
+
+%# add remark about top as topological category
 
 Lecture 17.06
 
 Let $\mathcal{ C }_\bullet $ be a simplicial category $ \mathcal{ C }_\bullet \in \SetDcat $.
 
 \begin{defi}
-	The homotopy coherent nerve $ \Nhc ( \mathcal{ C }_{ \bullet } ) \in \SetD $ has $ n $-simplices $ \Nhc ( \mathcal{ C }_{ \bullet } )_n = \{ \text{ simplicial functors } \Path \left[ n  \right]_{ \bullet } \mapsto \mathcal{ C } \} $.
+	The \textbf{homotopy coherent nerve} $ \Nhc ( \mathcal{ C }_{ \bullet } ) \in \SetD $ has $ n $-simplices $ \Nhc ( \mathcal{ C }_{ \bullet } )_n = \{ \text{simplicial functors } \Path \left[ n  \right]_{ \bullet } \mapsto \mathcal{ C } \} $.
 	where more generally, given a poset $ ( Q , S ) $ we let $ \Path \left[ Q \right]_{ \bullet } $ be the simplicial category associated to the strict 2-category (i.e. the Duskin nerve of the 2-category) $ \Path_{ ( 2 ) } \left[ Q \right] $.
 \end{defi} 
 
@@ -318,3 +319,38 @@ We want to have access to $ \infty $-categorical generalisations of "all stateme
 	\]
 \end{enumerate}
 
+\subsection{Exercises}
+
+\begin{Exercise}
+	Let $ \mathcal{ C } \in \Cat_{ \SetD } $ be a simplicial category, i.e. a collection of objects and simplicial sets morphisms between them together with a simplicial morphism as composition law compatible with the associator and unit constraint of the monoidal category $ ( \SetD , \times , \Delta^0 ) $. We want to compare the category of simplicial categories $ \Cat_{ \SetD } $ with the category of simplicial objects in $ \Cat $, that is $ \Cat_{ \Delta } \coloneqq \Fun ( \Delta^{ \op } , \Cat ) $.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+		Show that given a simplicial category $ \mathcal{ C } $ and $ n \in \mathbb{ N }_0 $ there is a category $ \mathcal{ C }_n $ with the same objects as $ \mathcal{ C } $ and $ \Hom_{ \mathcal{ C }_n } ( x , y ) \coloneqq \Hom_{ \mathcal{ C } } ( x , y )_n $.
+		Furthermore, show that these assemble into a functor $ \iota \colon \Cat_{ \SetD } \to \Cat_{ \Delta } , \mathcal{ C } \to ( \mathcal{ C }_{ \bullet } \colon [ n ] \to \mathcal{ C }_n ) $.
+		
+		\item 
+		Let $  \mathcal{ C }_{ \bullet } \in \Cat_{ \Delta } $ be a simplicial object in the category of categories such that $ \Ob_* ( \mathcal{ C }_{ \bullet } ) $ is a constant simplicial set, then there is a a simplicial category $ \mathcal{ C } $ with objects $ \Ob_* ( \mathcal{ C }_{ \bullet } )_0 $ and simplicial morphism sets such that $ \Hom_\mathcal{ C } ( x , y )_n \coloneqq \Hom_{ \mathcal{ C }_n } ( x , y ) $.
+		
+		\item 
+		Deduce that $ \iota \colon \Cat_{ \SetD } \to \Cat_{ \Delta } $ is fully faithful and describe its essential image.
+		
+		\item 
+		Conclude that there is a pullback square in the category of (large) categories.
+		\[
+		\begin{tikzcd}
+			\Cat_{ \SetD } 
+			\ar[r, "\iota"]
+			\ar[d, "\Ob"]
+			&
+			\Cat_{ \Delta }
+			\ar[d, "\Ob_*"]
+			\\
+			\Set
+			\ar[r, "\const"]
+			&
+			\SetD
+		\end{tikzcd}
+		\]
+	\end{enumerate}
+\end{Exercise}
