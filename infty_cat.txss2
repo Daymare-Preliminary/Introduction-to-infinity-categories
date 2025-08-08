@@ -1,0 +1,79 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": false,
+        "File": "main.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "Simplicial_categories.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Basic_2_category_theory.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 239
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Heuristics_Isomorphism_vs_Equivalence.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 344
+            },
+            {
+                "Col": 21,
+                "EditorGroup": 0,
+                "FileName": "main.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 43
+            },
+            {
+                "Col": 58,
+                "EditorGroup": 0,
+                "FileName": "Motivation.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 3
+            },
+            {
+                "Col": 32,
+                "EditorGroup": 0,
+                "FileName": "Style_Homotopy_Theory.sty",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 89
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Functors_in_2-category_theory.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 158
+            },
+            {
+                "Col": 22,
+                "EditorGroup": 0,
+                "FileName": "Grothendieck_Construction.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 156
+            },
+            {
+                "Col": 98,
+                "EditorGroup": 0,
+                "FileName": "Simplicial_categories.tex",
+                "FirstLine": 94,
+                "FoldedLines": "",
+                "Line": 101
+            }
+        ],
+        "MasterFile": ""
+    }
+}

@@ -84,6 +84,7 @@ Consider the monoidal category $ ( \SetD , \times , \Delta^0 ) $.
 		\end{tikzcd}
 		\]
 	\end{itemize}
+	We denote the category of simplicial categories by $ \Cat_{ \SetD } $.
 \end{defi}
 
 \begin{defi}
@@ -115,10 +116,11 @@ Consider the monoidal category $ ( \SetD , \times , \Delta^0 ) $.
 	\end{align*}
 \end{construction}
 
-From these considerations we obtain the following pullback square
+There exists the following pullback square, which is detailed in the exercises:
+
 \[
 \begin{tikzcd}[column sep=2cm]
-	\SetD\text{-}\Cat 
+	\Cat_{ \SetD }
 	\ar[r, hook, " { \mathcal{ C }_\bullet \mapsto ( [ n ] \mapsto \mathcal{ C }_n ) }"]
 	\ar[d, " \Ob "]
 		\ar[d, phantom,"PB",shift left=2cm]
@@ -129,7 +131,7 @@ From these considerations we obtain the following pullback square
 	\Set
 	\ar[r, hook, "{ N = \const_\Delta }"']
 	&
-	\Fun ( \Delta^{\op} ,\Set )
+	\Fun ( \Delta^{\op} ,\Set ) = \SetD
 \end{tikzcd}
 \]
 
